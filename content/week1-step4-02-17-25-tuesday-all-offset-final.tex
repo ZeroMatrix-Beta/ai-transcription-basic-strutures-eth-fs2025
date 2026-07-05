@@ -1,0 +1,919 @@
+% ==========================================
+% LatexRefinement Step Output: step4-02-17-25-tuesday-all-offset-final.tex
+% Model: gemini-3.1-pro-preview
+% Temperature: 0.35
+% TopP: 0.93
+% TopK: 35
+% MaxOutputTokens: 65535
+% ThinkingBudget: 32768
+% ThinkingLevel: HIGH
+% Prompt Tokens: 29'952
+% Candidates Tokens: 20'872 (inkl. Thinking Tokens)
+% Cached Tokens: 0
+% Processed on: 2026-07-05 14:32:14
+% ==========================================
+
+% Primary Language: German
+% End of the video: 01:26:27
+
+\lecturechapter{Dienstag}{17. Feb}{17. Februar 2025}{Grundstrukturen: Einführung und Syntax}
+
+\begin{nice-box}[Syllabus / Agenda]
+In dieser Vorlesung werden folgende Themen behandelt:
+\begin{itemize}
+    \item \textbf{Organisatorisches:} Ziele, Ablauf und Tools der Vorlesung
+    \item \textbf{Einführung:} Überblick über die Themen (Logik, Mengenlehre, Zahlentheorie)
+    \item \textbf{Syntax der Prädikatenlogik:} Das formale Alphabet und die Signatur
+    \item \textbf{Terme und Formeln:} Induktiver Aufbau von syntaktischen Ausdrücken
+    \item \textbf{Variablen und Substitution:} Freie und gebundene Variablen, zulässige Substitutionen
+    \item \textbf{Logische Axiome:} Einführung der Axiomenschemata L0 bis L17
+\end{itemize}
+\end{nice-box}
+
+\section{Organisatorisches und Einführung}
+
+\subsection{Ziele der Vorlesung}
+
+\begin{spoken-clean}[00:00:00 - 00:01:30]
+Herzlich willkommen zur Vorlesung Grundstrukturen. Mein Name ist Christian Urech, ich arbeite hier als Senior Scientist mit Fokus Education. Nebenbei forsche ich noch in der algebraischen Geometrie und der geometrischen Gruppentheorie. Und ich freue mich sehr auf dieses Semester mit Ihnen.
+
+Okay, beginnen wir mit dem Anfang. Ich sage das gerne zu Beginn der Vorlesung, dass wir uns nochmals überlegen, was überhaupt unsere Ziele sind. Das erste Ziel erwähnen wir in der Regel nur in der ersten Stunde, aber es ist wichtig, dass wir es immer im Hinterkopf behalten: Das erste Ziel ist auf jeden Fall, gesund und glücklich zu bleiben. 
+
+Also, viel Mathematik zu lernen ist natürlich sehr wichtig, aber das Ganze hat keinen Sinn, wenn Sie dabei nicht gesund bleiben. Denken Sie also immer daran: Egal, was geschieht, das wichtigste Ziel ist, dass Sie in jeglicher Hinsicht gesund bleiben. Und ich möchte Sie gerne dazu ermuntern, zu sich selbst und zueinander Sorge zu tragen.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Ziele der Vorlesung]
+Der Dozent zeigt eine Einführungsfolie mit dem Titel \qt{Ziele der Vorlesung}.
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item Gesund und glücklich bleiben
+    \item Viel Mathematik lernen
+    \item Eine gute Zeit verbringen
+\end{enumerate}
+\end{meta-note}
+
+\begin{spoken-clean}[00:01:30 - 00:02:43]
+Dann eben, sehr weit oben auf der Liste steht auch noch, viel Mathematik zu lernen. Das ist das Ziel, das wir meistens vor Augen haben werden. Und dann an dritter Stelle --- auch nicht unwichtig --- ist noch, dass wir eine gute Zeit verbringen. Auch das darf man nicht vergessen. 
+
+Ich denke, Sie alle sind hier an die ETH gekommen mit einer gewissen Freude an der Mathematik, mit Ambitionen und mit Hoffnungen. Und ich möchte Sie gerne ermutigen, diese Freude an der Mathematik und diese Hoffnungen und Ambitionen nicht zu vergessen, auch wenn so die große Walze des ganzen Materials über Sie hinwegrollt. 
+
+Machen Sie doch hin und wieder einmal einen Waldspaziergang und überlegen Sie sich, weshalb mache ich das eigentlich. Und es ist ja auch eine schöne Situation: Sie dürfen vom Morgen bis zum Abend einfach genau das tun, was Ihnen am meisten oder zumindest viel Spaß macht --- nämlich das Fach, das Sie sich ausgesucht haben. Und auch wenn es hart ist oder sehr schnell zu viel wird, sollte man das nicht vergessen.
+\end{spoken-clean}
+
+\subsection{Organisation der Vorlesung}
+
+\begin{spoken-clean}[00:02:43 - 00:04:00]
+Gut, vielleicht noch ein Hinweis: Die ETH bietet auch Ressourcen an, falls Sie beim ersten Punkt manchmal ein bisschen Probleme haben. Zögern Sie also nicht, diese Ressourcen auch in Anspruch zu nehmen. Mentale und psychische Gesundheit ist ein wichtiges Thema an Hochschulen --- vernachlässigen Sie es nicht.
+
+Okay, dann noch ein bisschen zur Organisation. Die Vorlesungen finden jeweils am Dienstag von $14$ bis $16$ Uhr statt, im HG G3 --- oder nicht? Wir sind in einem HG G3, nicht im HG G5. Entschuldigung, im HG G3, aber auf jeden Fall in einem dieser schönen Hörsäle mit Fenstern. Da sind wir alle froh, dass wir im Frühling nicht in den Keller gehen müssen. 
+
+Ah warten Sie, das ist ja Quatsch, da steht noch Mittwoch. Okay, das kann man vergessen. Es ist am Dienstagnachmittag im HG G3, okay. Ich habe das von der letzten Vorlesung übernommen und dachte, ich hätte es korrigiert, aber offensichtlich nicht. 
+
+Die verlässlichen Informationen und Dokumente finden Sie auf der Moodle-Seite der Vorlesung. Falls Sie also noch nicht auf Moodle sind, gehen Sie dorthin. Dort finden Sie alle Unterlagen, die Übungsblätter und können die Übungen abgeben. Sie finden dort alle Informationen, die Sie wahrscheinlich für diese Vorlesung brauchen, und noch mehr.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Organisation der Vorlesung]
+Der Dozent zeigt eine Folie zur Organisation.
+\begin{itemize}
+    \item Vorlesungen: Dienstag 14:15 - 16:00 HG G3 (mündlich korrigiert)
+    \item Alle Informationen und Dokumente zur Vorlesung auf Moodle
+    \item Schriftliche Prüfung in der Prüfungssession
+    \item Skript von Lorenz Halbeisen
+\end{itemize}
+\end{meta-note}
+
+\begin{spoken-clean}[00:04:00 - 00:05:27]
+Es gibt eine schriftliche Prüfung in der Prüfungssession. Die Note ist zu $100$ Prozent die Note, die Sie an der Prüfung haben. Sie dürfen also während des Semesters machen, was Sie wollen. Sie müssen einfach die Prüfung schreiben --- oder dürfen die Prüfung schreiben, wenn Sie wollen ---, und die Note, die Sie dort erzielen, ist dann Ihre Endnote.
+
+Wir folgen dem Skript von Professor Lorenz Halbeisen. Er ist der Logiker im Haus, er ist Titularprofessor hier für Logik. Er hat wesentlich dazu beigetragen, diese Vorlesung Grundstrukturen vor etwa fünf Jahren zu konzipieren und aufzustellen. Und wir folgen diesem Skript. Wenn es also inhaltliche Beschwerden gibt, dann dürfen Sie... das ist natürlich ein Witz, ich übernehme die Verantwortung dafür. Aber das Skript ist auf der Moodle-Seite; es ist ein gutes Skript und wurde von der Fachperson im Haus verfasst.
+
+Es gibt noch weitere Bücher. Es gibt quasi noch das Buch zum Skript: Lorenz Halbeisen hat zusammen mit Regula Krapf ein umfassenderes Einführungsbuch in die Logik geschrieben, \qt{Gödel's Theorems and Zermelo's Axioms}. Falls Sie noch etwas mehr Tiefe wollen, als das Skript bietet, können Sie zum Beispiel in diesem Buch nachlesen. 
+
+Es gibt selbstverständlich noch ganz viele andere Lehrbücher über Logik. Ich habe noch einen Link auf der Moodle-Seite platziert: Es gibt \qt{Logic Matters}, das ist ein Blog von einem Logik-Professor --- ich glaube aus Cambridge oder Oxford ---, und dort gibt es sehr, sehr viele Referenzen. Man findet auch viele Blogs und alles Mögliche im Internet; Logik ist da sehr gut vertreten.
+\end{spoken-clean}
+
+\subsection{Organisation der Übungen}
+
+\begin{spoken-clean}[00:05:27 - 00:07:00]
+Gut, dann zur Organisation der Übungen. Die Übungen finden jeweils am Mittwoch statt, natürlich in ganz unterschiedlichen Räumen. Das können Sie nachschauen, es kommt darauf an, für welche Übungsgruppe Sie sich eingeschrieben haben. Der Übungskoordinator ist Konstantin Andritsch. Bei Fragen zu den Übungen können Sie ihm direkt eine E-Mail schreiben und sich an ihn wenden.
+
+Es gibt sieben Übungsgruppen. Wahrscheinlich haben Sie sich bereits für eine dieser Übungsgruppen eingeschrieben. Wenn Sie das noch nicht getan haben, tun Sie das bitte. Und dann gehen Sie bitte auch in die Übungsgruppe, für die Sie sich eingeschrieben haben. Die Übung, die Sie abgeben, geht automatisch an die Assistierenden Ihrer Übungsgruppe. Das heißt, da kann man keine Wechsel machen.
+
+Eine der Gruppen ist auf Englisch. Wenn Sie lieber Englisch haben, können Sie dorthin gehen. Oder auch, wenn Sie Englisch lernen wollen --- wobei die meisten von Ihnen wahrscheinlich sowieso genügend gut Englisch sprechen, sodass das keine Rolle spielt. Und eine dieser Gruppen ist noch in Form einer Fokusgruppe. Das kennen Sie wahrscheinlich bereits aus dem ersten Semester.
+\end{spoken-clean}
+
+\begin{ai-global-state-checkpoint-invisible-content}
+% timestamp: 00:07:00
+% topic: Organisatorisches (Übungen)
+% board_state: none
+% next_goal: Weiterer Ablauf der Übungsserien und Software-Tools
+% open_loops: none
+\end{ai-global-state-checkpoint-invisible-content}
+
+\begin{meta-note}[Projizierter Inhalt: Organisation der Übungen]
+Der Dozent zeigt eine Folie zu den Übungen.
+\begin{itemize}
+    \item Übungen: Mittwoch 14:15 - 16:00
+    \item Übungskoordinator: Konstantin Andritsch
+    \item Es gibt 7 Übungsgruppen, eine davon auf Englisch und eine andere in der Form einer \qt{Fokusgruppe}.
+    \item Jeden Dienstag eine neue Übungsserie, Abgabe der Übungsserie (per Moodle) bis spätestens am Montag darauf um 8:00.
+    \item Bereits online ist eine Serie 1, Abgabe am Montag.
+    \item Morgen sind bereits Übungsstunden.
+\end{itemize}
+\end{meta-note}
+
+\begin{spoken-clean}[00:07:00 - 00:09:44]
+Genau, es gibt jede Woche eine Übungsserie. Die kommt jeweils ungefähr am Dienstag heraus, manchmal vielleicht schon am Montag, im schlimmsten Fall am Dienstagabend oder so. Und dann haben Sie bis am Montagmorgen der nächsten Woche Zeit, sie zu lösen. Spätestens dann müssen Sie sie abgeben. Sie dürfen sie natürlich auch schon früher abgeben. Die Assistierenden geben Ihnen dann am Mittwoch in der Übungsstunde Feedback dazu.
+
+Es gibt jetzt bereits eine erste Serie. Da können Sie morgen schon ein paar Fragen stellen und sie mit Ihren Assistierenden vorbesprechen, weil morgen bereits Übungsstunden sind. Und nächste Woche geben Sie sie dann ab.
+
+Einfach noch etwas zur Erinnerung, das haben Ihnen wahrscheinlich schon sehr viele Professorinnen und Professoren gesagt: Übungen sind wirklich sehr wichtig. Sie sollen die Übungen machen und abgeben, und wir gehen davon aus, dass Sie das tun. 
+
+Das ist allgemein ein sehr wichtiges Problem: Oft schaut man sich den Stoff an und denkt, ah ja, das ist alles klar, das ist okay, ich habe das verstanden. Vielleicht gibt es Leute, die gehen sogar die Übungen durch und denken, ah, ich weiß, wie man das löst. Aber vielleicht wissen Sie nicht, wie man es aufschreibt! Dann gehen Sie an die Prüfung, schreiben irgendetwas hin, und natürlich wird bei der Prüfung bewertet, was Sie aufschreiben, nicht, was Sie gemeint haben. Und dann bekommen Sie plötzlich ganz viele Punkte abgezogen, weil Sie halt nicht sehr sinnvolle Sachen hingeschrieben haben, obwohl Sie das Richtige gemeint haben. Es ist also sehr wichtig, dass Sie auch lernen, mathematisch aufzuschreiben. Und das tun Sie, indem Sie Übungen abgeben.
+
+Übungen abzugeben ist ein Riesenservice, den Sie hier erhalten: Die ETH bezahlt viele Assistierende, die dann stundenlang Ihre Übungen korrigieren und Ihnen persönliches Feedback geben. Ich möchte Sie wirklich ermutigen, davon Gebrauch zu machen. 
+
+Mathematik --- ja, das haben Ihnen wahrscheinlich schon viele gesagt --- ist nicht etwas, wo man einfach zuschauen und lernen kann; man muss es selbst machen. Das ist wie Fußballspielen oder Geigespielen. Man kann noch so viele Fußballspiele schauen, wenn man dann selbst auf dem Platz steht, ist man wahrscheinlich noch nicht so gut im Spielen. 
+
+Insbesondere in dieser Vorlesung ist das wichtig. Wenn Sie schauen: Das ist nur eine zweistündige Vorlesung, es ist keine riesengroße Vorlesung. Aber es gibt fünf Credits. Eine größere Vorlesung wie LinAlg gibt Ihnen sieben Credits. Wenn man das jetzt auf den Schlüssel herunterbricht, erhalten Sie für die Übungen dieser Vorlesung genauso viele Credits wie für die Übungen von LinAlg. Und wir erwarten auch, dass Sie für die Übungen dieser Vorlesung etwa gleich viel Zeit verwenden wie für die Übungen von LinAlg. Das heißt, diese Vorlesung hier ist viel übungsbasierter als andere Vorlesungen. Okay? 
+
+Es wird also trotzdem lange Übungsblätter geben, und Sie sollen bitte auch viel Zeit verwenden, um diese zu bearbeiten. Davon gehen wir aus --- und insbesondere gehen wir davon aus, dass Sie viel Zeit mit den Übungen verbracht haben, wenn wir die Prüfung vorbereiten. Aber es ist ja auch schön, Übungen zu machen, man versteht die Sachen dann endlich richtig.
+\end{spoken-clean}
+
+\subsection{Software-Tools und Moodle-Forum}
+
+\begin{spoken-clean}[00:09:44 - 00:11:45]
+Ja, immer noch zu den Software-Tools: Wir werden immer wieder mit Clicker-Fragen arbeiten. Nicht heute, aber in späteren Wochen. Wenn wir eine Frage stellen, können Sie mit der EduApp abstimmen, ob es richtig oder falsch ist, oder welche Auswahl zutrifft. So kann man das Ganze ein bisschen interaktiv gestalten. Es ist immer so ein bisschen die Frage, wie man eine so große Vorlesung dennoch interaktiv und persönlich macht, sodass jeder mitmachen und sich irgendwie beteiligen kann. Mit verschiedenen Software-Tools versucht man da, eine gewisse Interaktivität zu kreieren. Und das eine sind eben diese Clicker-Fragen.
+
+Das Zweite --- und dazu möchte ich Sie auch sehr stark ermutigen --- ist dieses Kursforum auf Moodle. Wir haben ein Forum auf Moodle, wo Sie Fragen zur Vorlesung stellen können. Und Sie können auch Fragen beantworten. Das ist etwas, was ich Sie wirklich ermutigen möchte, zu verwenden. 
+
+Ich kann Ihnen zeigen, wie das geht. Das ist wirklich so wie Stack Exchange oder so, wo man Fragen stellen kann, nur eben speziell für diese Vorlesung. Das heißt, Sie können hier mit Ihren Kommilitoninnen und Kommilitonen über die Vorlesung diskutieren. Gehen wir also hier auf die Moodle-Seite: Da haben wir alle Informationen, das Skript, noch ein paar Links, und dann gehen wir hier auf \qt{Forum zu Grundstrukturen}. 
+
+Das Ganze ist anonym. Bitte verhalten Sie sich natürlich trotzdem zivilisiert, aber wir sind ja alle erwachsene Menschen. Die Anonymität bedeutet, dass Sie keine Angst haben müssen, dass irgendjemand denkt: \qt{Oh nein, das ist eine blöde Frage} oder \qt{Das ist eine blöde Antwort}. Sie können dort wirklich frei von der Leber weg Fragen stellen.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Software Tools]
+Der Dozent zeigt eine Folie zu den verwendeten Software-Tools.
+\begin{itemize}
+    \item EduApp der ETH für Clicker-Fragen: bitte installieren.
+    \item Kursforum auf Moodle um inhaltliche Fragen zu diskutieren.
+\end{itemize}
+Anschließend wechselt der Dozent zum Webbrowser und demonstriert live das Moodle-Forum der Vorlesung.
+\end{meta-note}
+
+\begin{spoken-clean}[00:11:45 - 00:14:08]
+Man kann da sagen \qt{Add a new discussion subject} --- ich weiß auch nicht, dann können wir als Titel \qt{Ganze Zahlen} eingeben. Dann fragen wir: \qt{Gibt es die ganzen Zahlen noch, wenn alles Leben ausgestorben ist?} Zum Beispiel. Eine interessante Frage. Dann klickt man auf \qt{Post to forum}. Und jetzt kann jemand anders hingehen und diese Frage beantworten. Es gibt dann viele Antworten, man kann das diskutieren, man kann Rückfragen stellen. Man kann auch sagen, das ist eine gute Frage, und sie hochvoten. Seien Sie bitte sorgfältig mit dem Downvoten, das ist nicht sehr nett. Also lieber nur hochvoten, wenn Sie finden: \qt{Ah ja, diese Frage hatte ich auch}, oder wenn es eine gute Frage oder eine gute Antwort ist.
+
+Die Assistierenden werden auch immer ein Auge auf das Forum haben, um zu schauen, dass keine falschen Antworten überhandnehmen. Wenn eine Antwort richtig ist, werden wir das auch als richtig markieren. Das heißt, Sie haben dann quasi eine garantiert korrekte Antwort, der Sie auch vertrauen können.
+
+Ich glaube, das Forum ist aus verschiedenen Gründen sehr nützlich. Einerseits bleibt man manchmal einfach mit einer Frage stecken, und dann ist es besser, man fragt direkt jemanden. Und es gibt viele hier, die diese Frage dann beantworten können. 
+
+Andererseits ist auch das Beantworten ein sehr wichtiger Prozess. Fragen in Foren zu beantworten, ist fast noch besser, als Übungen zu lösen! Übungen sind immer ein bisschen künstlich, oder? Man hat eine Frage, die jemand gestellt hat, weiß aber: Die Person, die meine Antwort lesen wird, hat das Thema vielleicht besser verstanden als ich. Hier im Forum muss man die Antwort aber wirklich so formulieren, dass die Person, die die Frage gestellt hat, sie auch versteht --- und das Ganze muss trotzdem mathematisch korrekt sein. Das ist eine sehr gute Übung. 
+
+Es ist auch eine gute Übung, Fragen zu stellen. Und es ist immer netter und besser, Fragen an andere Menschen zu stellen anstatt nur an ChatGPT. Obwohl Sie dort oft auch gute Antworten kriegen, glaube ich, dass so ein Forum die bessere Variante ist. Es ist einfach wichtig, dass man ins Laufen kommt. Springen Sie also über Ihren Schatten, stellen Sie einfach einmal eine Frage und beantworten Sie eine. Mit der Zeit gibt das dann hoffentlich einen regen Betrieb. Gut, so viel zum Forum --- sehen Sie es wirklich als Motivation.
+\end{spoken-clean}
+
+\begin{ai-global-state-checkpoint-invisible-content}
+% timestamp: 00:14:00
+% topic: Inhalt der Vorlesung
+% board_state: none
+% next_goal: Überblick über die Themen der Vorlesung geben
+% open_loops: none
+\end{ai-global-state-checkpoint-invisible-content}
+
+\subsection{Inhalt der Vorlesung}
+
+\begin{spoken-clean}[00:14:08 - 00:16:15]
+Gut, jetzt zum Inhalt der Vorlesung. Es ist eine, ich würde sagen, gewissermaßen spezielle Vorlesung. Nicht ganz Standard. Analysis, LinAlg, Gruppentheorie --- all diese Sachen werden an fast allen Unis weltweit mit sehr ähnlichem Material unterrichtet. Grundstrukturen in dieser Art gibt es nicht an allen Unis. Sie ist auch hier an der ETH relativ neu; ich glaube, es gibt sie erst seit etwa fünf Jahren. Die Idee ist ein bisschen, ein paar wirklich grundlegende Sachen zu besprechen, für die man in anderen Vorlesungen keine oder nur wenig Zeit hat.
+
+Das erste Kapitel --- damit beginnen wir am Anfang --- beschäftigt sich mit Logik. Da geht es wirklich darum, die Mathematik von Grund auf aufzubauen. Das wird gar nicht so einfach. Sie denken jetzt vielleicht: \qt{Okay, das haben wir doch bereits in LinAlg und reeller Analysis gemacht.} Dort haben Sie vielleicht schon mehr von Grund auf angefangen, als Sie nach der Mittelschule gedacht hätten, dass es überhaupt möglich ist. Aber trotzdem steigt man dort schon recht weit oben ein. 
+
+Hier beginnen wir jetzt mit der Prädikatenlogik erster Stufe. Da beginnt man wirklich ganz am Anfang, das logisch aufzubauen. Man muss sich etwas daran gewöhnen, und es ist nicht ganz einfach zu entscheiden, wo man jetzt wirklich beginnt. Aber Sie werden sehen: Es ist wichtig, dass Sie einen Einblick erhalten, wie das überhaupt funktioniert. Was sind logische Aussagen? Was sind Beweise? Was sind Axiome, und wie verwendet man sie?
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Inhalt der Vorlesung]
+Der Dozent zeigt eine Folie mit den Themen der Vorlesung.
+\begin{itemize}
+    \item Prädikatenlogik erster Stufe
+    \item Zermelo-Fraenkel Mengenlehre
+    \item Konstruktion der reellen Zahlen
+    \item Auswahlaxiom
+    \item Kardinalzahlen
+    \item Graphentheorie, elementare Zahlentheorie, \dots
+\end{itemize}
+\end{meta-note}
+
+\begin{spoken-clean}[00:16:15 - 00:18:20]
+Wir werden uns dann die Zermelo-Fraenkel-Axiome anschauen. Das sind die üblichen Axiome, auf denen --- zumindest theoretisch --- ein großer Teil der modernen Mathematik aufbaut. Ich sage bewusst \qt{theoretisch}, weil sehr wenige Mathematikerinnen und Mathematiker ihre Beweise wirklich bis auf die Axiome zurückführen; man steigt in der Praxis viel weiter oben ein.
+
+Es ist aber trotzdem eine Mischung. Es ist kein reiner Logikkurs, dafür haben wir viel zu wenig Zeit. Es ist nur der erste Teil der Vorlesung, und wir haben nur zwei Stunden pro Woche. Wenn man das Ganze sauber, gründlich und in allen Details machen möchte, bräuchte man ein ganzes Semester lang eine vierstündige Vorlesung nur für diese Themen. Das ist eigentlich das, was das erwähnte Buch macht. Da man im zweiten Semester aber nicht zwingend eine volle Logikvorlesung braucht, werden wir vielleicht auf gewisse Details nicht zu stark insistieren und zügig weiterkommen. Es geht vor allem darum, dass Sie einen Eindruck davon erhalten, wie das funktioniert und was das ist.
+
+Okay, dann werden wir noch ein paar Sachen machen, die wichtig sind, für die man in anderen Vorlesungen aber keine Zeit hatte. Zum Beispiel die Konstruktion der reellen Zahlen --- das hatten Sie in der Analysis ja nur am Rande gestreift. Was sind die reellen Zahlen überhaupt, und wie kann man sie konstruieren? Dann werden wir das Auswahlaxiom anschauen, das ist ein etwas spezielles Axiom unter den Zermelo-Fraenkel-Axiomen. Danach schauen wir uns Kardinalzahlen an. 
+
+In einem zweiten Teil geht es dann darum, dass wir wirklich konkrete Mathematik machen. Da geht es um ein bisschen Graphentheorie und elementare Zahlentheorie --- einfach Themen, damit Sie einen Einblick in Gebiete bekommen, für die in anderen Vorlesungen die Zeit fehlt. Auch da geht es vor allem wieder darum, dass Sie lernen, wie mathematisches Begründen funktioniert, wie man Beweise führt und so weiter. Es ist also auch da wieder enorm wichtig, dass Sie die Übungen machen und sich darin üben.
+\end{spoken-clean}
+
+\subsection{Was nicht Teil der Vorlesung ist}
+
+\begin{spoken-clean}[00:18:20 - 00:20:30]
+Genau, das ist der Inhalt der Vorlesung. Vielleicht noch eine letzte Bemerkung dazu, was \emph{nicht} Inhalt der Vorlesung ist. Wir beginnen sozusagen ganz grundlegend mit der Logik. Wo wir aber nicht beginnen, ist auf Stufe null --- das wäre der Punkt, wo das Ganze in die Philosophie übergeht. Man kann sich überlegen: Was ist Mathematik überhaupt? 
+
+Wir beginnen jetzt mit der Prädikatenlogik erster Stufe. Wir bauen ein System auf, eine Sprache, in der wir eigentlich einfach Zeichen aneinanderreihen. Dann stellen wir Regeln auf, wie wir diese Zeichen aneinanderreihen dürfen, was dann einen Beweis ergibt, und dann vergleichen wir das mit der Mathematik und so weiter. Das ist jetzt kein philosophisches Thema, das macht man einfach so.
+
+Aber man kann natürlich sofort philosophisch fragen: Ist Mathematik jetzt einfach nur diese Aneinanderreihung von Zeichen? Oder ist diese Aneinanderreihung von Zeichen einfach ein sehr nützliches Werkzeug, um Mathematik zu betreiben? Existieren Zahlen überhaupt? Wenn sie existieren, in welcher Form? Existieren vielleicht nur endliche Zahlen wirklich, und alles andere ist reiner Formalismus? Oder ist Mathematik nur etwas, das im menschlichen Denken stattfindet, und außerhalb davon existiert sie gar nicht? Was genau ist sie? Das sind viele spannende philosophische Fragen, über die man schon seit Jahrtausenden diskutiert.
+
+Die Logik, wie wir sie hier verwenden, ist sehr stark vom Formalismus inspiriert --- das geht auf Hilbert und andere zurück. Aber eben auch nicht ausschließlich. Viele würden heute sagen, dass die formale Logik eher nur ein Werkzeug ist, die eigentliche Mathematik aber nochmals etwas anderes darstellt. Das sind schwierige philosophische Fragen, und sie sind leider nicht Teil dieser Vorlesung. Aber okay, es ist ja auch kein Philosophiestudium, sondern ein Mathematikstudium.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Nicht Teil der Vorlesung]
+Der Dozent zeigt eine Folie mit dem Titel \qt{Nicht Teil der Vorlesung}.
+\begin{itemize}
+    \item Philosophie der Mathematik
+\end{itemize}
+Siehe zum Beispiel:
+\begin{itemize}
+    \item J. Neunhäuserer: Einführung in die Philosophie der Mathematik
+    \item S. Shapiro: Thinking about Mathematics
+\end{itemize}
+Nicht obligatorische Aufgabe: Setzen Sie sich in ein Café und diskutieren Sie darüber, was Mathematik ist.
+\end{meta-note}
+
+\begin{spoken-clean}[00:20:30 - 00:22:15]
+Aber vielleicht gibt es doch manche von Ihnen, die das interessiert. Da möchte ich Sie einfach ermutigen, sich einmal ein paar Bücher anzuschauen. Das ist überhaupt nicht Teil der Prüfung, aber es lohnt sich, sich ein bisschen Gedanken darüber zu machen. Ich glaube, gerade wenn man Logik macht, ist das ein sehr guter Moment, um sich die ganz grundlegenden Fragen zu stellen und wirklich zu überlegen: Was machen wir da überhaupt? Was ist überhaupt Mathematik?
+
+Ich gebe Ihnen dazu noch zwei Empfehlungen --- es gibt natürlich sehr viel Literatur zur Philosophie der Mathematik. Es gibt dieses hier auf Deutsch: \qt{Einführung in die Philosophie der Mathematik} von Jörg Neunhäuserer. Es ist sehr kurz und verständlich geschrieben, und zwar aus der Sicht eines Mathematikers. Das macht es noch einfacher. Seine eigenen Kommentare sind philosophisch vielleicht nicht extrem tiefschürfend, aber wie er die Konzepte erklärt, ist sehr hilfreich, und man bekommt in relativ kurzer Zeit einen guten Einblick in die verschiedenen Standpunkte.
+
+Dann gibt es noch ein anderes Buch, das weithin empfohlen wird --- ich habe es selbst noch nicht ganz gelesen ---, nämlich von Shapiro: \qt{Thinking about Mathematics}. Das ist auch sehr schön und für viele Leute sehr gut lesbar geschrieben, um einfach darüber nachzudenken, was Mathematik überhaupt ist. Das wären also zwei mögliche Quellen.
+\end{spoken-clean}
+
+\begin{ai-global-state-checkpoint-invisible-content}
+% timestamp: 00:21:00
+% topic: Philosophie der Mathematik (Nicht Teil der Vorlesung)
+% board_state: none
+% next_goal: Übergang zur Tafel und Beginn mit Kapitel 0: Syntax
+% open_loops: none
+\end{ai-global-state-checkpoint-invisible-content}
+
+\begin{spoken-clean}[00:22:15 - 00:23:52]
+Und dann habe ich noch eine Aufgabe für dieses Semester oder für nächste Woche: Setzen Sie sich doch einfach mit Ihren Kommilitoninnen und Kommilitonen oder mit sonstigen Leuten in ein Café, in eine Bar oder was weiß ich, und diskutieren Sie darüber, was Mathematik eigentlich ist. Okay, das ist aber nicht Teil dieser Vorlesung, deswegen einfach nur als Nebenbemerkung.
+
+Gut, soweit zur Einführung und zur Information. Gibt es jetzt gerade noch Fragen, die Ihnen unter den Nägeln brennen? Ansonsten können Sie immer noch E-Mails schreiben oder --- noch besser --- im Forum Fragen stellen. Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Studentenfrage]
+Was würden Sie sagen, ist so am ehesten die Nachfolgevorlesung im kommenden Semester?
+\end{student-interaction}
+
+\begin{spoken-clean}[continued]
+Die Nachfolgevorlesung von Grundstrukturen? Also ich glaube, diese Sachen hier sind wirklich die Basics, die man einfach kennen sollte. Für die Algebra braucht man überall das Auswahlaxiom, da muss man wissen, was das ist, oder auch die verschiedenen Kardinalitäten --- das sind absolute Basics. 
+
+Für den Logik-Teil würde ich sagen, gibt es direkt keine zwingende Nachfolgevorlesung. Es kommt aber immer wieder vor, dass Lorenz Halbeisen eine Logikvorlesung anbietet. Nicht regelmäßig, aber so alle paar Jahre mal wieder. Oder irgendein Seminar zum Thema Logik --- das wäre eine natürliche Nachfolgevorlesung. Das ist aber nicht obligatorisch. Und je nachdem, was wir nachher in der Vorlesung noch machen, sind quasi alle algebraischen und zahlentheoretischen Vorlesungen natürliche Nachfolgevorlesungen. Es sind eben einfach Grundlagen, von denen man überall etwas braucht. Ja.
+
+Gibt es ein Notenbonusprogramm? Nein, es gibt kein Notenbonusprogramm. Es gilt einfach das, was ich gesagt habe: nur die Prüfung. Genau. Gut. Okay, ansonsten steht Ihnen eben das Forum offen.
+\end{spoken-clean}
+
+\section{Syntax der Prädikatenlogik erster Stufe}
+
+\begin{meta-note}[Tafelübergang]
+Der Dozent beendet die Präsentation, schaltet den Projektor aus und wechselt zur Tafel, um mit dem ersten inhaltlichen Kapitel der Vorlesung zu beginnen.
+\end{meta-note}
+
+\begin{spoken-clean}[00:23:52 - 00:26:02]
+Dann beginnen wir jetzt. Was wir heute machen, erscheint Ihnen vielleicht teilweise noch etwas seltsam, aber wir beginnen jetzt mit dem Kapitel $0$ im Skript: Syntax.
+
+Es geht hier um die Syntax, genauer gesagt um die Sprache der Logik erster Stufe. Wir haben eigentlich eine Sprache, in der wir schreiben können, und dazu brauchen wir Symbole. Das heißt, wir werden zuerst definieren, was unser Alphabet ist. Das sind a priori einfach nur Zeichen. 
+
+In einem nächsten Schritt werden wir festlegen, wie man diese Zeichen aneinanderreihen darf. Dazu definieren wir zuerst, was ein Term ist. Ein Term ist eine bestimmte Art, diese Zeichen aneinanderzureihen. Danach definieren wir, was eine Formel ist. Aus Termen können wir Formeln bilden --- auch das sind wieder einfach nur Regeln, wie man diese Zeichen aneinanderreiht.
+
+Diese Zeichen haben alle Namen, und intuitiv ist auch klar, was sie bedeuten, aber so, wie wir sie hier definieren, sind es a priori einfach nur Zeichen. Schlussendlich werden wir dann eine Reihe von logischen Axiomen definieren. Das sind ausgezeichnete, spezielle Formeln. Diese Formeln beschreiben, wie man diese Zeichen eigentlich verwendet. 
+
+Nächste Woche schauen wir uns dann an, wie man aus Axiomen und Formeln logische Schlussfolgerungen ziehen kann, um neue Formeln zu erhalten. Aber alles, was wir heute machen, ist wirklich rein syntaktisch. Es ist eine formale Sprache; wir haben einfach Zeichen, die wir aneinanderreihen. Da gibt es noch kein \qt{wahr} oder \qt{falsch}, es ist einfach nur eine Sprache.
+\end{spoken-clean}
+
+\begin{math-stroke}[Kapitel 0: Syntax]
+% Old section name: \textbf{0. Syntax}
+\end{math-stroke}
+
+\subsection{Das formale Alphabet}
+
+\begin{spoken-clean}[00:26:02 - 00:27:33]
+Beginnen wir mit dem Alphabet. Was ist unser Alphabet? Das sind verschiedene Arten von Symbolen oder Zeichen, die wir zur Verfügung haben. Die erste Art sind Variablen --- wir nennen sie Variablen.
+
+Zum Beispiel gibt es da $x, y, v_0, v_1, \dots$. Es sind einfach Zeichen, die wir Variablen nennen. Es gibt davon auch so viele, wie wir wollen. Es gibt also keine Einschränkung, dass es nur endlich viele sein dürfen. Wir haben zwar noch gar nicht formal definiert, was endlich oder unendlich überhaupt bedeutet --- das ist vielleicht ein bisschen problematisch ---, aber Sie werden merken: Es gibt einfach so viele Variablen, wie man braucht und möchte. Es sind einfach Zeichen.
+
+Und hier sind es wirklich nur Zeichen auf der rein syntaktischen Ebene. Später werden das dann eben Variablen sein, die beispielsweise für Zahlen stehen, wenn man in der Zahlentheorie arbeitet. Oder wenn man in der Mengenlehre arbeitet, stehen diese Variablen für Mengen. Wenn wir in der Gruppentheorie arbeiten, stehen sie für Elemente von Gruppen, und wenn wir Lineare Algebra machen, stehen sie für Vektoren. Aber egal --- hier sind es einfach nur Zeichen.
+\end{spoken-clean}
+
+\begin{math-stroke}[Alphabet: Variablen]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \item \textbf{Variablen:} z.B. $x, y, v_0, v_1, \dots$
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:27:33 - 00:28:40]
+Die zweite Art sind logische Operatoren. Davon gibt es vier. Es gibt diesen Haken da, der heißt \qt{nicht} ($\neg$). Dann gibt es ein Dach nach oben, das ist \qt{und} ($\wedge$). Ein Keil, der nach oben offen ist, das ist \qt{oder} ($\vee$). Und dann gibt es noch dieses Zeichen, einfach so ein Pfeil, das heißt \qt{impliziert} ($\rightarrow$).
+
+Der Name dieser Zeichen ist natürlich bereits sehr suggestiv, und es ist auch klar, wie wir sie später interpretieren werden. Aber auch hier gilt: A priori sind es nur Zeichen.
+\end{spoken-clean}
+
+\begin{ai-global-state-checkpoint-invisible-content}
+% timestamp: 00:28:00
+% topic: Syntax der Prädikatenlogik (Alphabet)
+% board_state: Variablen, Logische Operatoren
+% next_goal: Weitere Symbole of Alphabets (Quantoren, Gleichheit, Konstanten, Funktionen, Relationen) definieren
+% open_loops: none
+\end{ai-global-state-checkpoint-invisible-content}
+
+\begin{math-stroke}[Alphabet: Logische Operatoren]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \setcounter{enumi}{1}
+    \item \textbf{Logische Operatoren:}
+    \begin{itemize}
+        \item $\neg$ (nicht)
+        \item $\wedge$ (und)
+        \item $\vee$ (oder)
+        \item $\rightarrow$ (impliziert)
+    \end{itemize}
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:28:40 - 00:29:15]
+Dann haben wir logische Quantoren. Da gibt es zwei: \qt{Es existiert} ($\exists$), das ist der Existenzquantor. Und \qt{für alle} ($\forall$), das ist der Allquantor.
+\end{spoken-clean}
+
+\begin{math-stroke}[Alphabet: Logische Quantoren]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \setcounter{enumi}{2}
+    \item \textbf{Logische Quantoren:}
+    \begin{itemize}
+        \item $\exists$ (Existenzquantor)
+        \item $\forall$ (Allquantor)
+    \end{itemize}
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:29:15 - 00:29:45]
+Und dann unter \textbf{(d)} gibt es noch ein Relationszeichen, das ist die Gleichheitsrelation. Das Zeichen heißt \qt{gleich} ($=$).
+\end{spoken-clean}
+
+\begin{math-stroke}[Alphabet: Gleichheitsrelation]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \setcounter{enumi}{3}
+    \item \textbf{Gleichheitsrelation:} $=$
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:29:45 - 00:31:06]
+Diese Symbole \textbf{(a)} bis \textbf{(d)} heißen logische Symbole. Und jetzt gibt es noch nicht-logische Symbole. Das wäre unter \textbf{(e)} die Konstantensymbole. Das ist jetzt --- wie wir noch sehen werden --- theoriespezifisch. Die logischen Symbole haben wir immer, egal in welcher Theorie wir arbeiten. Und dann haben wir eben noch theoriespezifische Symbole. 
+
+Zu den Konstantensymbolen: In der Zahlentheorie haben wir zum Beispiel das Symbol $0$. Oder wenn Sie Mengenlehre machen, dann haben Sie die leere Menge ($\emptyset$). Das ist ein Symbol für die leere Menge, ein bestimmtes Objekt, also einfach ein Konstantensymbol.
+\end{spoken-clean}
+
+\begin{math-stroke}[Alphabet: Konstantensymbole]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \setcounter{enumi}{4}
+    \item \textbf{Konstantensymbole:} z.B. $0$ in der Zahlentheorie, oder $\emptyset$ in der Mengenlehre.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:31:06 - 00:33:25]
+Gut, dann gibt es unter \textbf{(f)} noch Funktionssymbole. Das sind Symbole, die wir uns gewissermaßen als Funktionen denken, aber auch das hängt wieder von der Theorie ab. In der Zahlentheorie gibt es zum Beispiel das Funktionssymbol $+$. Oder $\sin$ in der Analysis.
+
+Was bei Funktionssymbolen noch wichtig ist: Sie haben eine Stelligkeit. Ein Funktionssymbol $F$ hat eine Stelligkeit, und das ist einfach die Anzahl der Argumente, die dieses Funktionssymbol verlangt. Was wäre zum Beispiel die Stelligkeit von $+$? Ja? Zwei, genau, zwei. Bei $\sin$ ist es aber nur eins.
+\end{spoken-clean}
+
+\begin{math-stroke}[Alphabet: Funktionssymbole]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \setcounter{enumi}{5}
+    \item \textbf{Funktionssymbole:} z.B. $+$ in der Zahlentheorie oder $\sin$ in der Analysis.
+    Ein Funktionssymbol $F$ hat eine \newterm{Stelligkeit}: die Anzahl Argumente.
+    Bsp: die Stelligkeit von $+$ ist $2$.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:33:25 - 00:35:28]
+Und dann gibt es unter \textbf{(g)} noch Relationssymbole. Auch da wieder: In der Zahlentheorie haben wir zum Beispiel $<$, oder in der Mengenlehre haben wir $\in$ für \qt{ist enthalten}. Wenn ein Element $x$ Element von $y$ ist, dann ist das $\in$ ein Relationssymbol. Auch Relationssymbole haben eine Stelligkeit. Zum Beispiel sind $\in$ und $<$ zweistellig.
+\end{spoken-clean}
+
+\begin{math-stroke}[Alphabet: Relationssymbole]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \setcounter{enumi}{6}
+    \item \textbf{Relationssymbole:} z.B. in der Zahlentheorie $<$, oder in der Mengenlehre $\in$.
+    Ein Relationssymbol $R$ hat auch eine Stelligkeit.
+    Bsp: $\in$ und $<$ sind zweistellig.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:35:28 - 00:37:06]
+Die Symbole \textbf{(a)} bis \textbf{(d)} heißen logische Symbole, \textbf{(e)} bis \textbf{(g)} sind nicht-logische Symbole. Wenn wir nun für eine Theorie eine solche Menge von Symbolen festlegen, dann nennen wir die Menge aller nicht-logischen Symbole die Signatur.
+\end{spoken-clean}
+
+\begin{ai-global-state-checkpoint-invisible-content}
+% timestamp: 00:35:00
+% topic: Syntax der Prädikatenlogik (Signatur und Terme)
+% board_state: Vollständiges Alphabet (a)-(g), Definition Signatur
+% next_goal: Definition von Termen (T0, T1, T2)
+% open_loops: none
+\end{ai-global-state-checkpoint-invisible-content}
+
+\begin{math-stroke}[Vollständige Übersicht: Das formale Alphabet und Signatur]
+\begin{enumerate}[label=\textbf{(\alph*)}]
+    \item \textbf{Variablen:} z.B. $x, y, v_0, v_1, \dots$
+    \item \textbf{Logische Operatoren:} $\neg$ (nicht), $\wedge$ (und), $\vee$ (oder), $\rightarrow$ (impliziert)
+    \item \textbf{Logische Quantoren:} $\exists$ (Existenzquantor), $\forall$ (Allquantor)
+    \item \textbf{Gleichheitsrelation:} $=$
+    \item \textbf{Konstantensymbole:} z.B. $0$ in der Zahlentheorie, oder $\emptyset$ in der Mengenlehre.
+    \item \textbf{Funktionssymbole:} z.B. $+$ in der Zahlentheorie oder $\sin$ in der Analysis. Ein Funktionssymbol $F$ hat eine \newterm{Stelligkeit}: die Anzahl Argumente. Bsp: die Stelligkeit von $+$ ist $2$.
+    \item \textbf{Relationssymbole:} z.B. in der Zahlentheorie $<$, oder in der Mengenlehre $\in$. Ein Relationssymbol $R$ hat auch eine Stelligkeit. Bsp: $\in$ und $<$ sind zweistellig.
+\end{enumerate}
+
+Die Symbole \textbf{(a)}--\textbf{(d)} heißen \newterm{logische Symbole}.
+Die Symbole \textbf{(e)}--\textbf{(g)} heißen \newterm{nicht-logische Symbole}.
+
+\begin{definition}[Signatur]\label[definition]{def:signatur}
+Die \newterm{Signatur} ist die Menge der nicht-logischen Symbole.
+\end{definition}
+\end{math-stroke}
+
+\subsection{Terme}
+
+\begin{spoken-clean}[00:37:06 - 00:38:38]
+Gut, das sind erst einmal die Zeichen, die wir haben. Als Nächstes wollen wir definieren, was ein Term ist. Diese Zeichen können Sie jetzt einfach beliebig aneinanderreihen --- das gibt Ihnen dann einfach irgendwelche Zeichenketten. Aber jetzt wollen wir präzise sagen, was ein Term ist.
+
+Dafür sagen wir: Sei $\mathcal{L}$ eine Signatur, also eine Menge von nicht-logischen Symbolen. Ein $\mathcal{L}$-Term ist nun eine Zeichenkette, die durch endlich viele Anwendungen der folgenden Regeln entstanden ist.
+\end{spoken-clean}
+
+\begin{math-stroke}[Definition eines Terms]
+Sei $\mathcal{L}$ eine Signatur. Ein \newterm{($\mathcal{L}$-)Term} ist eine Zeichenkette, die durch endlich viele Anwendungen der folgenden Regeln entstanden ist:
+\end{math-stroke}
+
+\begin{spoken-clean}[00:38:38 - 00:39:14]
+Die erste Regel ist \textbf{(T0)} --- T wie Term: Jede Variable ist ein $\mathcal{L}$-Term. Oft sagen wir auch einfach nur \qt{Term}, wenn aus dem Kontext klar ist, mit welcher Signatur wir arbeiten. Wir wissen also, dass jede Variable an sich schon ein $\mathcal{L}$-Term ist.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regel T0]
+\begin{enumerate}[label=\textbf{(T\arabic*)}, start=0]
+    \item Jede Variable ist ein $\mathcal{L}$-Term.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:39:14 - 00:39:40]
+Dann \textbf{(T1)}: Was könnte das sein? Konstanten, ja. Jede Konstante ist auch ein $\mathcal{L}$-Term.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regel T1]
+\begin{enumerate}[label=\textbf{(T\arabic*)}, start=0]
+    \setcounter{enumi}{1}
+    \item Jede Konstante ist ein $\mathcal{L}$-Term.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:41:09 - 00:41:52]
+Eine Variable ist ein $\mathcal{L}$-Term, und sinnvollerweise ist jede Konstante auch ein $\mathcal{L}$-Term. Und dann haben wir noch \textbf{(T2)}, das regelt, was passiert, wenn wir bereits Terme haben... Wir haben hier keinen Platz mehr, machen wir das auf der nächsten Tafel, die müssen wir erst noch putzen. Wir erinnern uns ja hoffentlich noch, was diese Zeichen hier bedeuten.
+\end{spoken-clean}
+
+\begin{meta-note}[Tafelreinigung und Zwischenfrage]
+Der Dozent sucht nach Utensilien, um die Tafel zu putzen. Währenddessen beantwortet er eine Frage aus dem Publikum zum Unterschied zwischen der Gleichheitsrelation und allgemeinen Relationssymbolen.
+\end{meta-note}
+
+\begin{student-interaction}[Studentenfrage]
+Entschuldigung, bei den Symbolen, kann man (d) und (g) zusammennehmen?
+\end{student-interaction}
+
+\begin{spoken-clean}[00:42:24 - 00:43:04]
+\textbf{(g)} und \textbf{(d)}? Also, die Gleichheitsrelation ist natürlich eine Art von Relation, ja. Aber sie ist einfach --- wie soll ich sagen --- so wichtig und kommt in jeder Theorie vor, deswegen führen wir sie separat auf. Die Gleichheit unter \textbf{(d)} haben wir in jeder Theorie, während die Relationssymbole unter \textbf{(g)} sind theorieabhängig. Das Gleichheitszeichen brauchen wir überall. Aber ja, es ist auch eine Art zweistelliges Relationszeichen. Gut. Dann putzen wir die Tafel jetzt mal etwas weniger gründlich, aber...
+\end{spoken-clean}
+
+\begin{spoken-clean}[00:43:04 - 00:44:15]
+Also gut, wir haben jetzt \textbf{(T0)} und \textbf{(T1)} definiert. Wir müssen \textbf{(T2)} noch besprechen. Machen wir das noch vor der Pause, damit wir wissen, was ein Term ist. \textbf{(T2)} besagt nun: Wenn $\tau_1$ bis $\tau_n$ $\mathcal{L}$-Terme sind und $F$ ein $n$-stelliges Funktionssymbol in unserer Signatur $\mathcal{L}$ ist, dann ist $F \tau_1 \dots \tau_n$ auch wieder ein $\mathcal{L}$-Term.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regeln für Terme (Fortsetzung)]
+\begin{enumerate}[label=\textbf{(T\arabic*)}, start=0]
+    \setcounter{enumi}{2}
+    \item Seien $\tau_1, \dots, \tau_n$ $\mathcal{L}$-Terme und $F$ ein $n$-stelliges Funktionssymbol in $\mathcal{L}$, dann ist $F \tau_1 \dots \tau_n$ ein $\mathcal{L}$-Term.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:44:15 - 00:45:10]
+So wie wir es jetzt formal definieren, schreibt man einfach das $F$ und hängt direkt dahinter die Argumente an. Das braucht keine Klammern und so weiter. Ich werde das nach der Pause noch etwas genauer ausführen. Aber wie wir es im Alltag meistens schreiben, ist eigentlich $F(\tau_1, \dots, \tau_n)$. 
+
+Man kann also einfach Variablen und Konstanten nehmen, daraus Funktionen bilden, und dann wieder Funktionen von diesen Funktionen bilden und so weiter. Das ergibt dann jeweils wieder einen $\mathcal{L}$-Term. Man kann diesen Prozess beliebig oft wiederholen, die Terme in neue oder dieselben Funktionen einsetzen und erhält so immer weitere $\mathcal{L}$-Terme. 
+
+Gut, wir machen da nach der Pause weiter. Wir machen jetzt noch bis Viertel nach eine Pause.
+\end{spoken-clean}
+
+\begin{math-stroke}[Vollständige Übersicht: Definition eines Terms]
+Sei $\mathcal{L}$ eine Signatur. Ein \newterm{($\mathcal{L}$-)Term} ist eine Zeichenkette, die durch endlich viele Anwendungen der folgenden Regeln entstanden ist:
+\begin{enumerate}[label=\textbf{(T\arabic*)}, start=0]
+    \item Jede Variable ist ein $\mathcal{L}$-Term.
+    \item Jede Konstante ist ein $\mathcal{L}$-Term.
+    \item Seien $\tau_1, \dots, \tau_n$ $\mathcal{L}$-Terme und $F$ ein $n$-stelliges Funktionssymbol in $\mathcal{L}$, dann ist $F \tau_1 \dots \tau_n$ ein $\mathcal{L}$-Term.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{lecture-break}[Pause]
+Der Dozent kündigt eine Pause an.
+\end{lecture-break}
+
+\begin{spoken-clean}[00:45:10 - 00:46:14]
+Gut, wir machen weiter. Wir haben vor der Pause definiert, was Terme sind. Schauen wir uns dazu noch Beispiele an. Ein solches Beispiel ist tatsächlich gar nicht so illustrativ, weil es wirklich so banal ist, wie es klingt. 
+
+Wenn $x$ und $y$ Variablen sind und $F$ und $G$ Funktionssymbole mit Stelligkeit $1$ respektive $2$ --- das sind die Stelligkeiten ---, dann sind Beispiele für Terme zum Beispiel $F x$. Da $x$ eine Variable ist, ist es ein Term. $F$ ist eine Funktion, das heißt $F x$ ist wieder ein Term. $G x y$ ist ebenfalls ein Term. Oder $G$ angewendet auf $F x$ und $y$, das schreibt man dann so: $G F x y$.
+\end{spoken-clean}
+
+\begin{math-stroke}[Beispiele für Terme]
+Seien $x, y$ Variablen und $F, G$ Funktionssymbole mit Stelligkeit $1$ bzw. $2$.
+Dann sind folgende Ausdrücke Terme:
+\begin{align*}
+    &F x \\
+    &G x y \\
+    &G F x y
+\end{align*}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:46:14 - 00:47:27]
+Ich denke, es ist grauenhaft, das so zu schreiben. Was man sich hier eigentlich vorstellt, ist $F(x)$, hier wäre es $G(x, y)$, und das Letzte wäre $G(F(x), y)$. Und das wird dann noch schlimmer, wenn wir später noch Relationssymbole verwenden. 
+
+Das Erste hier ist die sogenannte polnische Notation oder Präfix-Notation. Und das Zweite ist die sogenannte Infix-Notation. Die polnische Notation stammt --- wie Sie vielleicht wissen --- aus dem Anfang des letzten Jahrhunderts. Da gab es eine sehr große Blütezeit der Mathematik und insbesondere der Logik in Polen. Die Mathematiker dort kamen mit dieser Notation auf, deswegen heißt sie polnische Notation. Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Studentenfrage]
+Ist es besser, die Präfix-Notation zu nutzen oder Infix-Notation, oder spielt das keine Rolle?
+\end{student-interaction}
+
+\begin{spoken-clean}[00:47:30 - 00:48:39]
+Ja, das ist jetzt genau die Frage: Welche wollen wir lieber verwenden? Der logische Vorteil der Präfix-Notation ist natürlich: Sie braucht tatsächlich keine Klammern. Man kann alle Formeln komplett ohne Klammern schreiben, und es ist trotzdem immer eindeutig klar, wie sie gemeint sind. Um die ganzen formalen Definitionen und so weiter zu machen, verwenden wir daher die Präfix-Notation. 
+
+Aber wenn wir konkret damit arbeiten wollen, ist der große Vorteil der Infix-Notation, dass sie für uns lesbar ist. Ich möchte jetzt gar nicht formal definieren, was genau Infix- und was Präfix-Notation ist. Man kann das zwar sauber definieren, aber dann verbrät man wieder eine Stunde. Ich glaube, es ist intuitiv klar, was gemeint ist: Bei Präfix kann man einfach alles aneinanderschreiben, und es ist eindeutig lesbar. Bei Infix braucht man halt die Klammern.
+\end{spoken-clean}
+
+\begin{spoken-clean}[00:48:39 - 00:49:53]
+Aber dafür ist es dann verständlicher für uns. Gut. Das einfach noch zum Vergleich von polnischer versus Infix-Notation. Wir werden im Alltag oft Infix verwenden. 
+
+Noch unübersichtlicher wird die Präfix-Notation bei Relationssymbolen. Ich mache vielleicht noch ein paar Beispiele, dann sehen Sie den Unterschied zwischen Präfix und Infix noch besser. Wenn Sie das wirklich formal ausarbeiten wollen, können Sie das gerne tun, oder Sie finden im Internet viele Ressourcen dazu. 
+
+Machen wir noch ein Beispiel: Wenn wir $x + y$ schreiben wollen, ist $+$ ein zweistelliges Funktionssymbol. In der polnischen Notation wäre das $+ x y$. Das ist Präfix, und Infix wäre $x + y$. Dasselbe gilt dann für Relationssymbole und auch für logische Symbole.
+\end{spoken-clean}
+
+\begin{spoken-clean}[00:49:53 - 00:50:24]
+Zum Beispiel ist die polnische Notation $= x y$, während die Infix-Notation $x = y$ lautet. Oder $\wedge x y$, was in Infix $x \wedge y$ wäre. Sie können jetzt viele von diesen Symbolen hintereinanderbauen. Das Schöne bei der polnischen Notation ist: Man schreibt diese Zeichenreihe hin, und es gibt nur eine einzige, eindeutige Weise, sie zu interpretieren. Bei Infix braucht man halt die Klammern, aber dafür ist es für uns verständlicher. Gut. Okay.
+\end{spoken-clean}
+
+\begin{math-stroke}[Präfix- vs. Infix-Notation]
+\begin{center}
+\begin{tabular}{l l}
+    \textbf{Präfix- oder polnische Notation} & \textbf{Infix-Notation} \\ 
+    \midrule
+    $F x$ & $F(x)$ \\
+    $G x y$ & $G(x, y)$ \\
+    $G F x y$ & $G(F(x), y)$ \\
+    $+ x y$ & $x + y$ \\
+    $= x y$ & $x = y$ \\
+    $\wedge x y$ & $x \wedge y$ \\
+\end{tabular}
+\end{center}
+
+\textbf{Vorteil Präfix:} braucht keine Klammern. \\
+\textbf{Vorteil Infix:} lesbarer. Wir verwenden oft Infixnotation.
+\end{math-stroke}
+
+\subsection{Formeln}
+
+\begin{spoken-clean}[00:50:24 - 00:52:02]
+Jetzt kommen wir aber zu den Formeln. Terme haben wir definiert, jetzt fehlen noch die Formeln. Manchmal schreibt man \qt{wohlgebildete Formel}, oder einfach nur \qt{Formel}. Wohlgebildet, nicht wohldefiniert --- wohlgebildet. Und auch das $\mathcal{L}$ schreiben wir nicht immer explizit hin. 
+
+Eine $\mathcal{L}$-Formel ist eine Zeichenkette --- auch hier wieder, es ist einfach nur eine Zeichenkette ---, die durch endlich viele Anwendungen der folgenden Regeln entstanden ist. Wir stellen jetzt also, genau wie bei den Termen, Regeln auf, wie man induktiv Formeln bilden kann.
+\end{spoken-clean}
+
+\begin{math-stroke}[Definition einer Formel]
+Eine (wohlgebildete) ($\mathcal{L}$-)Formel ist eine Zeichenkette, die durch endlich viele Anwendungen der folgenden Regeln entstanden ist:
+\end{math-stroke}
+
+\begin{spoken-clean}[00:52:02 - 00:52:54]
+Wir haben \textbf{(F0)}: Wenn $\tau_1$ und $\tau_2$ $\mathcal{L}$-Terme sind, dann ist $= \tau_1 \tau_2$ --- machen wir es hier nochmals mit der polnischen Notation, in Infix-Notation hieße das $\tau_1 = \tau_2$ --- wiederum eine $\mathcal{L}$-Formel. Ein Term gleich ein anderer Term liefert uns also eine Formel.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regel F0]
+\begin{enumerate}[label=\textbf{(F\arabic*)}, start=0]
+    \item Sind $\tau_1$ und $\tau_2$ $\mathcal{L}$-Terme, dann ist $= \tau_1 \tau_2$ ($\tau_1 = \tau_2$) eine $\mathcal{L}$-Formel.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:52:54 - 00:53:47]
+Gut, und dann \textbf{(F1)}, das funktioniert ähnlich mit den theoriespezifischen Relationssymbolen: Sind $\tau_1$ bis $\tau_n$ $\mathcal{L}$-Terme und $R$ ein $n$-stelliges Relationssymbol in $\mathcal{L}$, dann ist $R \tau_1 \dots \tau_n$ auch wieder eine $\mathcal{L}$-Formel. Das ist relativ einfach und noch keine Induktion. Sobald wir Terme und Relationssymbole haben, liefert uns das direkt Formeln.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regel F1]
+\begin{enumerate}[label=\textbf{(F\arabic*)}, start=0]
+    \setcounter{enumi}{1}
+    \item Sind $\tau_1, \dots, \tau_n$ $\mathcal{L}$-Terme, $R$ ein $n$-stelliges Relationssymbol in $\mathcal{L}$, dann ist $R \tau_1 \dots \tau_n$ eine $\mathcal{L}$-Formel.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:53:47 - 00:54:36]
+Diese Regeln \textbf{(F0)} und \textbf{(F1)} liefern uns eine bestimmte Art von Formeln, und diese heißen atomar. Formeln, die durch \textbf{(F0)} und \textbf{(F1)} gegeben sind, sind also atomare Formeln. Das ist die Basis, auf der wir aufbauen.
+\end{spoken-clean}
+
+\begin{math-stroke}[Atomare Formeln]
+\textbf{Bemerkung:} Formeln, die durch \textbf{(F0)} und \textbf{(F1)} gegeben sind, heißen \newterm{atomar}.
+\end{math-stroke}
+
+\begin{spoken-clean}[00:54:36 - 00:55:47]
+Und dann \textbf{(F2)} --- hier kommt jetzt die Induktion: Falls $\varphi$ eine $\mathcal{L}$-Formel ist, dann ist $\neg \varphi$ auch wieder eine $\mathcal{L}$-Formel. Wir können also einfach ein \qt{Nicht} davor setzen und erhalten wieder eine Formel.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regel F2]
+\begin{enumerate}[label=\textbf{(F\arabic*)}, start=0]
+    \setcounter{enumi}{2}
+    \item Ist $\varphi$ eine $\mathcal{L}$-Formel, dann ist $\neg \varphi$ eine $\mathcal{L}$-Formel.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:55:47 - 00:57:27]
+Bei \textbf{(F3)} gilt: Wenn $\varphi$ und $\psi$ $\mathcal{L}$-Formeln sind, so sind $\wedge \varphi \psi$ (in Infix-Notation $\varphi \wedge \psi$), $\vee \varphi \psi$ (Infix $\varphi \vee \psi$) und $\rightarrow \varphi \psi$ (Infix $\varphi \rightarrow \psi$) auch wieder $\mathcal{L}$-Formeln. 
+
+Und \textbf{(F4)} betrifft schließlich noch die Quantoren: Falls $\varphi$ eine $\mathcal{L}$-Formel ist und $\nu$ eine beliebige Variable, dann sind $\exists \nu \varphi$ und $\forall \nu \varphi$ auch wieder Formeln.
+\end{spoken-clean}
+
+\begin{math-stroke}[Regeln F3 und F4]
+\begin{enumerate}[label=\textbf{(F\arabic*)}, start=0]
+    \setcounter{enumi}{3}
+    \item Sind $\varphi, \psi$ $\mathcal{L}$-Formeln, so sind $\wedge \varphi \psi$ ($\varphi \wedge \psi$), $\vee \varphi \psi$ ($\varphi \vee \psi$) und $\rightarrow \varphi \psi$ ($\varphi \rightarrow \psi$) $\mathcal{L}$-Formeln.
+    \item Ist $\varphi$ eine $\mathcal{L}$-Formel und $\nu$ eine Variable, dann sind $\exists \nu \varphi$ und $\forall \nu \varphi$ $\mathcal{L}$-Formeln.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:57:27 - 00:58:52]
+Okay, das sind Formeln. Wir können Terme nach diesen Regeln aneinanderreihen und erhalten Formeln. Wenn wir einmal eine Formel haben, können wir die Regeln \textbf{(F2)} bis \textbf{(F4)} natürlich immer wieder anwenden und erhalten so immer kompliziertere Formeln. 
+
+Vielleicht nochmals zur Erinnerung: \textbf{(F0)} und \textbf{(F1)} liefern uns eine bestimmte Art von Formeln, und diese heißen atomar. Formeln, die nur durch \textbf{(F0)} und \textbf{(F1)} gebildet werden, sind atomar. Das hatte ich ja bereits erwähnt. Gut.
+\end{spoken-clean}
+
+\begin{math-stroke}[Vollständige Übersicht: Definition einer Formel]
+Eine (wohlgebildete) ($\mathcal{L}$-)Formel ist eine Zeichenkette, die durch endlich viele Anwendungen der folgenden Regeln entstanden ist:
+\begin{enumerate}[label=\textbf{(F\arabic*)}, start=0]
+    \item Sind $\tau_1$ und $\tau_2$ $\mathcal{L}$-Terme, dann ist $= \tau_1 \tau_2$ (bzw. $\tau_1 = \tau_2$) eine $\mathcal{L}$-Formel.
+    \item Sind $\tau_1, \dots, \tau_n$ $\mathcal{L}$-Terme und $R$ ein $n$-stelliges Relationssymbol in $\mathcal{L}$, dann ist $R \tau_1 \dots \tau_n$ eine $\mathcal{L}$-Formel.
+    \item Ist $\varphi$ eine $\mathcal{L}$-Formel, dann ist $\neg \varphi$ eine $\mathcal{L}$-Formel.
+    \item Sind $\varphi, \psi$ $\mathcal{L}$-Formeln, so sind $\wedge \varphi \psi$ ($\varphi \wedge \psi$), $\vee \varphi \psi$ ($\varphi \vee \psi$) und $\rightarrow \varphi \psi$ ($\varphi \rightarrow \psi$) $\mathcal{L}$-Formeln.
+    \item Ist $\varphi$ eine $\mathcal{L}$-Formel und $\nu$ eine Variable, dann sind $\exists \nu \varphi$ und $\forall \nu \varphi$ $\mathcal{L}$-Formeln.
+\end{enumerate}
+
+\textbf{Bemerkung:} Formeln, die durch \textbf{(F0)} und \textbf{(F1)} gegeben sind, heißen \newterm{atomar}.
+\end{math-stroke}
+
+\subsection{Freie und gebundene Variablen}
+
+\begin{spoken-clean}[00:58:52 - 00:59:39]
+Jetzt gibt es noch einen weiteren Begriff. Wenn $\varphi$ eine Formel ist, die durch \textbf{(F4)} konstruiert wurde --- also $\exists \nu \psi$ oder $\forall \nu \psi$, wobei $\nu$ eine Variable und $\psi$ eine Formel ist ---, dann nennt man diese Formel $\psi$, die direkt hinter dem $\nu$ steht, den Bereich des Quantors. Das ist der Bereich des Existenz- oder Allquantors. Es ist genau der Bereich, für den dieser Quantor gilt.
+\end{spoken-clean}
+
+\begin{math-stroke}[Bereich eines Quantors]
+Sei $\varphi$ eine Formel, konstruiert durch \textbf{(F4)} als $\exists \nu \psi$ oder $\forall \nu \psi$, wobei $\nu$ eine Variable und $\psi$ eine Formel ist.
+Dann heißt $\psi$ der \newterm{Bereich des Quantors} ($\exists$ resp. $\forall$).
+\end{math-stroke}
+
+\begin{spoken-clean}[00:59:39 - 01:01:39]
+Wenn man die Formelkonstruktion weiter durchlaufen lässt, kann natürlich davor oder danach noch mehr stehen, aber $\psi$ ist genau dieser Bereich. Und falls die Variable $\nu$ nun in diesem Bereich vorkommt, so heißt sie gebunden --- gebunden durch den entsprechenden Quantor. 
+
+Eine Variable, die nicht von einem Quantor gebunden ist, heißt entsprechend frei. Wir bezeichnen mit $\operatorname{frei}(\varphi)$ die Menge der freien Variablen in der Formel $\varphi$.
+\end{spoken-clean}
+
+\begin{math-stroke}[Freie und gebundene Variablen]
+\begin{definition}[Gebundene und freie Variablen]\label[definition]{def:gebundene-freie-variablen}
+Falls $\nu$ in $\psi$ vorkommt, so heißt sie \newterm{gebunden} (durch den Quantor).
+Eine Variable, die nicht gebunden ist von einem Quantor, heißt \newterm{frei}.
+\end{definition}
+
+Bezeichne mit $\operatorname{frei}(\varphi)$ die Menge der freien Variablen in der Formel $\varphi$.
+\end{math-stroke}
+
+\begin{spoken-clean}[01:01:39 - 01:03:39]
+Wenn wir eine Formel haben, können wir ihr also ihre freien Variablen zuordnen. Zum Begriff \qt{Menge}: Ich habe vorher schon das Wort \qt{Menge} verwendet, dazu hat mich in der Pause jemand kurz etwas gefragt. Man muss hier ein bisschen aufpassen. Wenn wir hier von einer Menge sprechen, dann meinen wir wirklich Mengen im naiven Sinn. 
+
+Die Frage ist immer: Wenn man solche Definitionen aufschreibt, muss man irgendwo anfangen. Man kann nicht alles komplett von Grund auf definieren. Das geht dann in Richtung Metamathematik oder Metaphysik. 
+
+Es gibt gewisse naive Begriffe, die nimmt man einfach als gegeben an, weil man intuitiv weiß, was sie bedeuten. Einer davon sind eben Mengen im naiven Sinn --- also einfach Zusammenfassungen von Objekten, wie hier die Menge aller freien Variablen. Es sind aber keine formalen Mengen, von denen wir die Potenzmenge bilden dürfen, komplizierte Durchschnitte berechnen oder über die wir quantifizieren können. Wir verwenden das Wort hier einfach nur zur Beschreibung. Es sind Mengen im naiven Sinn. 
+
+Dasselbe gilt auch für das, was wir vorhin gemacht haben: Wir haben gesagt, wir haben $\tau_1$ bis $\tau_n$, und $n$ ist irgendeine ganze Zahl. Wir haben die ganzen Zahlen aber noch gar nicht definiert --- das können wir an diesem Punkt auch gar nicht! Aber man hat metamathematisch einen naiven Begriff davon, was endliche ganze Zahlen sind, und das verwenden wir, um das Ganze aufzubauen. Gut, das also zu den freien Variablen.
+\end{spoken-clean}
+
+\begin{didactic-insight}[Metamathematik und naive Mengenlehre]
+Beim formalen Aufbau der Logik muss man zwischen der \emph{Objektsprache} (der formalen Sprache, die wir definieren) und der \emph{Metasprache} (der Sprache, in der wir über die formale Sprache sprechen) unterscheiden. Begriffe wie \qt{Zeichenkette}, \qt{endlich}, \qt{Menge von Variablen} oder die natürlichen Zahlen zur Indizierung gehören zur Metasprache. Sie werden im naiven Sinn verwendet, ohne sie formal axiomatisch zu definieren, da man ein gewisses Grundverständnis voraussetzen muss, um überhaupt ein formales System aufbauen zu können.
+\end{didactic-insight}
+
+\begin{spoken-clean}[01:03:39 - 01:05:39]
+Machen wir dazu Beispiele. Man könnte diese Definition von Bereich und freien Variablen natürlich noch viel ausführlicher machen, aber es ist, wie gesagt, keine reine Logikvorlesung. Schauen wir uns einfach ein paar Beispiele von Formeln an. 
+
+Ich schreibe sie wieder in Präfix- und Infix-Notation auf, damit der Unterschied klar ist. Für die formalen Definitionen ist Präfix praktisch, aber um damit zu arbeiten, ist Infix angenehmer. 
+
+Nehmen wir zum Beispiel $= x y$. In Infix-Notation ist das $x = y$. Das ist eine Formel. Was sind hier die freien Variablen? $x$ und $y$, genau. $x$ und $y$ sind frei. 
+
+Dann haben wir noch $\in x y$, in Infix $x \in y$. Was ist hier frei? Auch $x$ und $y$, genau. Wenn die Formel gar keine Quantoren hat, sind alle vorkommenden Variablen frei.
+\end{spoken-clean}
+
+\begin{math-stroke}[Beispiele für freie und gebundene Variablen]
+\begin{center}
+\begin{tabular}{l l l}
+    \textbf{Präfix} & \textbf{Infix} & \textbf{Freie Variablen} \\ 
+    \midrule
+    $= x y$ & $x = y$ & $x, y$ frei \\
+    $\in x y$ & $x \in y$ & $x, y$ frei \\
+\end{tabular}
+\end{center}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:05:39 - 01:07:39]
+Machen wir etwas Komplizierteres: $\vee = x y \neg = x y$. Kann das jemand in Infix-Notation umwandeln? Wenn man solche Beispiele sieht, merkt man schnell, weshalb Infix angenehmer ist. Ja? \inlinemetanote{ein Student antwortet} Genau, $x = y \vee \neg (x = y)$. Oder auch $x \neq y$. Das ist für unsere Gewohnheiten schon deutlich lesbarer. 
+
+Was sind hier die freien Variablen? $x$ und $y$, genau. Beide sind frei. 
+
+Betrachten wir als Nächstes $\forall x = x y$, also $\forall x (x = y)$. Was sind hier die freien Variablen? $y$, genau. $y$ ist frei, $x$ nicht. 
+
+Und dann haben wir noch etwas Mühsames: $\vee \forall x = x y R x y$. Was haben wir hier? Für alle $x$ gilt $x = y$, oder $R(x, y)$. Genau, $\forall x (x = y) \vee R(x, y)$. 
+
+Das ist ein etwas mühsames Beispiel, weil $x$ hier sowohl als gebundene als auch als freie Variable vorkommt. Das kann durchaus geschehen. Man kann aber zeigen --- ich weiß nicht, ob wir es wirklich beweisen werden, aber man kann es zeigen ---, dass das kein Problem ist. Man kann die Variablen nämlich einfach umbenennen. Man gibt dieser Variable einfach einen anderen Namen und erhält dann etwas, das logisch äquivalent ist. Dann sind alle Vorkommen einer Variable entweder überall frei oder überall gebunden. Durch Umbenennen lässt sich das also vermeiden. 
+
+Es ließe sich übrigens auch vermeiden, dass man alles in die untere rechte Ecke der Wandtafel reinquetscht, aber...
+\end{spoken-clean}
+
+\begin{math-stroke}[Weitere Beispiele]
+\begin{center}
+\begin{tabular}{l l l}
+    \textbf{Präfix} & \textbf{Infix} & \textbf{Freie Variablen} \\ 
+    \midrule
+    $\vee = x y \neg = x y$ & $x = y \vee \neg(x = y)$ & $x, y$ frei \\
+    $\forall x = x y$ & $\forall x (x = y)$ & $y$ frei \\
+    $\vee \forall x = x y R x y$ & $\forall x (x = y) \vee R(x, y)$ & $x$ kommt sowohl frei als auch \\
+    & & gebunden vor. Durch Umbenennung \\
+    & & der Variablen lässt sich dies vermeiden. \\
+\end{tabular}
+\end{center}
+\end{math-stroke}
+
+\subsection{Sätze und Substitution}
+
+\begin{spoken-clean}[01:07:39 - 01:09:09]
+Ich weiß nicht, wie es Ihnen mit diesen Syntax-Geschichten geht. Manche finden das vielleicht etwas mühsam, technisch und unbefriedigend, aber das liegt genau in der Natur der Sache. 
+
+Kommen wir zu einer weiteren Definition: Eine Formel $\varphi$ heißt Satz, falls $\varphi$ keine freien Variablen enthält. Okay. 
+
+Dann kommt noch etwas anderes, nämlich die Substitution. Ist $\varphi$ eine Formel, $\nu$ eine Variable und $\tau$ ein Term, so ist $\varphi(\nu / \tau)$ --- wir schreiben das so, $\nu$ wird ersetzt durch $\tau$ --- diejenige Formel, die wir erhalten, indem wir überall dort, wo $\nu$ in $\varphi$ frei vorkommt, die Variable $\nu$ durch den Term $\tau$ ersetzen. Dieser Prozess heißt Substitution. Wir substituieren also $\nu$ durch $\tau$.
+\end{spoken-clean}
+
+\begin{math-stroke}[Sätze und Substitution]
+\begin{definition}[Satz]\label[definition]{def:satz}
+Eine Formel $\varphi$ ist ein \newterm{Satz}, falls $\varphi$ keine freien Variablen enthält.
+\end{definition}
+
+\begin{definition}[Substitution]\label[definition]{def:substitution}
+Ist $\varphi$ eine Formel, $\nu$ eine Variable und $\tau$ ein Term, so ist $\varphi(\nu / \tau)$ die Formel, die wir erhalten, indem wir überall, wo $\nu$ in $\varphi$ frei vorkommt, die Variable $\nu$ durch den Term $\tau$ ersetzen.
+Dieser Prozess heißt \newterm{Substitution}.
+\end{definition}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:09:09 - 01:11:09]
+Nun gibt es gewisse Substitutionen, die zulässig sind, und andere, die nicht zulässig sind. Das hat wieder mit dem Begriff der freien und gebundenen Variablen zu tun. Im Term $\tau$ kommen ja möglicherweise neue Variablen vor, oder Variablen, die bereits in $\varphi$ existieren. Was wir nicht wollen, ist, dass die Variablen aus $\tau$ nach dem Einsetzen in $\varphi$ plötzlich durch einen Quantor gebunden werden. Wir sagen also: Eine Substitution ist zulässig, wenn keine Variable aus $\tau$ durch einen Quantor in $\varphi$ gebunden wird. 
+
+Schauen wir uns dazu Beispiele an, das macht es hoffentlich klarer. Wir haben hier eine Tabelle: Hier steht die Formel $\varphi$, dann die Variable $\nu$, hier der Term $\tau$, dann die substituierte Formel $\varphi(\nu / \tau)$, und am Ende die Frage, ob das Ganze zulässig ist. 
+
+Beginnen wir mit $\varphi$ gleich $x = y$. Als Variable $\nu$ nehmen wir $x$, und als Term $\tau$ nehmen wir irgendein Konstantensymbol $c$. Was bekommen wir nach der Substitution? $c = y$, genau. Ist das zulässig? Ja. 
+
+Nächstes Beispiel: Wieder $x = y$, als Variable nehmen wir erneut $x$, aber als $\tau$ nehmen wir jetzt die Variable $y$. Was ergibt das? $y = y$, genau. Ist das zulässig? Ja, es gibt hier gar keine Quantoren, das ist also kein Problem.
+\end{spoken-clean}
+
+\begin{math-stroke}[Zulässige Substitution]
+Eine Substitution ist \newterm{zulässig}, wenn keine Variable in $\tau$ durch Quantoren in $\varphi$ gebunden wird.
+
+\textbf{Beispiele:}
+\begin{center}
+\begin{tabular}{l l l l l}
+    $\varphi$ & $\nu$ & $\tau$ & $\varphi(\nu / \tau)$ & zulässig? \\ 
+    \midrule
+    $x = y$ & $x$ & $c$ & $c = y$ & ja \\
+    $x = y$ & $x$ & $y$ & $y = y$ & ja \\
+\end{tabular}
+\end{center}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:11:09 - 01:13:09]
+Schreiben wir noch etwas anderes an, vielleicht etwas mit Quantoren. Nehmen wir $x = x \wedge \forall x (x = x)$. Wir nehmen als Variable wieder unser $x$, und als $\tau$ nehmen wir die Konstante $c$. Was erhalten wir hier? $c = c \wedge \forall x (x = x)$. Ist das zulässig? Ja, das ist zulässig. Wir setzen das $c$ nämlich nur vorne ein, weil das $x$ im hinteren Teil durch den Allquantor gebunden ist. 
+
+Und dann betrachten wir $\forall y (x = y)$. Wir substituieren $x$ durch $y$. Was erhalten wir dann? $\forall y (y = y)$. Das $x$ kommt in der Ursprungsformel frei vor, das heißt, wir können es ersetzen. Aber ist diese Substitution jetzt zulässig oder nicht? Nein. Genau, das ist nicht zulässig! In unserem Term $\tau$ kommt nämlich die Variable $y$ vor, und nach dem Einsetzen wird sie plötzlich durch den Allquantor $\forall y$ gebunden. Das heißt, diese Substitution ist nicht zulässig.
+\end{spoken-clean}
+
+\begin{math-stroke}[Weitere Beispiele zur Substitution]
+\begin{center}
+\begin{tabular}{l l l l l}
+    $\varphi$ & $\nu$ & $\tau$ & $\varphi(\nu / \tau)$ & zulässig? \\ 
+    \midrule
+    $x = x \wedge \forall x (x = x)$ & $x$ & $c$ & $c = c \wedge \forall x (x = x)$ & ja \\
+    $\forall y (x = y)$ & $x$ & $y$ & $\forall y (y = y)$ & nein \\
+\end{tabular}
+\end{center}
+\end{math-stroke}
+
+\subsection{Die logischen Axiome}
+
+\begin{meta-note}[Tafelübergang]
+Der Dozent wechselt von der Tafel zum Projektor, um die logischen Axiome zu zeigen.
+\end{meta-note}
+
+\begin{spoken-clean}[01:13:09 - 01:15:09]
+Gut, das Letzte, was ich heute noch kurz ansprechen möchte, sind die logischen Axiome. Das machen wir jetzt aber per Beamer. 
+
+Bisher haben wir einfach nur diese Zeichen, Terme und Formeln eingeführt, aber sie haben a priori noch gar keinen Sinn. Was wir jetzt einführen, ist eine Liste von Axiomen --- ein bisschen im Stil von David Hilbert. Das geht auf sein großes Programm zurück, mit dem er die Mathematik auf ganz solide Füße stellen wollte. Schlussendlich hat das in dieser Form zwar nicht funktioniert, aber bis zu einem gewissen Maß funktioniert es eben doch. 
+
+Ein Axiom ist einfach eine ausgezeichnete oder bestimmte Formel. Nächste Woche werden wir dann sehen, wie man syntaktisch Beweise führen und Schlussfolgerungen ziehen kann, und dazu geht man genau von diesen Axiomen aus.
+\end{spoken-clean}
+
+\begin{spoken-clean}[01:15:09 - 01:17:09]
+Es macht an diesem Punkt eigentlich noch keinen Sinn zu sagen, die Axiome seien \qt{wahr}, denn es gibt bei uns formal noch gar kein Wahr oder Falsch. Es ist einfach eine Reihe von bestimmten Formeln. Aber die Struktur dieser Formeln zeigt uns ein bisschen, wie wir diese Zeichen intuitiv interpretieren wollen. 
+
+Nehmen wir zum Beispiel \textbf{(L0)}: $\varphi \vee \neg \varphi$. Das ist das Axiom vom ausgeschlossenen Dritten. Es besagt einfach: Es regnet, oder es regnet nicht. Oder: Es hat noch Pizza im Kühlschrank, oder es hat keine Pizza im Kühlschrank --- es gibt nichts dazwischen. Das ist also nichts Schlimmes. 
+
+Bei \textbf{(L1)}, $\varphi \to (\psi \to \varphi)$, kann man sagen: Wenn $\varphi$ gilt, dann ist es egal, was für $\psi$ gilt; $\varphi$ gilt immer noch. Das heißt: Wenn ich müde bin und Sie singen Karaoke, dann bin ich immer noch müde. Das ist die Idee dahinter. Hier ist es natürlich nur eine formale Formel, aber so ergibt es Sinn. 
+
+Bei den weiteren Axiomen wird es dann etwas komplizierter. Man muss sich einmal überlegen, was das genau heißt, und versuchen, es in eine Alltagssituation zu übersetzen. Es ist auch spaßig, sich diese Sachen zu überlegen. 
+
+Oder hier bei \textbf{(L3)} und \textbf{(L4)} sieht man wieder gut, dass es Sinn ergibt: $\varphi \wedge \psi$ impliziert insbesondere $\varphi$. Also: Wenn ich Pizza esse und Cola trinke, dann esse ich Pizza. Und gleichzeitig: Wenn ich Pizza esse und Cola trinke, dann trinke ich Cola. Das sind alles sehr natürliche Arten, wie wir eigentlich über diese Zeichen nachdenken.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Die logischen Axiome]
+Der Dozent zeigt eine Folie mit den logischen Axiomen (L0) bis (L10).
+\end{meta-note}
+
+\begin{math-stroke}[Die logischen Axiome L0 bis L10]
+Sei $\mathcal{L}$ eine Signatur und seien $\varphi, \varphi_1, \varphi_2, \psi, \psi_1$ und $\psi_2$ beliebige $\mathcal{L}$-Formeln:
+\begin{align*}
+\mathbf{L_0}\colon &\quad \varphi \vee \neg \varphi \\
+\mathbf{L_1}\colon &\quad \varphi \to (\psi \to \varphi) \\
+\mathbf{L_2}\colon &\quad (\varphi \to (\psi_1 \to \psi_2)) \to ((\varphi \to \psi_1) \to (\varphi \to \psi_2)) \\
+\mathbf{L_3}\colon &\quad (\varphi \wedge \psi) \to \varphi \\
+\mathbf{L_4}\colon &\quad (\varphi \wedge \psi) \to \psi \\
+\mathbf{L_5}\colon &\quad \varphi \to (\psi \to (\varphi \wedge \psi)) \\
+\mathbf{L_6}\colon &\quad \varphi \to (\varphi \vee \psi) \\
+\mathbf{L_7}\colon &\quad \psi \to (\varphi \vee \psi) \\
+\mathbf{L_8}\colon &\quad (\varphi_1 \to \psi) \to ((\varphi_2 \to \psi) \to ((\varphi_1 \vee \varphi_2) \to \psi)) \\
+\mathbf{L_9}\colon &\quad (\varphi \to \psi) \to ((\varphi \to \neg \psi) \to \neg \varphi) \\
+\mathbf{L_{10}}\colon &\quad \neg \neg \varphi \to \varphi
+\end{align*}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:17:09 - 01:19:09]
+Das sind diese Axiomenschemata, insbesondere die ersten elf Axiome. Dann gibt es weitere, die regeln ein bisschen die Quantoren. Auch da ist die Idee ganz natürlich: Wenn etwas für alle Variablen gilt, dann gilt es auch für einen konkreten Term; und wenn etwas für einen konkreten Term gilt, dann existiert insbesondere ein Element, für das es gilt. Das sind so die Ideen, wie die Quantoren geregelt sind. Diese Axiome regeln also das Verhalten der Quantoren. 
+
+Dann gibt es noch weitere Axiome, welche das Zusammenspiel der Quantoren mit den Implikationen beschreiben. Überlegen Sie sich auch hier einmal in Ruhe, was diese genau aussagen. Und schließlich gibt es noch Axiome, die das Verhalten der Gleichheitssymbole und der Funktionssymbole regeln. 
+
+Wir haben jetzt keine Zeit mehr, das alles im Detail zu besprechen. Wir werden nächste Woche noch etwas mehr darauf eingehen, aber ich würde Ihnen wirklich vorschlagen, sich das selbst einmal anzuschauen. 
+
+Das erste Übungsblatt dient vor allem dazu, dass Sie etwas geläufiger darin werden, diese Formeln aufzuschreiben, sie zu interpretieren und alltägliche Aussagen in Formeln zu übersetzen. In gewissen Elite-Studiengängen in Oxford oder anderswo gibt es oft Vorlesungen --- selbst in nicht-naturwissenschaftlichen Fächern ---, in denen man genau solche Sachen macht, also wirklich formal mit logischen Quantoren zu arbeiten. Das sind einfach gute Übungen, um auch bei alltäglichen Implikationen logische Fehler zu vermeiden.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Weitere logische Axiome]
+Der Dozent zeigt nacheinander weitere Folien mit den Axiomen (L11) bis (L17).
+\end{meta-note}
+
+\begin{math-stroke}[Die logischen Axiome L11 bis L17]
+Sei $\tau$ ein $\mathcal{L}$-Term, $\nu$ eine Variable, und sei die Substitution $\varphi(\nu/\tau)$ zulässig:
+\begin{align*}
+\mathbf{L_{11}}\colon &\quad \forall \nu \varphi(\nu) \to \varphi(\tau) \\
+\mathbf{L_{12}}\colon &\quad \varphi(\tau) \to \exists \nu \varphi(\nu)
+\end{align*}
+
+Sei $\psi$ eine Formel und sei $\nu$ eine Variable mit $\nu \notin \operatorname{frei}(\psi)$:
+\begin{align*}
+\mathbf{L_{13}}\colon &\quad \forall \nu (\psi \to \varphi(\nu)) \to (\psi \to \forall \nu \varphi(\nu)) \\
+\mathbf{L_{14}}\colon &\quad \forall \nu (\varphi(\nu) \to \psi) \to (\exists \nu \varphi(\nu) \to \psi)
+\end{align*}
+
+Seien $\tau_1, \dots, \tau_n, \tau_1', \dots, \tau_n'$ $\mathcal{L}$-Terme, sei $R \in \mathcal{L}$ ein $n$-stelliges Relationssymbol und sei $F \in \mathcal{L}$ ein $n$-stelliges Funktionssymbol:
+\begin{align*}
+\mathbf{L_{15}}\colon &\quad \tau = \tau \\
+\mathbf{L_{16}}\colon &\quad (\tau_1 = \tau_1' \wedge \dots \wedge \tau_n = \tau_n') \to (R(\tau_1, \dots, \tau_n) \to R(\tau_1', \dots, \tau_n')) \\
+\mathbf{L_{17}}\colon &\quad (\tau_1 = \tau_1' \wedge \dots \wedge \tau_n = \tau_n') \to (F(\tau_1, \dots, \tau_n) = F(\tau_1', \dots, \tau_n'))
+\end{align*}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:19:09 - 01:19:29]
+Okay, nächste Woche werden wir dann sehen, wie wir mithilfe dieser Axiome und gewisser logischer Schlussfolgerungen Beweise führen können. Vielen Dank fürs Kommen und bis nächste Woche!
+\end{spoken-clean}
+
+\begin{meta-note}[Vorlesungsende]
+Die Vorlesung ist offiziell beendet. Die Studierenden packen ihre Sachen zusammen, und der Dozent beantwortet noch individuelle Fragen am Pult.
+\end{meta-note}
+
+\begin{spoken-clean}[01:19:29 - 01:26:27]
+\inlinemetanote{Die Vorlesung ist beendet. Es finden noch informelle Gespräche zwischen dem Dozenten und einzelnen Studierenden statt, die akustisch nicht verständlich sind.}
+\end{spoken-clean}
+
+\begin{nice-box}[Zusammenfassung der Kernkonzepte]
+\begin{itemize}
+    \item \textbf{Signatur ($\mathcal{L}$):} Die Menge der nicht-logischen Symbole (Konstanten-, Funktions- und Relationssymbole) einer Theorie.
+    \item \textbf{Terme:} Syntaktische Objekte, die induktiv aus Variablen, Konstanten und Funktionssymbolen aufgebaut werden.
+    \item \textbf{Formeln:} Logische Aussagen, die aus Termen mittels Relationssymbolen, logischen Operatoren ($\neg, \wedge, \vee, \rightarrow$) und Quantoren ($\exists, \forall$) gebildet werden.
+    \item \textbf{Freie und gebundene Variablen:} Eine Variable ist gebunden, wenn sie im Wirkungsbereich eines Quantors steht, andernfalls ist sie frei.
+    \item \textbf{Substitution:} Das Ersetzen einer freien Variable durch einen Term. Eine Substitution ist zulässig, wenn keine Variable des neuen Terms durch einen Quantor der Formel gebunden wird.
+    \item \textbf{Logische Axiome:} Grundlegende, formal ausgezeichnete Formeln (L0 bis L17), die das logische Schließen und den Umgang mit Quantoren und Gleichheit regeln.
+\end{itemize}
+\end{nice-box}
