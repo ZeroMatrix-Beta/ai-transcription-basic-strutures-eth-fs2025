@@ -17,11 +17,10 @@
 \usepackage{mathpazo}
 
 % --- EMPHASIS STYLE OVERRIDE ---
-\DeclareTextFontCommand{\emph}{\sffamily\bfseries\color{SlateBlue4}}
+\DeclareTextFontCommand{\emph}{\sffamily\bfseries}
 
 \usepackage[margin=1in, headheight=35pt]{geometry}
-\usepackage[dvipsnames,  x11names]{xcolor}
-\definecolor{DarkSlateGray}{HTML}{2F4F4F} % Exakte W3C/X11-Definition (#2F4F4F), da xcolor in x11names nur DarkSlateGray1..4 enthält
+\usepackage[dvipsnames, x11names]{xcolor}
 \usepackage{hyperref}
 \usepackage[nameinlink, capitalize]{cleveref}
 
@@ -45,14 +44,14 @@ bookmarksopen=true
 \tcbset{
   dynamic shadow/.code={
     \ifinsideproof
-      \tcbset{drop fuzzy shadow=OliveGreen!40} 
+      \tcbset{drop fuzzy shadow=ForestGreen!40} 
     \else
       \tcbset{drop fuzzy shadow=black!50}
     \fi
   },
   dynamic color shadow/.code={
     \ifinsideproof
-      \tcbset{drop fuzzy shadow=OliveGreen!40} 
+      \tcbset{drop fuzzy shadow=ForestGreen!40} 
     \else
       \tcbset{drop fuzzy shadow=#1}
     \fi
@@ -106,7 +105,7 @@ topsep=\customenvspace,
 itemsep=0.4ex plus 0.1ex,
 parsep=\parskip,
 partopsep=0pt,
-label=\textcolor{RoyalPurple}{\bfseries(\alph*)}, % Changed to RoyalPurple for elegant contrast
+label=\textbf{\textcolor{RoyalPurple}{(\alph*)}}, % Changed to RoyalPurple for elegant contrast
 ref=(\alph*)
 }
 \setlist[description]{
@@ -153,15 +152,15 @@ labelsep=0.333em plus 0.167em minus 0.111em
 \DeclareMathOperator{\Vol}{Vol}
 
 % Custom text commands
-\newcommand{\newterm}[1]{\glqq\textcolor{SlateBlue4}{#1}\grqq} % Changed to SlateBlue4 for design token harmony
+\newcommand{\newterm}[1]{\glqq\textcolor{BrickRed!85!black}{#1}\grqq} % Changed to a deep, rich burgundy
 \newcommand{\inlinemetanote}[1]{\textit{[\textcolor{Gray}{#1}]}}
 
-\DeclareTextFontCommand{\textbf}{\sffamily\bfseries\color{MidnightBlue!55!DarkSlateGray!RawSienna}} 
+\DeclareTextFontCommand{\textbf}{\sffamily\bfseries\color{MidnightBlue!85!black}} 
 
 % Custom Theorem Style
 \newtheoremstyle{royalpurplethm}%
 {\customenvspace}{\customenvspace}{\normalfont}{}{\color{RoyalPurple}\sffamily\bfseries}{:}{0.5em}%
-{\thmname{\sffamily\bfseries#1}\thmnumber{\sffamily\bfseries #2}\thmnote{ \textcolor{RoyalPurple}{\bfseries(}{\normalfont\sffamily\textit{#3}}\textcolor{RoyalPurple}{\bfseries)}}}
+{\thmname{#1}\thmnumber{ #2}\thmnote{ \textcolor{RoyalPurple}{\bfseries(}{\normalfont\sffamily\textit{#3}}\textcolor{RoyalPurple}{\bfseries)}}}
 
 \theoremstyle{royalpurplethm}
 
@@ -174,9 +173,6 @@ labelsep=0.333em plus 0.167em minus 0.111em
 \newtheorem{example}[theorem]{Beispiel}
 \newtheorem{examples}[theorem]{Beispiele}
 \newtheorem{exercise}[theorem]{Übung}
-\newtheorem{axiom}[theorem]{Axiom}
-\newtheorem{property}[theorem]{Eigenschaft}
-\newtheorem{principle}[theorem]{Prinzip}
 
 % Unnumbered Environments (Deutsch)
 \newtheorem*{theorem*}{Satz}
@@ -187,9 +183,6 @@ labelsep=0.333em plus 0.167em minus 0.111em
 \newtheorem*{example*}{Beispiel}
 \newtheorem*{examples*}{Beispiele}
 \newtheorem*{exercise*}{Übung}
-\newtheorem*{axiom*}{Axiom}
-\newtheorem*{property*}{Eigenschaft}
-\newtheorem*{principle*}{Prinzip}
 
 \newtheorem*{claim}{Behauptung}
 \newtheorem*{claim*}{Behauptung}
@@ -214,15 +207,6 @@ labelsep=0.333em plus 0.167em minus 0.111em
 \crefalias{example}{example}
 \crefalias{examples}{examples}
 \crefalias{exercise}{exercise}
-\crefalias{axiom}{axiom}
-\crefalias{property}{property}
-\crefname{axiom}{Axiom}{Axiome}
-\Crefname{axiom}{Axiom}{Axiome}
-\crefname{property}{Eigenschaft}{Eigenschaften}
-\Crefname{property}{Eigenschaft}{Eigenschaften}
-\crefalias{principle}{principle}
-\crefname{principle}{Prinzip}{Prinzipien}
-\Crefname{principle}{Prinzip}{Prinzipien}
 \crefalias{claim}{claim}
 \crefalias{remark}{remark}
 \crefalias{notation}{notation}
@@ -239,12 +223,12 @@ colback=MidnightBlue!5,
 dynamic shadow,
 code={
   \ifinsideproof
-    \tcbset{borderline west={3pt}{0pt}{MidnightBlue!50!OliveGreen}}
+    \tcbset{borderline west={3pt}{0pt}{MidnightBlue!50!ForestGreen}}
   \else
     \tcbset{borderline west={3pt}{0pt}{MidnightBlue}}
   \fi
 },
-title={\sffamily\bfseries\textcolor{\ifinsideproof MidnightBlue!50!OliveGreen\else MidnightBlue\fi}{\faMicrophone\ \ Mündliches Protokoll\ifblank{#1}{}{ [#1]}}},
+title={\sffamily\bfseries\textcolor{\ifinsideproof MidnightBlue!50!ForestGreen\else MidnightBlue\fi}{\faMicrophone\ \ Mündliches Protokoll\ifblank{#1}{}{ [#1]}}},
 attach title to upper={\par\setlength{\parindent}{\standardparindent}\setlength{\parskip}{\customparskip}\vspace{1ex}},
 breakable
 }
@@ -258,8 +242,8 @@ dynamic shadow,
 code={
   \ifinsideproof
     \tcbset{
-      colframe=BurntOrange!50!OliveGreen,
-      boxed title style={colback=BurntOrange!20, colframe=BurntOrange!50!OliveGreen, boxrule=0.5pt}
+      colframe=BurntOrange!50!ForestGreen,
+      boxed title style={colback=BurntOrange!20, colframe=BurntOrange!50!ForestGreen, boxrule=0.5pt}
     }
   \else
     \tcbset{
@@ -307,8 +291,8 @@ dynamic color shadow=#1!30,
 code={
   \ifinsideproof
     \tcbset{
-      colframe=#1!50!OliveGreen,
-      boxed title style={colback=white, colframe=#1!50!OliveGreen, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
+      colframe=#1!50!ForestGreen,
+      boxed title style={colback=white, colframe=#1!50!ForestGreen, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
     }
   \else
     \tcbset{
@@ -340,8 +324,8 @@ attach boxed title to top left={xshift=10pt, yshift=-10pt},
 code={
   \ifinsideproof
     \tcbset{
-      colframe=#2!50!OliveGreen,
-      boxed title style={colback=white, colframe=#2!50!OliveGreen, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
+      colframe=#2!50!ForestGreen,
+      boxed title style={colback=white, colframe=#2!50!ForestGreen, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
     }
   \else
     \tcbset{
@@ -370,40 +354,14 @@ code={
 \NewChalkBox{magenta-box}{Magenta}{Magenta!30}
 \NewChalkBox{brown-box}{Brown}{Brown!30}
 \NewChalkBox{pink-box}{Pink}{Pink!30}
-\newcommand{\NewFormulaBox}[3]{%
-\newtcolorbox{#1}[1][Hervorgehobene Tafelformel]{%
-enhanced,
-colback=white,
-fonttitle=\bfseries\sffamily,
-coltitle=black,
-title=\faSquareRootAlt\ \ ##1,
-boxrule=1.5pt,
-arc=4pt,
-dynamic color shadow=#3,
-attach boxed title to top left={xshift=10pt, yshift=-10pt},
-code={
-  \ifinsideproof
-    \tcbset{
-      colframe=#2!50!OliveGreen,
-      boxed title style={colback=white, colframe=#2!50!OliveGreen, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
-    }
-  \else
-    \tcbset{
-      colframe=#2,
-      boxed title style={colback=white, colframe=#2, boxrule=0.5pt, top=2pt, bottom=2pt, left=4pt, right=4pt}
-    }
-  \fi
-}
-}%
-}
 
-\NewFormulaBox{orange-formula}{BurntOrange}{BurntOrange!30}
-\NewFormulaBox{blue-formula}{MidnightBlue}{MidnightBlue!30}
-\NewFormulaBox{dark-green-formula}{ForestGreen}{ForestGreen!30}
-\NewFormulaBox{apple-green-formula}{LimeGreen}{LimeGreen!30}
-\NewFormulaBox{yellow-formula}{Goldenrod!90!black}{Goldenrod!30}
-\NewFormulaBox{violet-formula}{Violet}{Violet!30}
-\NewFormulaBox{red-formula}{BrickRed}{BrickRed!30}
+\NewChalkBox{orange-formula}{BurntOrange}{BurntOrange!30}
+\NewChalkBox{blue-formula}{MidnightBlue}{MidnightBlue!30}
+\NewChalkBox{dark-green-formula}{ForestGreen}{ForestGreen!30}
+\NewChalkBox{apple-green-formula}{LimeGreen}{LimeGreen!30}
+\NewChalkBox{yellow-formula}{Goldenrod!90!black}{Goldenrod!30}
+\NewChalkBox{violet-formula}{Violet}{Violet!30}
+\NewChalkBox{red-formula}{BrickRed}{BrickRed!30}
 
 % 5. Mathematical Setup (Stroke-by-Stroke)
 \NewTColorBox{math-stroke}{ O{} }{
@@ -412,17 +370,16 @@ frame hidden,
 colback=white,
 opacityback=0, 
 breakable,
-before upper={\setlength{\parskip}{\customparskip}\setlength{\parindent}{0pt}},
 code={
   \ifinsideproof
-    \tcbset{borderline west={2pt}{0pt}{MidnightBlue!50!OliveGreen}}
+    \tcbset{borderline west={2pt}{0pt}{MidnightBlue!50!ForestGreen}}
   \else
     \tcbset{borderline west={2pt}{0pt}{MidnightBlue!50}}
   \fi
   \ifblank{#1}{
     \tcbset{notitle}
   }{
-    \tcbset{title={\sffamily\bfseries\textcolor{\ifinsideproof MidnightBlue!50!OliveGreen\else MidnightBlue\fi}{\faChalkboard\ \ #1}}, attach title to upper=\par\vspace{1ex}}
+    \tcbset{title={\sffamily\bfseries\textcolor{\ifinsideproof MidnightBlue!50!ForestGreen\else MidnightBlue\fi}{\faChalkboard\ \ #1}}, attach title to upper=\par\vspace{1ex}}
   }
 }
 }
@@ -473,19 +430,19 @@ colback=Violet!5,
 dynamic shadow,
 code={
   \ifinsideproof
-    \tcbset{borderline west={3pt}{0pt}{Violet!50!OliveGreen}}
+    \tcbset{borderline west={3pt}{0pt}{Violet!50!ForestGreen}}
   \else
     \tcbset{borderline west={3pt}{0pt}{Violet}}
   \fi
 },
-title={\sffamily\bfseries\textcolor{\ifinsideproof Violet!50!OliveGreen\else Violet\fi}{\faUserGraduate\ \ #1}},
+title={\sffamily\bfseries\textcolor{\ifinsideproof Violet!50!ForestGreen\else Violet\fi}{\faUserGraduate\ \ #1}},
 attach title to upper=\par\vspace{1ex},
 breakable
 }
 
 % 9. Explanation of Steps
-\newenvironment{explanation-of-steps}[1][Erklärung]{
-\par\vspace{1ex}\noindent\textbf{\textcolor{OliveGreen}{\faListUl\ \ #1:}}
+\newenvironment{explanation-of-steps}[1][Erklärung der Schritte]{
+\par\vspace{1ex}\noindent\textbf{\textcolor{\ifinsideproof MidnightBlue!50!ForestGreen\else MidnightBlue\fi}{\faListUl\ \ #1:}}
 }{
 \par\vspace{1ex}
 }
@@ -507,29 +464,31 @@ breakable
     \par\addvspace{2ex plus 0.5ex minus 0.2ex}
     \insideprooftrue 
     % Icon is now inline, acting like a normal character!
-    \noindent\textcolor{OliveGreen}{\faPenNib}\hspace{0.5em}%
-    {\normalfont\sffamily\bfseries\color{OliveGreen}#1}%
+    \noindent\textcolor{ForestGreen}{\faPenNib}\hspace{0.5em}%
+    {\normalfont\sffamily\bfseries\color{ForestGreen}#1}%
     \par\nobreak\vspace{1ex plus .2ex}\vspace{-\parskip}
     \@afterindentfalse\@afterheading
 }{
     \par\vspace{-2ex}\hfill % Tucked up nicely
-    \tikz[baseline=(Q.base)]\node[draw=OliveGreen, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=OliveGreen, drop shadow={shadow xshift=0.5ex, shadow yshift=-0.5ex, fill=OliveGreen, opacity=0.4}] (Q) {Q.E.D.};
+    \tikz[baseline=(Q.base)]\node[draw=ForestGreen, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=ForestGreen, drop shadow={shadow xshift=0.5ex, shadow yshift=-0.5ex, fill=ForestGreen, opacity=0.4}] (Q) {Q.E.D.};
     \par\vspace{2ex}
 }
 
-% LONG PROOF (Matches section font size, no watermark)
+% LONG PROOF (Matches section font size, includes watermark)
 \renewenvironment{proof}[1][Beweis]{
     \par\addvspace{3.5ex plus 1ex minus .2ex}
     \insideprooftrue 
-    \noindent\makebox[0pt][r]{\textcolor{OliveGreen}{\faPenNib}\hspace{10pt}}%
-    {\normalfont\sffamily\Large\bfseries\color{OliveGreen}#1}%
+    \noindent\makebox[0pt][r]{\textcolor{ForestGreen}{\faPenNib}\hspace{10pt}}%
+    {\normalfont\sffamily\Large\bfseries\color{ForestGreen}#1}%
     \par\nobreak\vspace{1.5ex plus .2ex}\vspace{-\parskip}
     \@afterindentfalse\@afterheading
 }{
     % Increased negative space to perfectly counteract the tcolorbox after-skip!
     \par\vspace{-4ex}\hfill 
     \tikz[baseline=(Q.base)]{
-        \node[draw=OliveGreen, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=OliveGreen, drop shadow={shadow xshift=0.5ex, shadow yshift=-0.5ex, fill=OliveGreen, opacity=0.4}] (Q) {Q.E.D.};
+        \node[draw=ForestGreen, fill=white, line width=1pt, rounded corners=2pt, inner xsep=4pt, inner ysep=2pt, font=\sffamily\bfseries\small, text=ForestGreen, drop shadow={shadow xshift=0.5ex, shadow yshift=-0.5ex, fill=ForestGreen, opacity=0.4}] (Q) {Q.E.D.};
+        % Restored Watermark: Drawn at the END so it sits ON TOP of the white boxes!
+        \node[overlay, rotate=35, scale=7, text=ForestGreen, opacity=0.15, font=\sffamily\bfseries, xshift=-7cm, yshift=5cm] at (Q.center) {BEWEIS};
     }
     \par\vspace{2ex}
 }
@@ -579,9 +538,10 @@ code={
     \tcbset{colframe=BrickRed}
   \fi
 },
+title={\sffamily\bfseries\textcolor{white}{\faExclamationTriangle\ \ ##1}},
 fonttitle=\sffamily\bfseries,
-coltitle=white,
-title=\faExclamationTriangle\ \ ##1,
+coltitle=BrickRed!75!black,
+title={##1},
 breakable
 }
 }
@@ -651,10 +611,6 @@ breakable
 
 \begin{document}
 
-\include{content/week1-step4-02-17-25-tuesday-all-offset-final.tex}
-\include{content/week2-step4-02-24-25-tuesday-all-offset-final.tex}
-\include{content/week3-step4-03-03-25-tuesday-all-offset-final.tex}
+\input{step4-03-31-25-tuesday-all-offset-final.tex}
 
-\include{content/step4-03-31-25-tuesday-all-offset-final.tex}
-\include{content/step5-04-14-25-tuesday-all-offset-last_try.tex}
 \end{document}
