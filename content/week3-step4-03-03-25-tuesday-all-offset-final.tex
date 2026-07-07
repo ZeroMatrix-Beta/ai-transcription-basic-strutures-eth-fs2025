@@ -83,11 +83,14 @@ Die Signatur der Theorie der dichten linearen Ordnungen ist $\mathcal{L}_{\text{
 Der Dozent schaltet den Projektor aus und wechselt zur Tafel, um die Peano-Arithmetik einzuführen.
 \end{meta-note}
 
-\begin{spoken-clean}[00:04:20 - 00:07:37]
+\begin{spoken-clean}[00:04:20 - 00:06:29]
 Gut, dann schauen wir uns noch eines an. Das möchte ich noch ein bisschen ausführen, deswegen machen wir das an der Wandtafel: Das ist die Peano-Arithmetik. Benannt nach Giuseppe Peano. Er hat in der zweiten Hälfte des 19. Jahrhunderts gelebt, ein italienischer Mathematiker. Er hat sehr viel Einflussreiches in der Logik gemacht. Ich glaube, viele bekannte Mengennotationen gehen auf ihn zurück. Also dass man so einen Haken schreibt für den Durchschnitt von Mengen und so etwas für die Vereinigung, geht glaube ich auf Peano zurück. Er hat auch 1897 auf dem Internationalen Mathematikerkongress hier in Zürich einen Vortrag gehalten.
 
 Und er hat diese Peano-Axiome formuliert. Die Idee war eigentlich, die natürlichen Zahlen in Axiome zu fassen. So wie wir es formulieren, sind es zwar nicht die ganzen natürlichen Zahlen, aber es geht in die Richtung --- Sie werden es sehen. Haben Sie die Peano-Axiome schon einmal in einer anderen Vorlesung gesehen? Manchmal macht man das in der Linearen Algebra oder Analysis. Nein? Ist gut, dann machen wir es hier.
+\end{spoken-clean}
 
+\subsection{Signatur der Peone-Arithmetik} % Neu eingefügt.
+\begin{spoken-clean}[00:06:29 - 00:07:37]
 Hier haben wir die Signatur der Peano-Arithmetik. Das ist $0$, $S$, $+$ und $\cdot$. Dabei ist $0$ ein Konstantensymbol. Dann ist $S$ ein Funktionssymbol, und zwar ein einstelliges. Dann haben wir $+$, das ist ein zweistelliges Funktionssymbol, und $\cdot$ ist auch ein zweistelliges Funktionssymbol. Wenig erstaunlich, das ist einfach das, was wir bereits gesehen haben.
 
 Das Einzige, was vielleicht ein bisschen komisch ist, ist dieses $S$ hier. Der Name von $S$ ist Nachfolgerfunktion. Die Intuition dahinter ist eigentlich, die natürlichen Zahlen zu konstruieren, indem man quasi zählt. Man beginnt mit $0$, das ist einfach eine Konstante, von der man weiß, dass es sie gibt. Und dann gibt es noch $S$. Die Idee dahinter ist, man macht quasi $+1$. Man beginnt also bei $0$, dann macht man $+1$. Wenn man nochmals $S$ anwendet, dann kommt $+2$ und so weiter. Je nachdem, wie oft man $S$ anwendet, kommt man halt dann zu einer bestimmten Zahl.
@@ -107,42 +110,50 @@ wobei:
 \end{itemize}
 \end{math-stroke}
 
+
+\subsection{Axiome der Peano-Arithmetik}
 \begin{spoken-clean}[00:07:37 - 00:11:00]
-Die Axiome der Peano-Arithmetik sind nun die folgenden Formeln. Wir haben $\text{PA}_0$. Das sagt: Es existiert kein $x$, sodass $S(x) = 0$ ist. Die Idee dahinter --- auch wenn das hier nur Formeln sind --- ist: $0$ ist nicht der Nachfolger von irgendeinem anderen Element.
+Die Axiome der Peano-Arithmetik sind nun die folgenden Formeln. Wir haben $\textbf{PA}_{\textbf{0}}$. Das sagt: Es existiert kein $x$, sodass $S(x) = 0$ ist. Die Idee dahinter --- auch wenn das hier nur Formeln sind --- ist: $0$ ist nicht der Nachfolger von irgendeinem anderen Element.
 
-Gut, dann haben wir $\text{PA}_1$. Das sagt uns, dass diese Nachfolgerfunktion injektiv sein soll. Wie kann man das formulieren? Für alle $x$ und für alle $y$ gilt: $S(x) = S(y)$ impliziert $x = y$. Das ist genau die Formel, mit der man ausdrücken möchte, dass $S$ injektiv ist.
+Gut, dann haben wir $\textbf{PA}_{\textbf{1}}$. Das sagt uns, dass diese Nachfolgerfunktion injektiv sein soll. Wie kann man das formulieren? Für alle $x$ und für alle $y$ gilt: $S(x) = S(y)$ impliziert $x = y$. Das ist genau die Formel, mit der man ausdrücken möchte, dass $S$ injektiv ist.
 
-Dann haben wir $\text{PA}_2$. Es gibt insgesamt sieben von diesen Axiomen. Das sagt, dass für alle $x$ gilt: $x + 0 = x$. Jetzt regeln wir die Addition. Wir wollen, dass $0$ das rechtsneutrale Element ist.
+Dann haben wir $\textbf{PA}_{\textbf{2}}$. Es gibt insgesamt sieben von diesen Axiomen. Das sagt, dass für alle $x$ gilt: $x + 0 = x$. Jetzt regeln wir die Addition. Wir wollen, dass $0$ das rechtsneutrale Element ist.
 
-Dann haben wir $\text{PA}_3$. Das sagt: Für alle $x$ und für alle $y$ haben wir $x +$ den Nachfolger von $y$. Das kann man quasi als $x + (y + 1)$ lesen, und das soll dasselbe sein wie der Nachfolger von $x + y$. Okay? Also ob man das $S$ einfach auf das hintere Element anwendet oder auf beide zusammen, es kommt dasselbe heraus.
+Dann haben wir $\textbf{PA}_{\textbf{3}}$. Das sagt: Für alle $x$ und für alle $y$ haben wir $x +$ den Nachfolger von $y$. Das kann man quasi als $x + (y + 1)$ lesen, und das soll dasselbe sein wie der Nachfolger von $x + y$. Okay? Also ob man das $S$ einfach auf das hintere Element anwendet oder auf beide zusammen, es kommt dasselbe heraus.
 
-Dann haben wir $\text{PA}_4$. Jetzt kommt noch die Multiplikation. Das sagt: Für alle $x$ gilt $x \cdot 0$ --- wir schreiben den Punkt natürlich dazwischen --- ist $0$.
+Dann haben wir $\textbf{PA}_{\textbf{4}}$. Jetzt kommt noch die Multiplikation. Das sagt: Für alle $x$ gilt $x \cdot 0$ --- wir schreiben den Punkt natürlich dazwischen --- ist $0$.
 \end{spoken-clean}
 
 \begin{spoken-clean}[00:11:00 - 00:15:10]
-Dann kommt noch $\text{PA}_5$. Das sagt: Für alle $x$ und für alle $y$ ist $x \cdot$ der Nachfolger von $y$ dasselbe wie $x \cdot y + x$. Gut. Soweit also diese ersten Axiome.
+Dann kommt noch $\textbf{PA}_{  \textbf{5}}$. Das sagt: Für alle $x$ und für alle $y$ ist $x \cdot$ der Nachfolger von $y$ dasselbe wie $x \cdot y + x$. Gut. Soweit also diese ersten Axiome.
 
-Und jetzt kommt noch ein Axiomenschema. Was ist ein Axiomenschema? Das heißt wieder, es ist eine riesig große Menge von Axiomen. Für jede Formel haben wir ein Axiom. Und das ist dieses Induktionsaxiom. Und zwar sagen wir: Wenn $\varphi$ eine Formel mit dieser Signatur ist und $\nu$ eine freie Variable in dieser Formel, dann haben wir $\text{PA}_6$, also eben dieses ganze Schema. Im Prinzip wollen wir sagen: Wenn eine Formel für $0$ stimmt, und wenn sie für ein $x$ stimmt, dann auch für dessen Nachfolger --- dann stimmt sie für alle. Wir wollen also einfach das Prinzip des Induktionsbeweises in ein Axiomenschema hineinstecken.
+Und jetzt kommt noch ein Axiomenschema. Was ist ein Axiomenschema? Das heißt wieder, es ist eine riesig große Menge von Axiomen. Für jede Formel haben wir ein Axiom. Und das ist dieses Induktionsaxiom. Und zwar sagen wir: Wenn $\varphi$ eine Formel mit dieser Signatur ist und $\nu$ eine freie Variable in dieser Formel, dann haben wir $\textbf{PA}_{\textbf{6}}$, also eben dieses ganze Schema. Im Prinzip wollen wir sagen: Wenn eine Formel für $0$ stimmt, und wenn sie für ein $x$ stimmt, dann auch für dessen Nachfolger --- dann stimmt sie für alle. Wir wollen also einfach das Prinzip des Induktionsbeweises in ein Axiomenschema hineinstecken.
 
 Das sagt: Wenn $\varphi(0)$ gilt, und für alle $\nu$ gilt, dass $\varphi(\nu)$ auch $\varphi(S(\nu))$ impliziert... okay, jetzt haben wir keinen Platz mehr, das geht einfach hier weiter, das ist noch Teil der Formel... impliziert das: für alle $\nu$ gilt $\varphi(\nu)$. Okay? Also wenn $\varphi(0)$ gilt, und für alle $\nu$ aus $\varphi(\nu)$ auch $\varphi(S(\nu))$ folgt, dann folgt aus diesen zwei Sachen, dass für alle $\nu$ auch $\varphi(\nu)$ gilt. Das ist genau das, was uns ein Induktionsbeweis sagt. Ich schreibe das einfach hin: Das ist das Induktionsaxiom.
 \end{spoken-clean}
 
-\begin{math-stroke}[Die Axiome der Peano-Arithmetik]
-Die Axiome der Peano-Arithmetik sind:
-\begin{align*}
-\mathbf{PA_0}\colon &\quad \neg \exists x \, (S(x) = 0) \\
-\mathbf{PA_1}\colon &\quad \forall x \forall y \, (S(x) = S(y) \to x = y) \\
-\mathbf{PA_2}\colon &\quad \forall x \, (x + 0 = x) \\
-\mathbf{PA_3}\colon &\quad \forall x \forall y \, (x + S(y) = S(x + y)) \\
-\mathbf{PA_4}\colon &\quad \forall x \, (x \cdot 0 = 0) \\
-\mathbf{PA_5}\colon &\quad \forall x \forall y \, (x \cdot S(y) = (x \cdot y) + x)
-\end{align*}
 
-\textbf{Induktionsschema:}
-Sei $\varphi$ eine $\mathcal{L}_{\text{PA}}$-Formel und $\nu$ eine freie Variable in $\varphi$.
-\begin{align*}
-\mathbf{PA_6}\colon &\quad \bigl( \varphi(0) \land \forall \nu \, (\varphi(\nu) \to \varphi(S(\nu))) \bigr) \to \forall \nu \, \varphi(\nu)
-\end{align*}
+\begin{math-stroke}[Die Axiome der Peano-Arithmetik]
+\begin{axioms}[Peano-Arithmetik] % Wir benutzten Mehrzahl hier, ``axioms'', nicht ``axiom''
+Folgende Axiome bilden die Peano-Arithmetik:
+\begin{align}
+\textbf{PA}_{\textbf{0}}\colon &\quad \neg \exists x \, (S(x) = 0) \label{eq:peano-ax0}\\
+\textbf{PA}_{\textbf{1}}\colon &\quad \forall x \forall y \, (S(x) = S(y) \to x = y) \label{eq:peano-ax1}\\
+\textbf{PA}_{\textbf{2}}\colon &\quad \forall x \, (x + 0 = x) \label{eq:peano-ax2}\\
+\textbf{PA}_{\textbf{3}}\colon &\quad \forall x \forall y \, (x + S(y) = S(x + y)) \label{eq:peano-ax3}\\
+\textbf{PA}_{\textbf{4}}\colon &\quad \forall x \, (x \cdot 0 = 0) \label{eq:peano-ax4}\\
+\textbf{PA}_{\textbf{5}}\colon &\quad \forall x \forall y \, (x \cdot S(y) = (x \cdot y) + x) \label{eq:peano-ax5}
+\end{align}
+
+Ausserdem gilt folgendes Induktionsschema.
+Sei $\varphi$ eine $\mathcal{L}_{\text{PA}}$-Formel und $\nu$ eine freie Variable in $\varphi$. Dann gilt:
+
+\begin{align}
+\textbf{PA}_\textbf{6}\colon &\quad \bigl( \varphi(0) \land \forall \nu \, (\varphi(\nu) \to \varphi(S(\nu))) \bigr) \to \forall \nu \, \varphi(\nu) \label{eq:peano-ax6}
+\end{align}
+
+\end{axioms}
+
 \end{math-stroke}
 
 \subsection{Semi-formale Beweise und LEAN}
@@ -214,7 +225,7 @@ Ich glaube, das Ganze geht auch ein bisschen auf die Sprachphilosophie zurück. 
 Machen wir das nun präzise --- allerdings im Kontext einer naiven Mengenlehre und eines gewissen Wahrheitsbegriffs, den wir bereits intuitiv haben.
 \end{spoken-clean}
 
-\subsection{$\mathcal{L}$-Strukturen}
+\subsection{\texorpdfstring{$\mathcal{L}$-Strukturen}{L-Strukturen}}
 
 \begin{spoken-clean}[00:41:33 - 00:43:40]
 Wir haben jetzt also die Definitionen, die wir bereits kennen. Man könnte philosophisch wahrscheinlich noch viel länger erörtern, was genau der Wahrheitsbegriff ist und so weiter. Das machen wir aber nicht. Es wird alles klar werden.
