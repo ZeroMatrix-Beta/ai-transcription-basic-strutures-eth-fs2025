@@ -20,6 +20,14 @@
 % ==========================================
 % GLOBAL COLOR PALETTE & VARIABLES
 % ==========================================
+% 0. CUSTOM COLORS
+%\definecolor{DeepSeaGreen}{HTML}{1E3F3E}1E3F3E
+\definecolor{DeepSeaGreen}{HTML}{4A6F6E}
+\definecolor{DeepSeaGreenBright1}{HTML}{335655}
+\definecolor{DeepSeaGreenBright2}{HTML}{4A6F6E}
+
+\definecolor{DarkCaramel}{HTML}{684A31}
+
 % 1. CORE THEME COLORS
 \colorlet{ThemePrimary}{RoyalPurple}
 \colorlet{ThemeSecondary}{MidnightBlue}
@@ -30,12 +38,12 @@
 
 % 2. TEXT & LINKS
 \colorlet{TextEmphColor}{SlateBlue4}
-\colorlet{TextBoldColor}{Brown!80!black} % Das Espresso-Braun
+\colorlet{TextBoldColor}{Brown!80!black} % Das Espresso-Braun #673132
 \colorlet{TextMetaNote}{Gray}
 \colorlet{LinkColor}{MidnightBlue}
 \colorlet{FileColor}{Magenta}
 \colorlet{ItemizeBullet}{ThemeAccent1}
-\colorlet{EnumerateBullet}{ThemeAccent1} 
+\colorlet{EnumerateBullet}{DeepSeaGreen} 
 
 % 3. SHADOWS & PROOF GLOBALS
 \colorlet{ShadowNormal}{black!50}
@@ -310,7 +318,7 @@ bookmarksopen=true
 \DeclareMathOperator{\Vol}{Vol}
 
 % Custom text commands
-\newcommand{\newterm}[1]{\glqq\textcolor{TextEmphColor}{#1}\grqq} 
+\newcommand{\newterm}[1]{\textcolor{BrickRed}{\glqq}\textcolor{TextBoldColor}{\textit{#1}}\textcolor{BrickRed}{\grqq}} 
 \newcommand{\inlinemetanote}[1]{\textit{[\textcolor{TextMetaNote}{#1}]}}
 
 % Custom Theorem Style
@@ -333,6 +341,15 @@ bookmarksopen=true
 \newtheorem{axioms}[theorem]{Axiome}
 \newtheorem{property}[theorem]{Eigenschaft}
 \newtheorem{principle}[theorem]{Prinzip}
+\newtheorem{claim}[theorem]{Behauptung}
+\newtheorem{remark}[theorem]{Bemerkung}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{summary}[theorem]{Zusammenfassung}
+\newtheorem{warmup}[theorem]{Einstieg}
+\newtheorem{question}[theorem]{Frage}
+\newtheorem{answer}[theorem]{Antwort}
+\newtheorem{importantremark}[theorem]{Wichtige Bemerkung}
+\newtheorem{goals}[theorem]{Ziele}
 
 % Unnumbered Environments (Deutsch)
 \newtheorem*{theorem*}{Satz}
@@ -347,21 +364,17 @@ bookmarksopen=true
 \newtheorem*{axioms*}{Axiome}
 \newtheorem*{property*}{Eigenschaft}
 \newtheorem*{principle*}{Prinzip}
-
-\newtheorem*{claim}{Behauptung}
 \newtheorem*{claim*}{Behauptung}
-\newtheorem*{remark}{Bemerkung}
 \newtheorem*{remark*}{Bemerkung}
-\newtheorem{notation}[theorem]{Notation}
 \newtheorem*{notation*}{Notation}
+\newtheorem*{summary*}{Zusammenfassung}
+\newtheorem*{warmup*}{Einstieg}
+\newtheorem*{question*}{Frage}
+\newtheorem*{answer*}{Antwort}
+\newtheorem*{importantremark*}{Wichtige Bemerkung}
+\newtheorem*{goals*}{Ziele}
 
-\newtheorem*{summary}{Zusammenfassung}
-\newtheorem*{warmup}{Einstieg}
-\newtheorem*{question}{Frage}
-\newcommand{\qt}[1]{\textit{``#1''}}
-\newtheorem*{answer}{Antwort}
-\newtheorem*{importantremark}{Wichtige Bemerkung}
-\newtheorem*{goals}{Ziele}
+\newcommand{\qt}[1]{\textit{\textcolor{TextBoldColor}{\glqq}#1\textcolor{TextBoldColor}{\grqq}}}
 
 \crefalias{lemma}{lemma}
 \crefalias{theorem}{theorem}
