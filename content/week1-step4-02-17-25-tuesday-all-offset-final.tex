@@ -561,7 +561,8 @@ Zum Beispiel ist die polnische Notation $= x y$, während die Infix-Notation $x 
 
 \begin{math-stroke}[Präfix- vs. Infix-Notation]
 \begin{center}
-\begin{tabular}{l l}
+\begin{tabular}{l | l}
+    \toprule
     \textbf{Präfix- oder polnische Notation} & \textbf{Infix-Notation} \\ 
     \midrule
     $F x$ & $F(x)$ \\
@@ -570,6 +571,7 @@ Zum Beispiel ist die polnische Notation $= x y$, während die Infix-Notation $x 
     $+ x y$ & $x + y$ \\
     $= x y$ & $x = y$ \\
     $\wedge x y$ & $x \wedge y$ \\
+    \bottomrule
 \end{tabular}
 \end{center}
 
@@ -714,11 +716,13 @@ Dann haben wir noch $\in x y$, in Infix $x \in y$. Was ist hier frei? Auch $x$ u
 
 \begin{math-stroke}[Beispiele für freie und gebundene Variablen]
 \begin{center}
-\begin{tabular}{l l l}
+\begin{tabular}{l | l | l}
+    \toprule
     \textbf{Präfix} & \textbf{Infix} & \textbf{Freie Variablen} \\ 
     \midrule
     $= x y$ & $x = y$ & $x, y$ frei \\
     $\in x y$ & $x \in y$ & $x, y$ frei \\
+    \bottomrule
 \end{tabular}
 \end{center}
 \end{math-stroke}
@@ -739,7 +743,8 @@ Es ließe sich übrigens auch vermeiden, dass man alles in die untere rechte Eck
 
 \begin{math-stroke}[Weitere Beispiele]
 \begin{center}
-\begin{tabular}{l l l}
+\begin{tabular}{l | l | l}
+    \toprule
     \textbf{Präfix} & \textbf{Infix} & \textbf{Freie Variablen} \\ 
     \midrule
     $\vee = x y \neg = x y$ & $x = y \vee \neg(x = y)$ & $x, y$ frei \\
@@ -747,6 +752,7 @@ Es ließe sich übrigens auch vermeiden, dass man alles in die untere rechte Eck
     $\vee \forall x = x y R x y$ & $\forall x (x = y) \vee R(x, y)$ & $x$ kommt sowohl frei als auch \\
     & & gebunden vor. Durch Umbenennung \\
     & & der Variablen lässt sich dies vermeiden. \\
+    \bottomrule
 \end{tabular}
 \end{center}
 \end{math-stroke}
@@ -787,11 +793,13 @@ Eine Substitution ist \newterm{zulässig}, wenn keine Variable in $\tau$ durch Q
 
 \textbf{Beispiele:}
 \begin{center}
-\begin{tabular}{l l l l l}
+\begin{tabular}{l | l | l | l | l}
+    \toprule
     $\varphi$ & $\nu$ & $\tau$ & $\varphi(\nu / \tau)$ & zulässig? \\ 
     \midrule
     $x = y$ & $x$ & $c$ & $c = y$ & ja \\
     $x = y$ & $x$ & $y$ & $y = y$ & ja \\
+    \bottomrule
 \end{tabular}
 \end{center}
 \end{math-stroke}
@@ -804,11 +812,13 @@ Und dann betrachten wir $\forall y (x = y)$. Wir substituieren $x$ durch $y$. Wa
 
 \begin{math-stroke}[Weitere Beispiele zur Substitution]
 \begin{center}
-\begin{tabular}{l l l l l}
+\begin{tabular}{l | l | l | l | l}
+    \toprule    
     $\varphi$ & $\nu$ & $\tau$ & $\varphi(\nu / \tau)$ & zulässig? \\ 
     \midrule
     $x = x \wedge \forall x (x = x)$ & $x$ & $c$ & $c = c \wedge \forall x (x = x)$ & ja \\
     $\forall y (x = y)$ & $x$ & $y$ & $\forall y (y = y)$ & nein \\
+    \bottomrule
 \end{tabular}
 \end{center}
 \end{math-stroke}

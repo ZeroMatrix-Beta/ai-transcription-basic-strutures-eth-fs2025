@@ -374,7 +374,7 @@ bookmarksopen=true
 \newtheorem*{importantremark*}{Wichtige Bemerkung}
 \newtheorem*{goals*}{Ziele}
 
-\newcommand{\qt}[1]{\textit{\textcolor{TextBoldColor}{\glqq}#1\textcolor{TextBoldColor}{\grqq}}}
+\newcommand{\qt}[1]{\textit{\textcolor{BrickRed}{\glqq}#1\textcolor{BrickRed}{\grqq}}}
 
 \crefalias{lemma}{lemma}
 \crefalias{theorem}{theorem}
@@ -397,8 +397,32 @@ bookmarksopen=true
 \crefname{principle}{Prinzip}{Prinzipien}
 \Crefname{principle}{Prinzip}{Prinzipien}
 \crefalias{claim}{claim}
+\crefname{claim}{Behauptung}{Behauptungen}
+\Crefname{claim}{Behauptung}{Behauptungen}
 \crefalias{remark}{remark}
+\crefname{remark}{Bemerkung}{Bemerkungen}
+\Crefname{remark}{Bemerkung}{Bemerkungen}
 \crefalias{notation}{notation}
+\crefname{notation}{Notation}{Notationen}
+\Crefname{notation}{Notation}{Notationen}
+\crefalias{summary}{summary}
+\crefname{summary}{Zusammenfassung}{Zusammenfassungen}
+\Crefname{summary}{Zusammenfassung}{Zusammenfassungen}
+\crefalias{warmup}{warmup}
+\crefname{warmup}{Einstieg}{Einstiege}
+\Crefname{warmup}{Einstieg}{Einstiege}
+\crefalias{question}{question}
+\crefname{question}{Frage}{Fragen}
+\Crefname{question}{Frage}{Fragen}
+\crefalias{answer}{answer}
+\crefname{answer}{Antwort}{Antworten}
+\Crefname{answer}{Antwort}{Antworten}
+\crefalias{importantremark}{importantremark}
+\crefname{importantremark}{Wichtige Bemerkung}{Wichtige Bemerkungen}
+\Crefname{importantremark}{Wichtige Bemerkung}{Wichtige Bemerkungen}
+\crefalias{goals}{goals}
+\crefname{goals}{Ziel}{Ziele}
+\Crefname{goals}{Ziel}{Ziele}
 
 % ==========================================
 % VIBRANT SHADOW META-ENVIRONMENTS (Deutsch)
@@ -713,7 +737,7 @@ breakable
 enhanced,
 frame hidden,
 colback=white,
-dynamic shadow,
+opacityback=0,
 code={
   \ifinsideproof
     \tcbset{borderline north={0.5pt}{0pt}{EnvBreakProof, dashed}, borderline south={0.5pt}{0pt}{EnvBreakProof, dashed}}

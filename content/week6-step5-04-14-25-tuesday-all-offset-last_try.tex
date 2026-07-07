@@ -15,7 +15,7 @@
 
 % Primary Language: German
 
-\lecturechapter{Tuesday}{Apr 14th}{April 14th 2025}{Auswahlaxiom und Ordinalzahlen}
+\lecturechapter{Dienstag}{14. Apr}{14. April 2025}{Auswahlaxiom und Ordinalzahlen}
 
 \begin{nice-box}[Agenda der Vorlesung]
 In dieser Vorlesung behandeln wir die folgenden Themen:
@@ -443,11 +443,11 @@ Wie beweisen wir das? Seien $x, y \in A_\lambda$. Das heißt, $x$ liegt in irgen
 \end{spoken-clean}
 
 \begin{math-stroke}[Beweis der linearen Unabhängigkeit und Erzeugendeneigenschaft]
-\begin{remark}
+\begin{remark}[Lineare Unabhängigkeit der Kette]
 Die $A_\beta$ sind linear unabhängig (folgt mit transfiniter Induktion).
 \end{remark}
 
-\begin{claim}
+\begin{claim}[Ketteneigenschaft der Vereinigung]
 $A_\lambda$ ist eine Kette.
 \end{claim}
 \begin{short-proof}
@@ -479,7 +479,7 @@ Die folgenden Aussagen sind äquivalent zu $\text{AC}$:
 
 \subsection{WOP impliziert KZL}
 
-\begin{proof}[Beweis $\text{WOP} \implies \text{KZL}$]
+\begin{proof}[Beweis: $\text{WOP} \implies \text{KZL}$]
 \begin{spoken-clean}[00:52:08 - 00:54:00]
 Gut, wo sind wir? Wir wollen zeigen, dass es ein maximales Element hat. Das Wohlordnungsprinzip haben wir dafür schon verwendet. Wir können das hier an der Tafel auswischen.
 
@@ -510,14 +510,14 @@ t(\delta) & \text{falls } \beta = \delta+1 \text{ und } t(\delta) \cup \{p_\delt
 \]
 Sei $A_\beta$ die durch transfinite Rekursion erhaltene Menge und $A_\lambda = \bigcup_{\beta \in \lambda} A_\beta$.
 
-\begin{claim}
+\begin{claim}[Vereinigung der aufsteigenden Kette ist eine Kette]
 $A_\lambda$ ist eine Kette.
 \end{claim}
 (Beweis analog zu vorher: Die $A_\beta$ bilden eine aufsteigende Folge von Ketten).
 
 Da $A_\lambda$ eine Kette ist, hat sie nach Voraussetzung eine obere Schranke $m \in P$.
 
-\begin{claim}
+\begin{claim}[Maximalität der oberen Schranke]
 $m$ ist ein maximales Element in $P$.
 \end{claim}
 \begin{short-proof}
@@ -575,7 +575,7 @@ Das Teichmüller-Prinzip liefert einen sehr eleganten Beweis für die Existenz v
 
 \subsection{KZL impliziert TP}
 
-\begin{proof}[$\text{KZL} \implies \text{TP}$]
+\begin{proof}[$Beweis:\text{KZL} \implies \text{TP}$]
 \begin{spoken-clean}[01:00:30 - 01:03:00]
 Was wir jetzt beweisen wollen, ist der Satz, dass die folgenden Aussagen äquivalent zum Auswahlaxiom sind: Das erste ist das Wohlordnungsprinzip, das zweite das Kuratowski-Zorn-Lemma und das dritte das Teichmüller-Prinzip. 
 
@@ -625,7 +625,7 @@ Dies beweist das Teichmüller-Prinzip ($\text{TP}$).
 
 \subsection{TP impliziert AC}
 
-\begin{proof}[$\text{TP} \implies \text{AC}$]
+\begin{proof}[Beweis: $\text{TP} \implies \text{AC}$]
 \begin{spoken-clean}[01:05:00 - 01:07:30]
 Wir wissen nun also: Aus dem Kuratowski-Zorn-Lemma folgt das Teichmüller-Prinzip. Jetzt wollen wir noch zeigen, dass das Teichmüller-Prinzip das Auswahlaxiom impliziert.
 
@@ -647,7 +647,7 @@ Gut, vielen Dank fürs Kommen. Ich wünsche Ihnen eine gute Woche und bis nächs
 \end{spoken-clean}
 
 \begin{math-stroke}
-\begin{claim}
+\begin{claim}[Endlicher Charakter der partiellen Auswahlfunktionen]
 $\mathcal{E}$ hat endlichen Charakter.
 \end{claim}
 \begin{short-proof}
@@ -656,7 +656,7 @@ Eine Menge von Paaren $g$ ist genau dann eine partielle Auswahlfunktion, wenn je
 
 Nach dem Teichmüller-Prinzip ($\text{TP}$) besitzt $\mathcal{E}$ ein maximales Element $f_0$.
 
-\begin{claim}
+\begin{claim}[Definitionsbereich der maximalen Auswahlfunktion]
 $\operatorname{dom}(f_0) = \mathcal{F}$.
 \end{claim}
 \begin{short-proof}
