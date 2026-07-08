@@ -1,0 +1,130 @@
+%TODO Put that into system prompt:
+%\newtheorem{axiom}[theorem]{Axiom}
+%\crefalias{axiom}{theorem}
+
+\lecturechapter{Dienstag}{24. Mär}{24. März 2025}{Zermelo-Fraenkel-Axiome und Dedekindsche Schnitte}
+
+\begin{nice-box}[Vorlesungsübersicht]
+Diese Vorlesung bildet das Fundament für die rigorose Einführung der reellen Zahlen. Wir beginnen mit einer kurzen Clicker-Frage zum Vollständigkeitsaxiom, wiederholen das Fundierungsaxiom aus der Zermelo-Fraenkel-Mengenlehre und widmen uns dann der historischen und mathematischen Konstruktion von $\mathbb{R}$ mittels Dedekindscher Schnitte.
+\end{nice-box}
+
+\section{Einleitung und Clicker-Frage}
+
+\begin{spoken-clean}[00:00:00 - 00:01:43]
+Hallo und herzlich willkommen! Ich habe hier eine kleine Clicker-Einstiegsfrage, die Sie auf der Edu-App beantworten können --- eine gute Gelegenheit, um sich kurz zu konzentrieren. Und wenn Sie das gemacht haben, sagen Sie noch kurz Ihrer Nachbarin oder Ihrem Nachbarn Hallo, und dann wählen Sie bitte.
+
+Okay, gut. Wählen Sie noch schnell. 60 Antworten sollten wir schon noch hinkriegen. Okay, tipptopp! Sehr gut, fast 100\,\% richtig. Oder sogar 100\,\% richtig, ja --- keine falschen Aussagen zumindest.
+\end{spoken-clean}
+
+\begin{meta-note}[Projizierter Inhalt: Clicker-Frage]
+Auf dem Projektor wird die folgende Frage angezeigt:
+\begin{center}
+\textbf{Was sagt die folgende Aussage aus?}
+\[
+\forall X \Bigl( \bigl( X \subseteq \mathbb{R} \wedge X \neq \emptyset \wedge \exists r \in \mathbb{R} \; \forall x \in X \, (x \le r) \bigr) \implies \exists s \in \mathbb{R} \; \bigl( \forall x \in X \, (x \le s) \wedge \forall t \in \mathbb{R} \, ( \forall x \in X \, (x \le t) \implies s \le t ) \bigr) \Bigr)
+\]
+\end{center}
+\begin{itemize}
+    \item \textbf{Option 1:} Falls $X$ nichtleer und nach oben beschränkt ist, hat $X$ ein Infimum.
+    \item \textbf{Option 2:} Falls $X$ nichtleer und nach oben beschränkt ist, hat $X$ ein Supremum. (Korrekte Antwort)
+    \item \textbf{Option 3:} Falls $X$ nichtleer und nach unten beschränkt ist, hat $X$ ein Infimum.
+    \item \textbf{Option 4:} Falls $X$ nichtleer und nach unten beschränkt ist, hat $X$ ein Supremum.
+    \item \textbf{Option 5:} Weiß nicht.
+\end{itemize}
+\end{meta-note}
+
+\begin{math-stroke}[Das Vollständigkeitsaxiom in Prädikatenlogik]
+Die auf dem Clicker gezeigte Formel formalisiert das Vollständigkeitsaxiom der reellen Zahlen:
+\begin{equation}
+\label{eq:vollstaendigkeit}
+\forall X \subseteq \mathbb{R} \colon \Big( \bigl( X \neq \emptyset \land \exists r \in \mathbb{R} \; \forall x \in X \colon x \le r \bigr) \implies \exists s \in \mathbb{R} \colon \bigl( \forall x \in X \colon x \le s \land \forall t \in \mathbb{R} \, (\forall x \in X \colon x \le t \implies s \le t) \bigr) \Big)
+\end{equation}
+
+\begin{explanation-of-steps}[Strukturelle Aufschlüsselung der Formel]
+Die Formel lässt sich logisch in zwei Hauptteile zerlegen:
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{Voraussetzung (Prämisse):} 
+    \begin{itemize}
+        \item $X \neq \emptyset$ bedeutet, dass die Teilmenge $X$ nicht leer ist.
+        \item $\exists r \in \mathbb{R} \; \forall x \in X \colon x \le r$ bedeutet, dass $X$ nach oben beschränkt ist (mit einer oberen Schranke $r$).
+    \end{itemize}
+    \item \textbf{Konsequenz (Zielsatz):} Es existiert eine kleinste obere Schranke $s \in \mathbb{R}$ (das Supremum):
+    \begin{itemize}
+        \item $\forall x \in X \colon x \le s$ besagt, dass $s$ eine obere Schranke von $X$ ist.
+        \item \label[axiom]{ax:supremum_def}$\forall t \in \mathbb{R} \, (\forall x \in X \colon x \le t \implies s \le t)$ besagt, dass jede andere obere Schranke $t$ mindestens so groß ist wie $s$.
+    \end{itemize}
+\end{enumerate}
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:01:43 - 00:03:45]
+Genau, das ist das, was diese Aussage besagt. Man muss einfach mal genau hinschauen: Für alle Teilmengen $X$ von $\mathbb{R}$, so dass $X$ nicht leer ist --- also für alle $X$, so dass $X$ eine Teilmenge von $\mathbb{R}$ und $X$ nicht leer ist ---, und es existiert ein $r$, so dass für alle $x \in X$ gilt $x \le r$, folgt, dass ein $s$ existiert, so dass für alle $x \in X$ gilt $x \le s$, und für alle $t$, für die gilt, dass für alle $x \in X$ $x \le t$ ist, folgt $s \le t$.
+
+Das heißt, es existiert ein $s$, und dieses $s$ existiert als Supremum. Wenn also eine menge $X$ nach oben beschränkt ist, dann soll ein solches Supremum existieren --- das heißt, eine obere Schranke, die die kleinste aller oberen Schranken ist. Okay.
+
+Gut, dies nur als eine kleine Aufwärmübung. Und wie Sie sehen, wird heute das Hauptthema der Vorlesung die Konstruktion der reellen Zahlen sein. Sie haben ja schon viel mit den reellen Zahlen gearbeitet und arbeiten wahrscheinlich auch weiterhin viel mit ihnen, aber Sie haben noch nie eine vollständige Konstruktion davon gesehen. Das werden wir hier noch nachholen, wenn auch nicht in allen Details, weil das doch sehr mühsam ist.
+
+Zuerst möchte ich aber noch ganz kurz die Sache mit den Zermelo-Fraenkel-Axiomen anschauen. Moment mal...
+\end{spoken-clean}
+
+\section{Das Fundierungsaxiom (Regularitätsaxiom)}
+
+\begin{spoken-clean}[00:03:45 - 00:05:48]
+Die Zermelo-Fraenkel-Axiome, einfach noch zur Erinnerung: Wir hatten die Axiome von Zermelo, das sind eigentlich die wichtigen, die einleuchtenden: das Axiom der Bestimmtheit, das Axiom der Elementarmengen, das Axiom der Aussonderung, das Axiom der Potenzmenge, das Axiom der Vereinigung, das Axiom der Auswahl und das Axiom des Unendlichen.
+
+Und okay, das ist so, wie es Zermelo formuliert hatte. Wir haben das dann ausgeführt. Letztes Mal haben wir dann noch die zwei zusätzlichen Axiome von Fraenkel hinzugefügt. Da hatten wir nicht mehr so viel Zeit. Das waren das Ersetzungsaxiom und insbesondere auch noch das Fundierungsaxiom.
+
+Und wir haben gesehen, diese sind ein bisschen technischerer Natur. Das Ersetzungsaxiom macht absolut Sinn: Wir wollten, dass quasi Mengen, die durch Formeln bestimmt sind, auch tatsächlich Mengen sind --- so ungefähr. Und das Fundierungsaxiom war vielleicht noch ein bisschen schwieriger zugänglich. Ich kann das nochmals kurz wiederholen, da das letztes Mal ein bisschen zu kurz gekommen ist. Oh, was haben wir da noch?
+
+Das Fundierungsaxiom sagt uns aus: Für alle $x$, so dass $x$ nicht die leere Menge ist, existiert ein $y$, so dass $y \in x$ ist und außerdem der Durchschnitt von $y$ mit $x$ die leere Menge ist. Jetzt muss man da noch die Klammern richtig setzen. Genau.
+\end{spoken-clean}
+
+\begin{ai-global-state-checkpoint-invisible-content}
+% timestamp: 00:05:30
+% topic: Fundierungsaxiom und seine Konsequenzen
+% board_state: def:fundierungsaxiom
+% next_goal: Historischer Überblick und Einführung der reellen Zahlen
+% open_loops: none
+\end{ai-global-state-checkpoint-invisible-content}
+
+\begin{math-stroke}[Das Fundierungsaxiom]
+\begin{axiom}[Fundierungsaxiom / Regularitätsaxiom]\label[axiom]{ax:fundierung}
+Jede nicht-leere Menge $x$ enthält ein Element $y$, das disjunkt zu $x$ ist:
+\begin{equation}
+\label{eq:fundierungsaxiom}
+\forall x \left( x \neq \emptyset \implies \exists y \left( y \in x \land y \cap x = \emptyset \right) \right)
+\end{equation}
+\end{axiom}
+
+\begin{explanation-of-steps}[Konsequenzen des Fundierungsaxioms]
+Das Fundierungsaxiom schließt zirkuläre Mengenstrukturen und unendliche Regresse aus:
+\begin{enumerate}[label=\textbf{(\roman*)}]
+    \item \textbf{Ausschluss von Selbstmitgliedschaft:} Keine Menge kann sich selbst als Element enthalten:
+    \[
+    x \notin x \quad \forall x
+    \]
+    \item \textbf{Ausschluss von Zyklen:} Es gibt keine zyklischen Elementbeziehungen der Form:
+    \[
+    x \in y \land y \in x
+    \]
+    \item \textbf{Ausschluss unendlicher Ketten:} Es existieren keine unendlichen absteigenden Ketten bezüglich der Elementrelation:
+    \[
+    x_0 \ni x_1 \ni x_2 \ni x_3 \ni \dots
+    \]
+\end{enumerate}
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{didactic-insight}[Die Rolle des Fundierungsaxioms]
+Das Fundierungsaxiom sorgt dafür, dass die "`Mengenwelt"' wohlfundiert ist. Es stellt sicher, dass jede Menge hierarchisch aus einfacheren Mengen aufgebaut ist, beginnend bei der leeren Menge $\emptyset$. Ohne dieses Axiom könnte man pathologische Objekte konstruieren, die sich selbst enthalten, was zwar nicht direkt zu Widersprüchen führt, aber die mathematische Struktur unnötig verkompliziert.
+\end{didactic-insight}
+
+\begin{nice-box}[Zusammenfassung der Schlüsselkonzepte]
+In diesem Vorlesungsabschnitt haben wir zwei fundamentale Konzepte behandelt:
+\begin{itemize}
+    \item \textbf{Das Vollständigkeitsaxiom (\eqref{eq:vollstaendigkeit}):} Jede nichtleere, nach oben beschränkte Teilmenge der reellen Zahlen besitzt ein Supremum (eine kleinste obere Schranke) in $\mathbb{R}$.
+    \item \textbf{Das Fundierungsaxiom (\eqref{eq:fundierungsaxiom}):} Jede nichtleere Menge $x$ besitzt ein Element $y$, das disjunkt zu $x$ ist. Dies schließt unendliche absteigende Elementketten und zirkuläre Mengen wie $x \in x$ aus und sichert die Wohlfundiertheit des Mengenuniversums.
+\end{itemize}
+\end{nice-box}
+
+% [SYSTEM] Refinement complete
