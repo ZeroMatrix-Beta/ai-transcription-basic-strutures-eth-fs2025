@@ -20,9 +20,11 @@ Okay, gut. Wählen Sie noch schnell. 60 Antworten sollten wir schon noch hinkrie
 Auf dem Projektor wird die folgende Frage angezeigt:
 \begin{center}
 \textbf{Was sagt die folgende Aussage aus?}
-\[
-\forall X \Bigl( \bigl( X \subseteq \mathbb{R} \wedge X \neq \emptyset \wedge \exists r \in \mathbb{R} \; \forall x \in X \, (x \le r) \bigr) \implies \exists s \in \mathbb{R} \; \bigl( \forall x \in X \, (x \le s) \wedge \forall t \in \mathbb{R} \, ( \forall x \in X \, (x \le t) \implies s \le t ) \bigr) \Bigr)
-\]
+\begin{align}
+&\forall X \Bigl( \bigl( X \subseteq \mathbb{R} \wedge X \neq \emptyset \wedge \exists r \in \mathbb{R} \; \forall x \in X \, (x \le r) \bigr) \\
+&\quad \implies \exists s \in \mathbb{R} \; \bigl( \forall x \in X \, (x \le s) \wedge \forall t \in \mathbb{R} \, ( \forall x \in X \, (x \le t) \\
+&\quad \implies s \le t ) \bigr) \Bigr)
+\end{align}
 \end{center}
 \begin{itemize}
     \item \textbf{Option 1:} Falls $X$ nichtleer und nach oben beschränkt ist, hat $X$ ein Infimum.
@@ -35,10 +37,12 @@ Auf dem Projektor wird die folgende Frage angezeigt:
 
 \begin{math-stroke}[Das Vollständigkeitsaxiom in Prädikatenlogik]
 Die auf dem Clicker gezeigte Formel formalisiert das Vollständigkeitsaxiom der reellen Zahlen:
-\begin{equation}
+\begin{align}
 \label{eq:vollstaendigkeit}
-\forall X \subseteq \mathbb{R} \colon \Big( \bigl( X \neq \emptyset \land \exists r \in \mathbb{R} \; \forall x \in X \colon x \le r \bigr) \implies \exists s \in \mathbb{R} \colon \bigl( \forall x \in X \colon x \le s \land \forall t \in \mathbb{R} \, (\forall x \in X \colon x \le t \implies s \le t) \bigr) \Big)
-\end{equation}
+& \forall X \subseteq \mathbb{R} \colon \Big( \bigl( X \neq \emptyset \land \exists r \in \mathbb{R} \; \forall x \in X \colon x \le r \bigr) \nonumber \\
+& \quad \implies \exists s \in \mathbb{R} \colon \bigl( \forall x \in X \colon x \le s \land \forall t \in \mathbb{R} \, (\forall x \in X \colon x \le t \nonumber \\
+& \quad \implies s \le t) \bigr) \Big)
+\end{align}
 
 \begin{explanation-of-steps}[Strukturelle Aufschlüsselung der Formel]
 Die Formel lässt sich logisch in zwei Hauptteile zerlegen:

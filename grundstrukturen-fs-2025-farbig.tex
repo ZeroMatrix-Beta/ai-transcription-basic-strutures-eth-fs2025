@@ -3,7 +3,9 @@
 % ==========================================
 % NEW VIBRANT SHADOW PREAMBLE
 % ==========================================
+
 \usepackage[utf8]{inputenc}
+
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel} 
 \usepackage{amsmath, amssymb, amsthm, mathtools, environ, etoolbox} 
@@ -44,6 +46,7 @@
 \colorlet{FileColor}{Magenta}
 \colorlet{ItemizeBullet}{ThemeAccent1}
 \colorlet{EnumerateBullet}{DeepSeaGreen} 
+\colorlet{EnumerateBullet}{OliveGreen} 
 
 % 3. SHADOWS & PROOF GLOBALS
 \colorlet{ShadowNormal}{black!50}
@@ -98,7 +101,7 @@
 
 % 8. SECTION BARS
 \colorlet{SecBar1}{ThemePrimary}
-\colorlet{SecBar2}{ThemeAccent2}
+\colorlet{SecBar2}{TextBoldColor}
 \colorlet{SecBar3}{ThemeAccent3!80!black}
 \colorlet{SecBar4}{ThemeAccent4!90!black}
 \colorlet{SecBar1Proof}{SecBar1!50!ProofTint}
@@ -283,19 +286,27 @@ bookmarksopen=true
 % ==========================================
 \usepackage{fancyhdr}
 \usepackage{extramarks}
+\usepackage{lastpage}
 \pagestyle{fancy}
 \fancyhf{}
 
 % FIX: \parbox[b] sorgt dafür, dass sich mehrzeilige Header nach oben ausdehnen 
 % und immer perfekt bündig mit der Seitenzahl auf der Linie aufliegen.
 \fancyhead[L]{\parbox[b]{0.8\textwidth}{\sloppy\raggedright\small\sffamily\color{HeaderFooterFaint}\leftmark}}
-\fancyhead[R]{\parbox[b]{0.18\textwidth}{\sloppy\raggedleft\small\sffamily\bfseries\color{HeaderFooterFaint}\thepage}}
+\fancyhead[R]{\parbox[b]{0.18\textwidth}{\sloppy\raggedleft\small\sffamily\color{HeaderFooterFaint}\textbf{\thepage} / \pageref*{LastPage}}}
 
 \fancyfoot[L]{\parbox[t]{0.47\textwidth}{\sloppy\raggedright\small\sffamily\color{HeaderFooterFaint}\rightmark}}
 \fancyfoot[R]{\parbox[t]{0.47\textwidth}{\sloppy\raggedleft\small\sffamily\color{HeaderFooterFaint}\lastxmark}}
 
 \renewcommand{\headrule}{\hbox to\headwidth{\color{HeaderFooterLine}\leaders\hrule height 0.5pt\hfill}}
 \renewcommand{\footrule}{\hbox to\headwidth{\color{HeaderFooterLine}\leaders\hrule height 0.5pt\hfill}}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\small\sffamily\color{HeaderFooterFaint}\textbf{\thepage} / \pageref*{LastPage}}%
+  \renewcommand{\headrule}{}%
+  \renewcommand{\footrule}{}%
+}
 
 \renewcommand{\sectionmark}[1]{%
 \markright{\thesection.\ #1}%
@@ -791,10 +802,32 @@ breakable
 \NewFallbackBox{ai-async-board-update}
 \NewFallbackBox{ai-kinetic-emphasis}
 
-% Custom Lecture Chapter Command
-\newcommand{\lecturechapter}[4]{%
-  \chapter[#1, #3: #4]{{\Large\color{ThemePrimary}#1: #3} \texorpdfstring{\\[1ex]}{-- } {\LARGE #4}}%
-  \markboth{\chaptername\ \thechapter\ \ ---\ \ #3\ \ ---\ \ #4}{}%
+% Custom Lecture Chapter Command with Optional Semester/Week Number
+\newif\ifrestorelecturesubcounters
+\NewDocumentCommand{\lecturechapter}{ o m m m m }{%
+  \restorelecturesubcountersfalse
+  \IfValueT{#1}{%
+    \ifblank{#1}{}{%
+      \ifnum\numexpr#1\relax=\value{chapter}%
+        \restorelecturesubcounterstrue
+        \edef\TempSec{\the\value{section}}%
+        \edef\TempThm{\the\value{theorem}}%
+        \edef\TempEq{\the\value{equation}}%
+        \edef\TempFig{\the\value{figure}}%
+        \edef\TempTab{\the\value{table}}%
+      \fi
+      \setcounter{chapter}{\numexpr#1-1\relax}%
+    }%
+  }%
+  \chapter[#2, #4: #5]{{\Large\color{ThemePrimary}#2: #4} \texorpdfstring{\\[1ex]}{-- } {\LARGE #5}}%
+  \ifrestorelecturesubcounters
+    \setcounter{section}{\TempSec}%
+    \setcounter{theorem}{\TempThm}%
+    \setcounter{equation}{\TempEq}%
+    \setcounter{figure}{\TempFig}%
+    \setcounter{table}{\TempTab}%
+  \fi
+  \markboth{\chaptername\ \thechapter\ \ ---\ \ #4\ \ ---\ \ #5}{}%
 }
 
 \titlespacing*{\chapter}{0pt}{-20pt}{40pt}
@@ -845,11 +878,31 @@ breakable
 \begin{document}
 
 \include{content/week1-step4-02-17-25-tuesday-all-offset-final.tex}
-\include{content/week2-step4-02-24-25-tuesday-all-offset-final.tex}
+
+\include{content/week2-step5-02-24-25-tuesday-all-offset-last_try.tex}
+
 \include{content/week3-step4-03-03-25-tuesday-all-offset-final.tex}
+
 \include{content/week4-step5-03-10-25-tuesday-all-offset-last_try.tex}
+
 \include{content/week5-step5-03-24-25-tuesday-all-offset-last_try.tex}
+
 \include{content/week6-step4-03-31-25-tuesday-all-offset-final.tex}
+
 \include{content/week7-step5-04-14-25-tuesday-all-offset-last_try.tex}
+
 \include{content/week8-step4-04-21-25-tuesday-all-offset-final.tex}
+
+\include{content/week9-step4-05-05-25-tuesday-all-offset-final.tex}
+
+\include{content/week10-step4-04-28-25-tuesday-all-offset-final.tex}
+
+\include{content/week11-step4-05-05-25-tuesday-all-offset-final.tex}
+
+\include{content/week12-step4-05-12-25-tuesday-all-offset-final.tex}
+
+\include{content/week13-step4-05-19-25-tuesday-all-offset-final.tex}
+
+\include{content/week14-step4-05-26-25-tuesday-all-offset-final.tex}
+
 \end{document}
