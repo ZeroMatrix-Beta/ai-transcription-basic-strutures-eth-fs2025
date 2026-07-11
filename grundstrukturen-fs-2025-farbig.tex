@@ -5,9 +5,27 @@
 % ==========================================
 
 \usepackage[utf8]{inputenc}
-
 \usepackage[T1]{fontenc}
+
+% --- FONT CONFIGURATION ---
+\usepackage{lmodern}
+\usepackage{anyfontsize}
+\usepackage{mathpazo}
+\renewcommand{\sfdefault}{lmss}
+
 \usepackage[ngerman]{babel} 
+\usepackage[final,babel=true]{microtype}
+\usepackage{csquotes}
+
+% --- OPTIMIERTE SILBENTRENNUNG (HYPHENATION TUNING) ---
+\hyphenpenalty=100
+\exhyphenpenalty=100
+\doublehyphendemerits=10000
+\finalhyphendemerits=5000
+\tolerance=1500
+\emergencystretch=3em
+\hfuzz=1pt
+
 \usepackage{amsmath, amssymb, amsthm, mathtools, environ, etoolbox} 
 \usepackage{booktabs}
 \usepackage{fontawesome5}
@@ -15,9 +33,6 @@
 
 % Setzt global "Woche" anstelle von "Kapitel" (angepasst an ngerman)
 \addto\captionsngerman{\renewcommand{\chaptername}{Woche}}
-
-% --- FONT CONFIGURATION ---
-\usepackage{mathpazo}
 
 % ==========================================
 % GLOBAL COLOR PALETTE & VARIABLES
@@ -33,6 +48,7 @@
 % 1. CORE THEME COLORS
 \colorlet{ThemePrimary}{RoyalPurple}
 \colorlet{ThemeSecondary}{MidnightBlue}
+\colorlet{ThemeWeekNumber}{OliveGreen}
 \colorlet{ThemeAccent1}{BurntOrange}
 \colorlet{ThemeAccent2}{TealBlue}
 \colorlet{ThemeAccent3}{ForestGreen}
@@ -93,10 +109,11 @@
 \colorlet{ProofQEDBg}{white}
 
 % 7. HEADER, FOOTER & CHAPTER
-\colorlet{HeaderFooterFaint}{ThemePrimary!45!Gray}
+\colorlet{HeaderFooterFaint}{ThemeWeekNumber!45!Gray}
 \colorlet{HeaderFooterLine}{HeaderFooterFaint!50}
 \colorlet{ChapTitleText}{ThemeSecondary!90!black}
-\colorlet{ChapNumberText}{ThemePrimary!80!black}
+\colorlet{ChapNumberText}{ThemeWeekNumber}
+\colorlet{ChapSubtitleText}{HeaderFooterFaint}
 \colorlet{ChapLine}{ThemeSecondary!80!black}
 
 % 8. SECTION BARS
@@ -124,6 +141,10 @@
 \colorlet{SubSubSecBar2Proof}{SubSubSecBar2!50!ProofTint}
 \colorlet{SubSubSecTitleColor}{ThemePrimary!85!black}
 \colorlet{SubSubSecTitleColorProof}{SubSubSecTitleColor!50!ProofTint}
+
+
+\colorlet{SubSubSecNumberColor}{TextBoldColor}
+\colorlet{SubSubSecNumberColorProof}{SubSubSecNumberColor!50!ProofTint}
 
 
 % --- THEOREM ENVIRONMENT COLORS ---
@@ -308,6 +329,7 @@ bookmarksopen=true
   \renewcommand{\footrule}{}%
 }
 
+\renewcommand{\chaptermark}[1]{}
 \renewcommand{\sectionmark}[1]{%
 \markright{\thesection.\ #1}%
 \extramarks{}{}%
@@ -323,6 +345,37 @@ bookmarksopen=true
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage{titlesec}
+\usepackage{titletoc}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+% --- TABLE OF CONTENTS TYPOGRAPHY & COLORS ---
+\contentsmargin{2.0em}
+
+\titlecontents{chapter}[0em]
+  {\addvspace{16pt}\sffamily\bfseries\large\color{ThemePrimary!95!black}}
+  {\color{ThemeWeekNumber}\MakeUppercase{\chaptername}\ \thecontentslabel\hspace{0.8em}}
+  {}
+  {\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{ThemeWeekNumber}\contentspage}
+
+\titlecontents{section}[1.8em]
+  {\addvspace{5pt}\sffamily\bfseries\color{TextEmphColor}}
+  {\color{ThemePrimary!85!black}\thecontentslabel\hspace{0.8em}\color{TextEmphColor}}
+  {}
+  {\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{TextEmphColor}\contentspage}
+
+\titlecontents{subsection}[4.0em]
+  {\addvspace{2.5pt}\sffamily\color{TextBoldColor}}
+  {\color{ThemeSecondary!90!black}\thecontentslabel\hspace{0.8em}\color{TextBoldColor}}
+  {}
+  {\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{TextBoldColor}\contentspage}
+
+\titlecontents{subsubsection}[6.5em]
+  {\addvspace{1.5pt}\sffamily\small\bfseries\color{DeepSeaGreenBright2}}
+  {\color{SubSubSecNumberColor}\thecontentslabel\hspace{0.8em}\color{DeepSeaGreenBright2}}
+  {}
+  {\normalfont\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{DeepSeaGreenBright2}\contentspage}
 
 % Math operators
 \DeclareMathOperator{\id}{id}
@@ -819,7 +872,7 @@ breakable
       \setcounter{chapter}{\numexpr#1-1\relax}%
     }%
   }%
-  \chapter[#2, #4: #5]{{\Large\color{ThemePrimary}#2: #4} \texorpdfstring{\\[1ex]}{-- } {\LARGE #5}}%
+  \chapter[\texorpdfstring{--- \color{ThemePrimary!95!black}#5}{--- #5}]{{\Large\color{ChapSubtitleText}#2 #4} \texorpdfstring{\\[1ex]}{--- } {\LARGE #5}}%
   \ifrestorelecturesubcounters
     \setcounter{section}{\TempSec}%
     \setcounter{theorem}{\TempThm}%
@@ -827,7 +880,7 @@ breakable
     \setcounter{figure}{\TempFig}%
     \setcounter{table}{\TempTab}%
   \fi
-  \markboth{\chaptername\ \thechapter\ \ ---\ \ #4\ \ ---\ \ #5}{}%
+  \markboth{\chaptername\ \thechapter\ \ ---\ \ #2 #4\ \ ---\ \ #5}{}%
 }
 
 \titlespacing*{\chapter}{0pt}{-20pt}{40pt}
@@ -877,6 +930,48 @@ breakable
 
 \begin{document}
 
+% ==========================================
+% TITELSEITE
+% ==========================================
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  % Dezent geometrische Akzentformen oben rechts
+  \fill[ThemeSecondary!12, rounded corners=18pt] ($(current page.north east) + (-6.5cm,-2.5cm)$) rectangle ($(current page.north east) + (-1.2cm,-7.8cm)$);
+  \fill[ThemeWeekNumber!20, rounded corners=12pt] ($(current page.north east) + (-4.8cm,-4.2cm)$) rectangle ($(current page.north east) + (-0.6cm,-9.0cm)$);
+\end{tikzpicture}
+
+\vspace*{4.5cm}
+\begin{minipage}{\textwidth}
+    {\sffamily\fontsize{40pt}{48pt}\selectfont\bfseries\color{ThemePrimary!95!black} Grundstrukturen \par}
+    \vspace{1.2cm}
+    {\color{ThemeWeekNumber}\rule{\linewidth}{2.5pt}\par}
+    \vspace{0.2cm}
+    {\color{ThemeAccent1}\rule{0.6\linewidth}{1.5pt}\par}
+    \vspace{2.0cm}
+    {\sffamily\fontsize{18pt}{24pt}\selectfont\bfseries\color{TextEmphColor} Vorlesungsskript \par}
+    \vspace{0.6cm}
+    {\sffamily\fontsize{15pt}{22pt}\selectfont\color{TextBoldColor} Dozent: \textbf{Christian Urech} \par}
+    \vspace{0.3cm}
+    {\sffamily\fontsize{14pt}{20pt}\selectfont\color{DarkSlateGray} Departement Mathematik -- ETH Zürich \par}
+    \vspace{2.5cm}
+    {\sffamily\fontsize{14pt}{20pt}\selectfont\bfseries\color{ThemeWeekNumber}\faGraduationCap\quad Frühlingssemester 2026 \par}
+\end{minipage}
+\vfill
+\begin{minipage}{\textwidth}
+    {\sffamily\small\color{HeaderFooterFaint} LLM-gestützte Mitschrift der Vorlesung an der ETH Zürich $\cdot$ FS 2026}
+\end{minipage}
+\vspace*{1.5cm}
+\end{titlepage}
+
+% ==========================================
+% INHALTSVERZEICHNIS
+% ==========================================
+\cleardoublepage
+\pdfbookmark[0]{Inhaltsverzeichnis}{toc}
+\tableofcontents
+\cleardoublepage
+
 \include{content/week1-step4-02-17-25-tuesday-all-offset-final.tex}
 
 \include{content/week2-step5-02-24-25-tuesday-all-offset-last_try.tex}
@@ -889,11 +984,9 @@ breakable
 
 \include{content/week6-step4-03-31-25-tuesday-all-offset-final.tex}
 
-\include{content/week7-step5-04-14-25-tuesday-all-offset-last_try.tex}
+\include{content/week8-step5-04-14-25-tuesday-all-offset-last_try.tex}
 
-\include{content/week8-step4-04-21-25-tuesday-all-offset-final.tex}
-
-\include{content/week9-step4-05-05-25-tuesday-all-offset-final.tex}
+\include{content/week9-step4-04-21-25-tuesday-all-offset-final.tex}
 
 \include{content/week10-step4-04-28-25-tuesday-all-offset-final.tex}
 
@@ -904,5 +997,6 @@ breakable
 \include{content/week13-step4-05-19-25-tuesday-all-offset-final.tex}
 
 \include{content/week14-step4-05-26-25-tuesday-all-offset-final.tex}
+
 
 \end{document}

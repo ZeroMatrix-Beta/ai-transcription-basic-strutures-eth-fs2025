@@ -15,7 +15,7 @@
 
 % Primary Language: German
 
-\lecturechapter{Dienstag}{19. Mai}{19. Mai 2025}{Äquivalenzrelationen und Kryptographie}
+\lecturechapter{Dienstag}{19. Mai}{19. Mai 2026}{Äquivalenzrelationen und Kryptographie}
 
 \section{Äquivalenzrelationen modulo \texorpdfstring{$n$}{n}}
 
@@ -48,7 +48,7 @@ falls $n$ die Differenz $a - b$ teilt ($n \mid (a - b)$).
 \end{definition}
 
 \begin{explanation-of-steps}
-Die Relation $\equiv \pmod n$ ist eine Äquivalenzrelation auf $\mathbb{Z}$. Dies bedeutet:
+Die Relation $\equiv \pmod n$ ist eine Äquivalenzrelation auf $\mathbb{Z}$ (vgl. die allgemeine Definition einer Äquivalenzrelation aus Woche 2, \cref{def:aequivalenzrelation}). Dies bedeutet:
 \begin{itemize}
     \item \textbf{Reflexivität:} $a \equiv a \pmod n$ für alle $a \in \mathbb{Z}$.
     \item \textbf{Symmetrie:} Falls $a \equiv b \pmod n$, dann gilt auch $b \equiv a \pmod n$.
@@ -333,7 +333,7 @@ Sei $d := \operatorname{ggT}(a, n)$.
 
 \begin{itemize}
     \item \textbf{Hinrichtung ($\Rightarrow$):} Angenommen, es existiert ein $[b] \in \mathbb{Z}_n$ mit $[a] \cdot [b] = [1]$. Dann gilt $a \cdot b \equiv 1 \pmod n$, also existiert ein $k \in \mathbb{Z}$ mit $a \cdot b = k \cdot n + 1$, bzw. $a \cdot b - k \cdot n = 1$. Da $d \mid a$ und $d \mid n$, muss $d$ auch die Linearkombination $a \cdot b - k \cdot n$ teilen. Also $d \mid 1$, woraus $d = 1$ folgt.
-    \item \textbf{Rückrichtung ($\Leftarrow$):} Sei $\operatorname{ggT}(a, n) = 1$. Nach dem Lemma von Bézout existieren $b, \ell \in \mathbb{Z}$ mit $a \cdot b + n \cdot \ell = 1$. Dies impliziert $a \cdot b = 1 - n \cdot \ell$, also $a \cdot b \equiv 1 \pmod n$. Somit gilt $[a] \cdot [b] = [1]$ in $\mathbb{Z}_n$.
+    \item \textbf{Rückrichtung ($\Leftarrow$):} Sei $\operatorname{ggT}(a, n) = 1$. Nach dem Lemma von Bézout (\cref{prop:ggt-existenz} in Woche 12) existieren $b, \ell \in \mathbb{Z}$ mit $a \cdot b + n \cdot \ell = 1$. Dies impliziert $a \cdot b = 1 - n \cdot \ell$, also $a \cdot b \equiv 1 \pmod n$. Somit gilt $[a] \cdot [b] = [1]$ in $\mathbb{Z}_n$.
 \end{itemize}
 \end{short-proof}
 \end{math-stroke}

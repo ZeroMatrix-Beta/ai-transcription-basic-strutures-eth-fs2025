@@ -15,7 +15,8 @@
 
 % Primary Language: German
 
-\lecturechapter{Dienstag}{14. Apr}{14. April 2025}{Auswahlaxiom und Ordinalzahlen}
+\setcounter{chapter}{7}
+\lecturechapter{Dienstag}{14. Apr}{14. April 2026}{Auswahlaxiom und Ordinalzahlen}
 
 \begin{nice-box}[Agenda der Vorlesung]
 In dieser Vorlesung behandeln wir die folgenden Themen:
@@ -123,7 +124,7 @@ Und dann durch $\in$ wohlgeordnet: Das heißt, wenn wir zwei Elemente in $\alpha
 
 \begin{math-stroke}[Äquivalente Definition der Ordinalzahl]
 \begin{definition}[Ordinalzahl]\label[definition]{def:ordinalzahl2}
-Folgende Definition ist zur Defintition \cref{def:ordinalzahl} äquivalent: Eine Menge $\alpha$ ist eine \newterm{Ordinalzahl}, falls $\alpha$ transitiv ist und durch die Relation $\in$ wohlgeordnet ist.
+Folgende Definition ist zur Definition \cref{def:ordinalzahl} äquivalent: Eine Menge $\alpha$ ist eine \newterm{Ordinalzahl}, falls $\alpha$ transitiv ist und durch die Relation $\in$ wohlgeordnet ist.
 \end{definition}
 \end{math-stroke}
 
@@ -498,8 +499,8 @@ Nach $\text{WOP}$ existiert eine Wohlordnung auf $P$.
 Sei $P = \{ p_\beta \mid \beta \in \lambda \}$ für eine Ordinalzahl $\lambda \in \Omega$.
 
 Wir definieren rekursiv eine Kette in $P$.
-Sei $f: \bigcup_{\beta \in \lambda} {}^{\beta}P \to P$.
-Für $t: \beta \to P$ definiere:
+Sei $f: \bigcup_{\beta \in \lambda} {}^{\beta}\mathcal{P}(P) \to \mathcal{P}(P)$.
+Für $t: \beta \to \mathcal{P}(P)$ definiere:
 \[
 f(t) = \begin{cases}
 \emptyset & \text{falls } \beta = 0 \\
@@ -545,7 +546,7 @@ Somit ist $m$ maximal.
 \subsection{Das Teichmüller-Prinzip}
 
 \begin{spoken-clean}[00:56:45 - 00:58:30]
-Gut, jetzt beweisen wir, dass das Lemma von Kuratowski und Zorn das Teichmüller-Prinzip impliziert. Wir zeigen also die Implikationen im Kreis: von WOP zu KZL, von KZL zu TP und von TP zurück zum Auswahlaxiom. 
+Gut, jetzt beweisen wir, dass das Lemma von Kuratowski und Zorn das Teichmüller-Prinzip impliziert. Wir zeigen also die Implikationen im Kreis: von WOP zu KZL, von KZL zu TP und von TP zurück zum Auswahlaxiom.
 
 Wir machen jetzt wieder unsere transfinite Rekursion. Wir nehmen $P$ als eine nicht-leere Partialordnung und indizieren die Elemente in $P$ durch eine Ordinalzahl $\beta \in \Omega$. Wir fixieren also eine Ordinalzahl und wollen dann rekursiv ein entsprechendes $f$ definieren.
 \end{spoken-clean}
@@ -575,7 +576,7 @@ Das Teichmüller-Prinzip liefert einen sehr eleganten Beweis für die Existenz v
 
 \subsection{KZL impliziert TP}
 
-\begin{proof}[$Beweis:\text{KZL} \implies \text{TP}$]
+\begin{proof}[Beweis: $\text{KZL} \implies \text{TP}$]
 \begin{spoken-clean}[01:00:30 - 01:03:00]
 Was wir jetzt beweisen wollen, ist der Satz, dass die folgenden Aussagen äquivalent zum Auswahlaxiom sind: Das erste ist das Wohlordnungsprinzip, das zweite das Kuratowski-Zorn-Lemma und das dritte das Teichmüller-Prinzip. 
 

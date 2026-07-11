@@ -3,7 +3,7 @@
 \Crefname{axiom}{Axiom}{Axiome}
 \crefalias{axiom}{axiom}
 
-\lecturechapter{Dienstag}{10. Mär}{10. März 2025}{Gödelscher Vollständigkeitssatz und Konsistenz}
+\lecturechapter{Dienstag}{10. Mär}{10. März 2026}{Gödelscher Vollständigkeitssatz und Konsistenz}
 
 \begin{nice-box}[Syllabus \& Übersicht]
 In dieser Vorlesung beschäftigen wir uns mit den folgenden zentralen Themen:
@@ -159,7 +159,7 @@ Ist eine $\mathcal{L}$-Struktur nicht auch ein Modell? Wie kann man das irgendwi
 \end{student-interaction}
 
 \begin{spoken-clean}[continued]
-Eine $\mathcal{L}$-Struktur wird dann als Modell bezeichnet, wenn sie die entsprechende Bedingung erfüllt. Eine Struktur ist also immer ein Modell \emph{für eine bestimmte Formel} oder eine menge von Formeln. Ein Modell ist somit eine $\mathcal{L}$-Struktur mit ganz bestimmten Eigenschaften.
+Eine $\mathcal{L}$-Struktur wird dann als Modell bezeichnet, wenn sie die entsprechende Bedingung erfüllt. Eine Struktur ist also immer ein Modell \emph{für eine bestimmte Formel} oder eine Menge von Formeln. Ein Modell ist somit eine $\mathcal{L}$-Struktur mit ganz bestimmten Eigenschaften.
 \end{spoken-clean}
 
 \begin{ai-global-state-checkpoint-invisible-content}
@@ -177,7 +177,7 @@ Schauen wir uns dazu ein konkretes Beispiel an. Es ist in der formalen Logik man
 \begin{spoken-clean}[00:12:15 - 00:12:55]
 Nehmen wir die Signatur der Gruppentheorie. Diese besteht aus dem neutralen Konstanten-Symbol $e$ und einem zweistelligen, binären Funktions-Symbol --- dem Kringel $\circ$.
 
-Wenn wir nun eine klassische Gruppe $G$ betrachten, wie Sie sie aus der Analysis oder der Linearen Algebra kennen --- also eine menge mit einem neutralen Element $1$ und einer Verknüpfung $\circ_G$ ---, dann ist diese Struktur nach unserer Definition nichts anderes als ein Modell der Gruppentheorie-Axiome.
+Wenn wir nun eine klassische Gruppe $G$ betrachten, wie Sie sie aus der Analysis oder der Linearen Algebra kennen --- also eine Menge mit einem neutralen Element $1$ und einer Verknüpfung $\circ_G$ ---, dann ist diese Struktur nach unserer Definition nichts anderes als ein Modell der Gruppentheorie-Axiome.
 \end{spoken-clean}
 
 \begin{math-stroke}[Beispiel: Gruppentheorie]
@@ -569,7 +569,7 @@ Das Grundprinzip dieses Paradoxons ist sehr anschaulich und vielen von Ihnen vie
 
 In der Mengenlehre lässt sich dieses Paradoxon formal rekonstruieren, indem wir die naive Definition von Georg Cantor verwenden und die Menge aller Mengen betrachten, die sich nicht selbst als Element enthalten. Es gibt Mengen, die sich nicht selbst enthalten --- wie etwa die Menge aller Äpfel, die selbst kein Apfel ist. Und es gibt Mengen, die sich selbst enthalten --- wie die Menge aller abstrakten Begriffe, die selbst wieder ein abstrakter Begriff ist. Wenn wir nun die Menge $R$ aller Mengen definieren, die sich nicht selbst enthalten, und annehmen, dass $R$ wieder eine ganz normale Menge ist, stoßen wir auf denselben Widerspruch: Enthält sich $R$ selbst oder nicht? Beide Annahmen führen direkt zu einem logischen Widerspruch.
 
-Ein solches Paradoxon ist in einer exakten Wissenschaft wie der Mathematik natürlich absolut inakzeptabel. Es zeigte sich, dass die naive Mengenlehre, in der man beliebig Mengen über Eigenschaften definieren kann, mathematisch nicht haltbar ist. Man musste einen anderen Weg einschlagen: Anstatt naiv zu definieren, was eine menge \qt{ist}, legt man axiomatisch fest, welche präzisen Eigenschaften Mengen haben müssen und wie man sie konstruieren darf. Ernst Zermelo formulierte dazu im Jahr 1908 sieben fundamentale Axiome. Adolf Fraenkel wies später darauf hin, dass diese noch nicht ausreichen, und fügte 1921 zwei weitere Axiome hinzu. Diese insgesamt neun Axiome bilden die Zermelo-Fraenkel-Mengenlehre, kurz $\text{ZF}$. Später werden wir noch das Auswahlaxiom hinzunehmen, aber wir beginnen zunächst mit diesen Grundlagen.
+Ein solches Paradoxon ist in einer exakten Wissenschaft wie der Mathematik natürlich absolut inakzeptabel. Es zeigte sich, dass die naive Mengenlehre, in der man beliebig Mengen über Eigenschaften definieren kann, mathematisch nicht haltbar ist. Man musste einen anderen Weg einschlagen: Anstatt naiv zu definieren, was eine Menge \qt{ist}, legt man axiomatisch fest, welche präzisen Eigenschaften Mengen haben müssen und wie man sie konstruieren darf. Ernst Zermelo formulierte dazu im Jahr 1908 sieben fundamentale Axiome. Adolf Fraenkel wies später darauf hin, dass diese noch nicht ausreichen, und fügte 1921 zwei weitere Axiome hinzu. Diese insgesamt neun Axiome bilden die Zermelo-Fraenkel-Mengenlehre, kurz $\text{ZF}$. Später werden wir noch das Auswahlaxiom hinzunehmen, aber wir beginnen zunächst mit diesen Grundlagen.
 \end{spoken-clean}
 
 \begin{didactic-insight}[Die Russellsche Antinomie]
@@ -587,7 +587,6 @@ Die Russellsche Antinomie (oft veranschaulicht durch das Barbier-Paradoxon) zeig
 \subsection{Signatur und Notation}
 
 \begin{spoken-clean}[01:15:50 - 01:18:40]
-\inlinemetanote{Der Dozent schreibt die Überschrift \qt{Die Zermelo-Fraenkel Axiome} an die Tafel.}
 Gut, wir wollen nun diese Axiome als formale Theorie erster Ordnung aufschreiben. Dazu benötigen wir als Erstes eine passende Signatur. Die Signatur der Zermelo-Fraenkel-Mengenlehre ist extrem einfach: Sie besteht aus einem einzigen Symbol, dem Elementbeziehungs-Symbol $\in$. Das ist ein zweistelliges Relationssymbol.
 
 Wenn für zwei Mengen $x$ und $y$ gilt, dass $y$ in Relation $\in$ zu $x$ steht --- also $y \in x$ ---, dann sagen wir: $y$ ist ein Element von $x$. Und anstatt der etwas sperrigen Schreibweise $\neg(y \in x)$ schreiben wir abkürzend einfach $y \notin x$. Das macht es im Alltag wesentlich einfacher.
@@ -623,10 +622,8 @@ Schauen wir uns nun diese Axiome im Detail an. Wir beginnen mit den ursprünglic
 Das erste Axiom ist das Axiom der leeren Menge. Formal lautet es: Es existiert ein $x$, sodass für alle $z$ gilt, dass $z$ kein Element von $x$ ist. Das besagt schlicht und ergreifend, dass die leere Menge existiert --- also eine Menge, die absolut kein Element enthält. Das ist ein ganz wesentlicher Schritt, denn dieses Axiom sichert uns überhaupt erst die Existenz mindestens einer Menge in unserem mathematischen Universum.
 \end{spoken-clean}
 
-\begin{math-stroke}
-\textbf{Die Axiome 0--6 (Zermelo):}
-
 \subsubsection{Axiom der leeren Menge (Axiom 0)}
+\begin{math-stroke}
 \begin{axiom}[Axiom der leeren Menge]\label[axiom]{ax:leere-menge}
 \[ \exists x \forall z \, (z \notin x) \]
 \end{axiom}
@@ -646,8 +643,8 @@ Das nächste Axiom hat einen eleganten Namen: das Extensionalitätsaxiom. Formal
 Während ich die Tafel wische, können Sie sich kurz überlegen, was dieses Axiom anschaulich bedeutet.
 \end{spoken-clean}
 
-\begin{math-stroke}
 \subsubsection{Extensionalitätsaxiom (Axiom 1)}
+\begin{math-stroke}
 \begin{axiom}[Extensionalitätsaxiom]\label[axiom]{ax:extensionalitaet}
 \[ \forall x \forall y \, \bigl( \forall z \, (z \in x \leftrightarrow z \in y) \rightarrow x = y \bigr) \]
 \end{axiom}
@@ -689,8 +686,9 @@ Okay, und jetzt können wir eine weitere Definition einführen. Wir definieren d
 Ebenso können wir die echte Teilmenge definieren, geschrieben als $\subsetneq$. Wir sagen, $y$ ist eine echte Teilmenge von $x$, falls $y \subseteq x$ gilt und $y \neq x$ ist. Eine unmittelbare und wichtige Konsequenz aus dieser Definition ist: Die leere Menge $\emptyset$ ist Teilmenge jeder beliebigen Menge.
 \end{spoken-clean}
 
-\begin{math-stroke}[Definition der Teilmengenbeziehung]
 \subsubsection{Teilmengenbeziehung}
+\begin{math-stroke}[Definition der Teilmengenbeziehung]
+
 \begin{definition}[Teilmenge]\label[definition]{def:teilmenge}
 Wir definieren das binäre Relationssymbol \newterm{Teilmenge} ($\subseteq$) durch:
 \[ y \subseteq x :\iff \forall z \, (z \in y \rightarrow z \in x) \]
@@ -728,8 +726,8 @@ Nicht ganz, nein. Es beschreibt nicht die Vereinigung der beiden Mengen. Es besa
 Nach dem Extensionalitätsaxiom --- also unserem Axiom 1 --- ist diese Menge $u$ wiederum völlig eindeutig bestimmt. Wegen dieser Eindeutigkeit können wir eine feste Notation einführen und schreiben für diese Menge einfach $\{x, y\}$.
 \end{spoken-clean}
 
-\begin{math-stroke}
 \subsubsection{Paarmengenaxiom (Axiom 2)}
+\begin{math-stroke}
 \begin{axiom}[Paarmengenaxiom]\label[axiom]{ax:paarmenge}
 \[ \forall x \forall y \exists u \forall z \, (z \in u \leftrightarrow z = x \lor z = y) \]
 \end{axiom}
@@ -748,7 +746,8 @@ Darauf aufbauend können wir nun geordnete Paare definieren. Wir schreiben dafü
 Gut! Vielen Dank fürs Kommen, eine erfolgreiche Woche und bis zum nächsten Mal!
 \end{spoken-clean}
 
-\begin{math-stroke}[Eigenschaften von Paarmengen und geordneten Paaren]
+\subsubsection{Eigenschaften von Paarmengen und geordneten Paaren}
+\begin{math-stroke}[Paarmengen]
 \begin{remark}[Symmetrie und Einermengen]\label[remark]{rem:paarmengen-eigenschaften}
 Gemäß dem Extensionalitätsaxiom gilt:
 \begin{itemize}
@@ -758,7 +757,6 @@ Gemäß dem Extensionalitätsaxiom gilt:
 Somit liefert das Paarmengenaxiom für $x = y$ auch die Existenz der Einermenge $\{x\}$ für jede Menge $x$.
 \end{remark}
 
-\subsubsection{Geordnete Paare}
 \begin{definition}[Geordnetes Paar]\label[definition]{def:geordnetes-paar}
 Wir definieren das \newterm{geordnetes Paar} $\langle x, y \rangle$ nach Kuratowski durch:
 \[ \langle x, y \rangle := \bigl\{ \{x\}, \{x, y\} \bigr\} \]

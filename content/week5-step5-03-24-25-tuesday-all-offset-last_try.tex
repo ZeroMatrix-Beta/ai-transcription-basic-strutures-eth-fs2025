@@ -2,7 +2,7 @@
 %\newtheorem{axiom}[theorem]{Axiom}
 %\crefalias{axiom}{theorem}
 
-\lecturechapter{Dienstag}{24. Mär}{24. März 2025}{Zermelo-Fraenkel-Axiome und Dedekindsche Schnitte}
+\lecturechapter{Dienstag}{24. Mär}{24. März 2026}{Zermelo-Fraenkel-Axiome und Dedekindsche Schnitte}
 
 \begin{nice-box}[Vorlesungsübersicht]
 Diese Vorlesung bildet das Fundament für die rigorose Einführung der reellen Zahlen. Wir beginnen mit einer kurzen Clicker-Frage zum Vollständigkeitsaxiom, wiederholen das Fundierungsaxiom aus der Zermelo-Fraenkel-Mengenlehre und widmen uns dann der historischen und mathematischen Konstruktion von $\mathbb{R}$ mittels Dedekindscher Schnitte.
@@ -64,7 +64,7 @@ Die Formel lässt sich logisch in zwei Hauptteile zerlegen:
 \begin{spoken-clean}[00:01:43 - 00:03:45]
 Genau, das ist das, was diese Aussage besagt. Man muss einfach mal genau hinschauen: Für alle Teilmengen $X$ von $\mathbb{R}$, so dass $X$ nicht leer ist --- also für alle $X$, so dass $X$ eine Teilmenge von $\mathbb{R}$ und $X$ nicht leer ist ---, und es existiert ein $r$, so dass für alle $x \in X$ gilt $x \le r$, folgt, dass ein $s$ existiert, so dass für alle $x \in X$ gilt $x \le s$, und für alle $t$, für die gilt, dass für alle $x \in X$ $x \le t$ ist, folgt $s \le t$.
 
-Das heißt, es existiert ein $s$, und dieses $s$ existiert als Supremum. Wenn also eine menge $X$ nach oben beschränkt ist, dann soll ein solches Supremum existieren --- das heißt, eine obere Schranke, die die kleinste aller oberen Schranken ist. Okay.
+Das heißt, es existiert ein $s$, und dieses $s$ existiert als Supremum. Wenn also eine Menge $X$ nach oben beschränkt ist, dann soll ein solches Supremum existieren --- das heißt, eine obere Schranke, die die kleinste aller oberen Schranken ist. Okay.
 
 Gut, dies nur als eine kleine Aufwärmübung. Und wie Sie sehen, wird heute das Hauptthema der Vorlesung die Konstruktion der reellen Zahlen sein. Sie haben ja schon viel mit den reellen Zahlen gearbeitet und arbeiten wahrscheinlich auch weiterhin viel mit ihnen, aber Sie haben noch nie eine vollständige Konstruktion davon gesehen. Das werden wir hier noch nachholen, wenn auch nicht in allen Details, weil das doch sehr mühsam ist.
 
@@ -123,11 +123,32 @@ Das Fundierungsaxiom schließt zirkuläre Mengenstrukturen und unendliche Regres
 Das Fundierungsaxiom sorgt dafür, dass die "`Mengenwelt"' wohlfundiert ist. Es stellt sicher, dass jede Menge hierarchisch aus einfacheren Mengen aufgebaut ist, beginnend bei der leeren Menge $\emptyset$. Ohne dieses Axiom könnte man pathologische Objekte konstruieren, die sich selbst enthalten, was zwar nicht direkt zu Widersprüchen führt, aber die mathematische Struktur unnötig verkompliziert.
 \end{didactic-insight}
 
+\section{Dedekindsche Schnitte und die Konstruktion der reellen Zahlen}
+
+\begin{math-stroke}[Von den rationalen zu den reellen Zahlen]
+Um die Lücken in den rationalen Zahlen $\mathbb{Q}$ (wie z.\,B. $\sqrt{2} \notin \mathbb{Q}$) zu schließen und das Vollständigkeitsaxiom \eqref{eq:vollstaendigkeit} zu erfüllen, konstruiert man die reellen Zahlen $\mathbb{R}$ mittels Dedekindscher Schnitte als Teilmengen von $\mathbb{Q}$.
+
+\begin{definition}[Dedekindscher Schnitt und reelle Zahlen]\label{def:reelle-zahlen}
+Ein \textbf{Dedekindscher Schnitt} ist eine Teilmenge $D \subseteq \mathbb{Q}$, welche die folgenden drei Eigenschaften erfüllt:
+\begin{enumerate}[label=\textbf{(\roman*)}]
+    \item \textbf{Nicht-Trivialität:} $D \neq \emptyset$ und $D \neq \mathbb{Q}$.
+    \item \textbf{Abgeschlossenheit nach unten:} Für alle $p \in D$ und alle $q \in \mathbb{Q}$ mit $q < p$ gilt auch $q \in D$.
+    \item \textbf{Kein größtes Element:} Zu jedem $p \in D$ existiert ein $r \in D$ mit $p < r$.
+\end{enumerate}
+Die Menge der reellen Zahlen $\mathbb{R}$ wird als die Menge aller Dedekindschen Schnitte definiert:
+\[
+\mathbb{R} \coloneq \{ D \in \mathcal{P}(\mathbb{Q}) \mid D \text{ ist ein Dedekindscher Schnitt} \} \subseteq \mathcal{P}(\mathbb{Q}).
+\]
+Jede reelle Zahl $x \in \mathbb{R}$ entspricht somit der Menge aller rationalen Zahlen, die strikt kleiner als $x$ sind ($D_x = \{ q \in \mathbb{Q} \mid q < x \}$).
+\end{definition}
+\end{math-stroke}
+
 \begin{nice-box}[Zusammenfassung der Schlüsselkonzepte]
-In diesem Vorlesungsabschnitt haben wir zwei fundamentale Konzepte behandelt:
+In diesem Vorlesungsabschnitt haben wir drei fundamentale Konzepte behandelt:
 \begin{itemize}
     \item \textbf{Das Vollständigkeitsaxiom (\eqref{eq:vollstaendigkeit}):} Jede nichtleere, nach oben beschränkte Teilmenge der reellen Zahlen besitzt ein Supremum (eine kleinste obere Schranke) in $\mathbb{R}$.
     \item \textbf{Das Fundierungsaxiom (\eqref{eq:fundierungsaxiom}):} Jede nichtleere Menge $x$ besitzt ein Element $y$, das disjunkt zu $x$ ist. Dies schließt unendliche absteigende Elementketten und zirkuläre Mengen wie $x \in x$ aus und sichert die Wohlfundiertheit des Mengenuniversums.
+    \item \textbf{Dedekindsche Schnitte (Definition \ref{def:reelle-zahlen}):} Die Konstruktion von $\mathbb{R}$ als Teilmenge von $\mathcal{P}(\mathbb{Q})$ durch nach unten abgeschlossene, nach oben offene und nichttriviale Teilmengen der rationalen Zahlen.
 \end{itemize}
 \end{nice-box}
 
