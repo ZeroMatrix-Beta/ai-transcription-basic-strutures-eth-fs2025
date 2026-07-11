@@ -1,10 +1,11 @@
+% !TEX program = lualatex
 \documentclass[11pt,a4paper]{report}
 
 % ==========================================
 % NEW VIBRANT SHADOW PREAMBLE
 % ==========================================
 
-\usepackage[utf8]{inputenc}
+% \usepackage[utf8]{inputenc} % Ignored by LuaLaTeX (native UTF-8 engine)
 \usepackage[T1]{fontenc}
 
 % --- FONT CONFIGURATION ---
@@ -14,7 +15,7 @@
 \renewcommand{\sfdefault}{lmss}
 
 \usepackage[ngerman]{babel} 
-\usepackage[final,babel=true]{microtype}
+% \usepackage[final,babel=true,expansion=false]{microtype} % Auskommentiert zur Einsparung von TeX-Speicher
 \usepackage{csquotes}
 
 % --- OPTIMIERTE SILBENTRENNUNG (HYPHENATION TUNING) ---
@@ -128,22 +129,22 @@
 \colorlet{SecTitleColor}{ThemePrimary}
 \colorlet{SecTitleColorProof}{SecTitleColor!50!ProofTint}
 
-\colorlet{SubSecBar1}{ThemePrimary!85!black}
-\colorlet{SubSecBar2}{ThemeAccent4!85!black}
+\colorlet{SubSecBar1}{TextBoldColor}
+\colorlet{SubSecBar2}{TextBoldColor!70!white}
 \colorlet{SubSecBar1Proof}{SubSecBar1!50!ProofTint}
 \colorlet{SubSecBar2Proof}{SubSecBar2!50!ProofTint}
-\colorlet{SubSecTitleColor}{ThemePrimary!90!black}
+\colorlet{SubSecTitleColor}{TextBoldColor}
 \colorlet{SubSecTitleColorProof}{SubSecTitleColor!50!ProofTint}
 
-\colorlet{SubSubSecBar1}{ThemePrimary!85!black}
-\colorlet{SubSubSecBar2}{ThemeAccent4!85!black}
+\colorlet{SubSubSecBar1}{gray}
+\colorlet{SubSubSecBar2}{gray!60!white}
 \colorlet{SubSubSecBar1Proof}{SubSubSecBar1!50!ProofTint}
 \colorlet{SubSubSecBar2Proof}{SubSubSecBar2!50!ProofTint}
-\colorlet{SubSubSecTitleColor}{ThemePrimary!85!black}
+\colorlet{SubSubSecTitleColor}{gray}
 \colorlet{SubSubSecTitleColorProof}{SubSubSecTitleColor!50!ProofTint}
 
 
-\colorlet{SubSubSecNumberColor}{TextBoldColor}
+\colorlet{SubSubSecNumberColor}{gray}
 \colorlet{SubSubSecNumberColorProof}{SubSubSecNumberColor!50!ProofTint}
 
 
@@ -367,15 +368,15 @@ bookmarksopen=true
 
 \titlecontents{subsection}[4.0em]
   {\addvspace{2.5pt}\sffamily\color{TextBoldColor}}
-  {\color{ThemeSecondary!90!black}\thecontentslabel\hspace{0.8em}\color{TextBoldColor}}
+  {\color{TextBoldColor}\thecontentslabel\hspace{0.8em}\color{TextBoldColor}}
   {}
   {\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{TextBoldColor}\contentspage}
 
 \titlecontents{subsubsection}[6.5em]
-  {\addvspace{1.5pt}\sffamily\small\bfseries\color{DeepSeaGreenBright2}}
-  {\color{SubSubSecNumberColor}\thecontentslabel\hspace{0.8em}\color{DeepSeaGreenBright2}}
+  {\addvspace{1.5pt}\sffamily\small\bfseries\color{gray}}
+  {\color{gray}\thecontentslabel\hspace{0.8em}\color{gray}}
   {}
-  {\normalfont\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{DeepSeaGreenBright2}\contentspage}
+  {\normalfont\color{HeaderFooterLine}\titlerule*[0.6pc]{.}\color{gray}\contentspage}
 
 % Math operators
 \DeclareMathOperator{\id}{id}
@@ -440,51 +441,30 @@ bookmarksopen=true
 
 \newcommand{\qt}[1]{\textit{\textcolor{BrickRed}{\glqq}#1\textcolor{BrickRed}{\grqq}}}
 
-\crefalias{lemma}{lemma}
-\crefalias{theorem}{theorem}
-\crefalias{definition}{definition}
-\crefalias{proposition}{proposition}
-\crefalias{corollary}{corollary}
-\crefalias{example}{example}
-\crefalias{examples}{examples}
-\crefalias{exercise}{exercise}
-\crefalias{axiom}{axiom}  
-\crefalias{axioms}{axioms}
-\crefalias{property}{property}
 \crefname{axiom}{Axiom}{Axiome}
 \Crefname{axiom}{Axiom}{Axiome}
 \crefname{axioms}{Axiome}{Axiome}
 \Crefname{axioms}{Axiome}{Axiome}
 \crefname{property}{Eigenschaft}{Eigenschaften}
 \Crefname{property}{Eigenschaft}{Eigenschaften}
-\crefalias{principle}{principle}
 \crefname{principle}{Prinzip}{Prinzipien}
 \Crefname{principle}{Prinzip}{Prinzipien}
-\crefalias{claim}{claim}
 \crefname{claim}{Behauptung}{Behauptungen}
 \Crefname{claim}{Behauptung}{Behauptungen}
-\crefalias{remark}{remark}
 \crefname{remark}{Bemerkung}{Bemerkungen}
 \Crefname{remark}{Bemerkung}{Bemerkungen}
-\crefalias{notation}{notation}
 \crefname{notation}{Notation}{Notationen}
 \Crefname{notation}{Notation}{Notationen}
-\crefalias{summary}{summary}
 \crefname{summary}{Zusammenfassung}{Zusammenfassungen}
 \Crefname{summary}{Zusammenfassung}{Zusammenfassungen}
-\crefalias{warmup}{warmup}
 \crefname{warmup}{Einstieg}{Einstiege}
 \Crefname{warmup}{Einstieg}{Einstiege}
-\crefalias{question}{question}
 \crefname{question}{Frage}{Fragen}
 \Crefname{question}{Frage}{Fragen}
-\crefalias{answer}{answer}
 \crefname{answer}{Antwort}{Antworten}
 \Crefname{answer}{Antwort}{Antworten}
-\crefalias{importantremark}{importantremark}
 \crefname{importantremark}{Wichtige Bemerkung}{Wichtige Bemerkungen}
 \Crefname{importantremark}{Wichtige Bemerkung}{Wichtige Bemerkungen}
-\crefalias{goals}{goals}
 \crefname{goals}{Ziel}{Ziele}
 \Crefname{goals}{Ziel}{Ziele}
 
@@ -969,7 +949,7 @@ breakable
 % ==========================================
 \cleardoublepage
 \pdfbookmark[0]{Inhaltsverzeichnis}{toc}
-\tableofcontents
+%\tableofcontents
 \cleardoublepage
 
 \include{content/week1-step4-02-17-25-tuesday-all-offset-final.tex}
@@ -983,6 +963,8 @@ breakable
 \include{content/week5-step5-03-24-25-tuesday-all-offset-last_try.tex}
 
 \include{content/week6-step4-03-31-25-tuesday-all-offset-final.tex}
+
+% Easter Break
 
 \include{content/week8-step5-04-14-25-tuesday-all-offset-last_try.tex}
 

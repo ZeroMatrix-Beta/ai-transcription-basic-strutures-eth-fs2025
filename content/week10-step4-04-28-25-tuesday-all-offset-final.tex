@@ -313,6 +313,8 @@ Machen wir ein Beispiel: Wir haben den Graphen mit den Knoten $1, 2, 3, 4$ und K
 Falls wir mehrere Kanten zwischen zwei Knoten haben, ist es analog: Wir zählen einfach, wie viele Kanten es dazwischen gibt. Falls wir $G$ als $(V, E_0, \dots, E_k)$ schreiben --- wir haben also verschiedene Kantenmengen, aber immer noch endlich viele ---, dann ist die Adjazenzmatrix $A(G)$ definiert als die Summe von $\ell = 0$ bis $k$ über $A(G_\ell)$. Der Eintrag $a_{ij}$ ist dann einfach die Anzahl der Kanten von $v_i$ nach $v_j$.
 \end{spoken-clean}
 
+\subsection{Die Adjazenzmatrix}§
+
 \begin{math-stroke}[Beispiele für schlichte Graphen und Adjazenzmatrix]
 \begin{center}
 \begin{tabular}{c c c c}
@@ -343,7 +345,7 @@ Falls wir mehrere Kanten zwischen zwei Knoten haben, ist es analog: Wir zählen 
 \end{tabular}
 \end{center}
 
-\subsection{Die Adjazenzmatrix}
+
 \begin{definition}[Adjazenzmatrix]\label[definition]{def:adjazenzmatrix}
 Sei $G = (V, E)$ ein endlicher Graph mit durchnummerierten Knoten $V = \{v_1, \dots, v_n\}$. Die \newterm{Adjazenzmatrix} $A(G) = (a_{ij})_{1 \le i, j \le n}$ ist eine $n \times n$-Matrix definiert durch:
 \[
@@ -945,7 +947,7 @@ Okay, wir waren heute etwas langsamer als gedacht, aber das ist nicht schlimm; w
 \end{spoken-clean}
 
 \begin{math-stroke}[Beweis der Proposition \ref{prop:pfadzaehlung-adjazenz}]
-\begin{proof}[Beweis per Induktion nach $k$]
+\begin{short-proof}[Beweis per Induktion nach $k$]
 Sei $G = (V, E_0, \dots, E_m)$ ein Digraph mit $V = \{v_1, \dots, v_n\}$ und Adjazenzmatrix $A = (a_{ij})$.
 
 \textbf{Induktionsanfang ($k=1$):}
@@ -963,7 +965,7 @@ Jeder Pfeilzug der Länge $k+1$ von $v_i$ nach $v_j$ besteht aus einem Pfeilzug 
 Nach Induktionsvoraussetzung gibt es genau $a_{il}^{(k)}$ solche Pfeilzüge der Länge $k$ und $a_{lj}$ Kanten von $v_l$ nach $v_j$. Da diese Entscheidungen unabhängig voneinander sind, gibt es nach dem Produktprinzip genau $a_{il}^{(k)} \cdot a_{lj}$ Pfade der Länge $k+1$, die über den spezifischen Zwischenknoten $v_l$ führen.
 
 Da die Zwischenknoten $v_l$ für $l \in \{1, \dots, n\}$ disjunkt sind, liefert die Summation über alle möglichen Zwischenknoten $l$ in Gleichung \eqref{eq:matrix-mult-step} die Gesamtzahl aller Pfeilzüge der Länge $k+1$ von $v_i$ nach $v_j$. Dies beendet den Induktionsbeweis.
-\end{proof}
+\end{short-proof}
 \end{math-stroke}
 
 \begin{nice-box}[Zusammenfassung der Kernkonzepte]
