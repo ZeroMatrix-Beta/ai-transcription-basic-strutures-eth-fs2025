@@ -77,7 +77,7 @@ So viel zu Georg Cantor --- ein faszinierender Mensch und unendlich wichtig für
 \end{spoken-clean}
 
 \begin{didactic-insight}[Georg Cantor und das Unendliche]
-Georg Cantors Entdeckung, dass Unendlichkeit nicht gleich Unendlichkeit ist (z.B. die Überabzählbarkeit der reellen Zahlen im Vergleich zur Abzählbarkeit der natürlichen Zahlen), revolutionierte die Grundlagen der Mathematik. Trotz heftigster, teils persönlicher Anfeindungen durch etablierte zeitgenössische Mathematiker wie Leopold Kronecker setzte sich seine Mengenlehre durch. David Hilbert würdigte Cantors Leistung später mit den berühmten Worten: „Aus dem Paradies, das Cantor uns geschaffen, soll uns niemand vertreiben können.“
+Georg Cantors Entdeckung, dass Unendlichkeit nicht gleich Unendlichkeit ist (z.B. die Überabzählbarkeit der reellen Zahlen im Vergleich zur Abzählbarkeit der natürlichen Zahlen), revolutionierte die Grundlagen der Mathematik. Trotz heftigster, teils persönlicher Anfeindungen durch etablierte zeitgenössische Mathematiker wie Leopold Kronecker setzte sich seine Mengenlehre durch. David Hilbert würdigte Cantors Leistung später mit den berühmten Worten: \qt{Aus dem Paradies, das Cantor uns geschaffen, soll uns niemand vertreiben können.}
 \end{didactic-insight}
 
 \section{Einführung in die Kardinalzahlen}
@@ -750,14 +750,14 @@ Wir nehmen also an, dass wir eine Injektion $f$ von $A$ nach $B$ und eine Injekt
 % \begin{didactic-insight}[Die Eleganz des Cantor-Bernstein-Schröder-Theorems]
 % Der Beweis des Cantor-Bernstein-Schröder-Theorems ist ein klassisches Beispiel für ein faszinierend konstruktives Verfahren in der axiomatischen Mengenlehre. Im Gegensatz zu vielen anderen fundamentalen Sätzen über unendliche Mächtigkeiten kommt dieser Beweis komplett ohne das Auswahlaxiom (Axiom of Choice) aus und ist somit bereits in der Standard-Zermelo-Fraenkel-Mengenlehre (ZF) uneingeschränkt gültig. 
 
-% Anstatt eine unendliche Auswahl zu treffen oder ein Wohlordnungsprinzip anzunehmen, wird die gesuchte Bijektion $h$ explizit, deterministisch und schrittweise durch die Mengenfolge $E_n$ konstruiert (im Englischen oft auch als „Ping-Pong-Argument“ bezeichnet).
+% Anstatt eine unendliche Auswahl zu treffen oder ein Wohlordnungsprinzip anzunehmen, wird die gesuchte Bijektion $h$ explizit, deterministisch und schrittweise durch die Mengenfolge $E_n$ konstruiert (im Englischen oft auch als "Ping-Pong-Argument" bezeichnet).
 
 % Die Grafik veranschaulicht die Genialität dieses konstruktiven Ansatzes: Die Funktion $h$ partitioniert die Menge $\textcolor{PineGreen}{A}$ geschickt in verschachtelte Ringe von Vor- und Nachbildern, um lokale Teilstücke von Bijektionen nahtlos zusammenzuflicken:
 % \begin{align*}
 %   \textcolor{PineGreen}{A} &= \textcolor{Plum}{E} \;\dot{\cup}\; (\textcolor{PineGreen}{A} \setminus \textcolor{Plum}{E}) \\
 %   \textcolor{Sepia}{B} &= \textcolor{MidnightBlue}{f}(\textcolor{Plum}{E}) \;\dot{\cup}\; (\textcolor{Sepia}{B} \setminus \textcolor{MidnightBlue}{f}(\textcolor{Plum}{E}))
 % \end{align*}
-% Auf der lila Teilmenge $\textcolor{Plum}{E}$ verwenden wir die direkte „Vorwärtsabbildung“ $\textcolor{MidnightBlue}{f}$, während wir auf dem grünen Komplement $\textcolor{PineGreen}{A} \setminus \textcolor{Plum}{E}$ die Umkehrung der „Rückwärtsabbildung“ $\textcolor{BrickRed}{g}^{-1}$ nutzen, um den Rest der Mengen perfekt auszufüllen.
+% Auf der lila Teilmenge $\textcolor{Plum}{E}$ verwenden wir die direkte "`Vorwärtsabbildung"' $\textcolor{MidnightBlue}{f}$, während wir auf dem grünen Komplement $\textcolor{PineGreen}{A} \setminus \textcolor{Plum}{E}$ die Umkehrung der "`Rückwärtsabbildung"' $\textcolor{BrickRed}{g}^{-1}$ nutzen, um den Rest der Mengen perfekt auszufüllen.
 % \end{didactic-insight}
 
 \begin{math-stroke}
@@ -908,14 +908,14 @@ Da die Abbildung $g \colon B \to A$ im Allgemeinen nicht surjektiv ist, existier
 \begin{didactic-insight}[Die Eleganz des Cantor-Bernstein-Schröder-Theorems]
 Der Beweis des Cantor-Bernstein-Schröder-Theorems ist ein klassisches Beispiel für ein faszinierend konstruktives Verfahren in der axiomatischen Mengenlehre. Im Gegensatz zu vielen anderen fundamentalen Sätzen über unendliche Mächtigkeiten kommt dieser Beweis komplett ohne das Auswahlaxiom (Axiom of Choice) aus und ist somit bereits in der Standard-Zermelo-Fraenkel-Mengenlehre (ZF) uneingeschränkt gültig. 
 
-Anstatt eine unendliche Auswahl zu treffen oder ein Wohlordnungsprinzip anzunehmen, wird die gesuchte Bijektion $h$ explizit, deterministisch und schrittweise durch die Mengenfolge $E_n$ konstruiert (im Englischen oft auch als „Ping-Pong-Argument“ bezeichnet).
+Anstatt eine unendliche Auswahl zu treffen oder ein Wohlordnungsprinzip anzunehmen, wird die gesuchte Bijektion $h$ explizit, deterministisch und schrittweise durch die Mengenfolge $E_n$ konstruiert (im Englischen oft auch als \qt{Ping-Pong-Argument} bezeichnet).
 
 Die Grafik veranschaulicht die Genialität dieses konstruktiven Ansatzes: Die Funktion $h$ partitioniert die Menge $\textcolor{ForestGreen}{A}$ geschickt in verschachtelte Ringe von Vor- und Nachbildern, um lokale Teilstücke von Bijektionen nahtlos zusammenzuflicken:
 \begin{align*}
   \textcolor{ForestGreen}{A} &= \textcolor{Fuchsia}{E} \;\dot{\cup}\; (\textcolor{ForestGreen}{A} \setminus \textcolor{Fuchsia}{E}) \\
   \textcolor{BrickRed}{B} &= \textcolor{RoyalBlue}{f}(\textcolor{Fuchsia}{E}) \;\dot{\cup}\; (\textcolor{BrickRed}{B} \setminus \textcolor{RoyalBlue}{f}(\textcolor{Fuchsia}{E}))
 \end{align*}
-Auf der lila/pinken Teilmenge $\textcolor{Fuchsia}{E}$ verwenden wir die direkte „Vorwärtsabbildung“ $\textcolor{RoyalBlue}{f}$, während wir auf dem grünen Komplement $\textcolor{ForestGreen}{A} \setminus \textcolor{Fuchsia}{E}$ die Umkehrung der „Rückwärtsabbildung“ $\textcolor{BurntOrange}{g}^{-1}$ nutzen, um den Rest der Mengen perfekt auszufüllen.
+Auf der lila/pinken Teilmenge $\textcolor{Fuchsia}{E}$ verwenden wir die direkte \qt{Vorwärtsabbildung} $\textcolor{RoyalBlue}{f}$, während wir auf dem grünen Komplement $\textcolor{ForestGreen}{A} \setminus \textcolor{Fuchsia}{E}$ die Umkehrung der \qt{Rückwärtsabbildung} $\textcolor{BurntOrange}{g}^{-1}$ nutzen, um den Rest der Mengen perfekt auszufüllen.
 \end{didactic-insight}
 
 \section{Gleichmächtigkeit von \texorpdfstring{$\mathbb{R}$}{R} und der Potenzmenge von \texorpdfstring{$\omega$}{omega}}
