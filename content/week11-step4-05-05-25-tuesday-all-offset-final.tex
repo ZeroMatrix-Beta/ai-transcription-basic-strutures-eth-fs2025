@@ -430,7 +430,7 @@ G = K_{17} \text{ mit } 17 \text{ Schlingen.}
 \]
 
 \textbf{Schlussfolgerung:}
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
     \item Da $G$ zusammenhängend ist und jeder Knoten einen geraden Grad besitzt ($\deg(v) = 18 \equiv 0 \pmod 2$), existiert nach dem Satz von Euler (\cref{prop:satz-von-euler}) eine geschlossene Euler-Linie.
     \item Diese Euler-Linie entspricht einer geschlossenen, unverzweigten Kette, die jeden der $153$ Dominosteine genau einmal verwendet.
 \end{enumerate}
@@ -915,7 +915,7 @@ Wir führen den Beweis per vollständiger Induktion nach der Dimension $k$:
     \end{cases}
     \]
     Wir verifizieren die Gray-Code-Eigenschaften für die Übergänge:
-    \begin{enumerate}[label=\textbf{\arabic*.}]
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
         \item \textbf{Innerhalb der ersten Hälfte ($1 \le i < 2^k$):} $b_i = 0a_i$ und $b_{i+1} = 0a_{i+1}$ unterscheiden sich nur in einer Stelle, da sich $a_i$ und $a_{i+1}$ nach Induktionsvoraussetzung nur in einer Stelle unterscheiden.
         \item \textbf{Am Übergangspunkt ($i = 2^k$):} $b_{2^k} = 0a_{2^k}$ und $b_{2^k+1} = 1a_{2^k}$ unterscheiden sich exakt nur in der ersten (vorangestellten) Stelle.
         \item \textbf{Innerhalb der zweiten Hälfte ($2^k + 1 \le i < 2^{k+1}$):} $b_i = 1a_{2^{k+1}-i+1}$ und $b_{i+1} = 1a_{2^{k+1}-i}$ unterscheiden sich analog zur ersten Hälfte nur in einer Stelle.
@@ -1538,7 +1538,7 @@ Es existiert also mindestens ein Element $b' \in B$ mit $\{a', b'\} \in E$. Wir 
 Wir nehmen an, die Behauptung gilt für alle bipartiten Graphen mit $|A| \le n$. Sei nun $G = (A, B, E)$ ein bipartiter Graph mit $|A| = n+1$, der die Hall-Bedingung \textbf{(b)} erfüllt. Wir unterscheiden zwei Fälle:
         
 \textbf{Fall 1: Für alle echten Teilmengen $\emptyset \neq X \subsetneq A$ gilt die strikte Ungleichung $|X| < |E(X)|$.}
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
     \item \textbf{Wahl einer Kante:} Wir wählen eine beliebige Kante $\{a', b'\} \in E$ mit $a' \in A$ und $b' \in B$.
     \item \textbf{Konstruktion des reduzierten Graphen:} Wir definieren die reduzierten Mengen:
     \[
@@ -1570,7 +1570,7 @@ Wir nehmen an, die Behauptung gilt für alle bipartiten Graphen mit $|A| \le n$.
 \end{enumerate}
         
 \textbf{Fall 2: Es existiert eine echte Teilmenge $\emptyset \neq A_1 \subsetneq A$ mit $|A_1| = |E(A_1)|$.}
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
     \item \textbf{Aufteilung des Graphen:} Wir definieren $B_1 := E(A_1)$ und betrachten den Teilgraphen $G_1 = (A_1, B_1, E_1)$ mit $E_1 := E \cap (A_1 \times B_1)$. Da $|A_1| \le n$ und $G_1$ die Hall-Bedingung erbt, existiert nach Induktionsannahme eine Injektion $\pi_1 \colon A_1 \to B_1$ mit $\{a, \pi_1(a)\} \in E_1$ für alle $a \in A_1$. Da $|A_1| = |B_1|$, ist $\pi_1$ sogar eine Bijektion.
     \item \textbf{Betrachtung des Komplements:} Wir definieren die Komplementärmengen:
     \[

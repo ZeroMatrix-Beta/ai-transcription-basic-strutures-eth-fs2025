@@ -1,0 +1,486 @@
+\lecturechapter{6}{Dienstag}{24. Mär}{24. März 2026}{Dedekindsche Schnitte und die Konstruktion \& Vollständigkeit von $\mathbb{R}$}
+
+\begin{nice-box}[Syllabus / Agenda]
+In der heutigen Vorlesung behandeln wir die formale Konstruktion der reellen Zahlen $\mathbb{R}$ auf Basis der rationalen Zahlen $\mathbb{Q}$. Die Schwerpunkte sind:
+\begin{itemize}
+    \item \textbf{Dedekindsche Schnitte:} Definition und Verifizierung der Axiome.
+    \item \textbf{Irrationalität von $\sqrt{2}$:} Ein Beweis nach Dedekind.
+    \item \textbf{Körperstruktur von $\mathbb{R}$:} Definition von Addition, Multiplikation und Ordnung.
+    \item \textbf{Vollständigkeit:} Nachweis des Supremumsaxioms durch Mengenvereinigung.
+    \item \textbf{Alternative Konstruktionen:} Cauchy-Folgen und quasi-lineare Funktionen.
+\end{itemize}
+\end{nice-box}
+
+\begin{math-stroke}[Rationale Schnitte]
+Für jede rationale Zahl $p \in \mathbb{Q}$ definieren wir den zugehörigen Schnitt:
+\begin{equation}
+\label{eq:rational-cut}
+\alpha_p := \{ q \in \mathbb{Q} \mid q < p \}
+\end{equation}
+
+\begin{claim}\label[claim]{clm:alpha-p-is-cut}
+Für jedes $p \in \mathbb{Q}$ ist $\alpha_p$ ein Dedekindscher Schnitt.
+\end{claim}
+
+\begin{short-proof}
+Wir verifizieren die Bedingungen aus der Definition eines Dedekindschen Schnitts:
+\begin{itemize}
+    \item \textbf{(D0):} Da $p-1 < p$, ist $p-1 \in \alpha_p \implies \alpha_p \neq \emptyset$. Da $p < p$ falsch ist, ist $p \notin \alpha_p \implies \alpha_p \neq \mathbb{Q}$.
+    \item \textbf{(D1):} Sei $q \in \alpha_p$ (d.\,h. $q < p$) und $r \in \mathbb{Q}$ mit $r < q$. Aus der Transitivität folgt $r < p$, also $r \in \alpha_p$.
+    \item \textbf{(D2):} Sei $q \in \alpha_p$, also $q < p$. Da $\mathbb{Q}$ dicht liegt, existiert ein $r \in \mathbb{Q}$ mit $q < r < p$. Dann ist $r \in \alpha_p$ und $q < r$. Somit hat $\alpha_p$ kein maximales Element.
+\end{itemize}
+\end{short-proof}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:33:24 - 00:35:23]
+Okay, wir müssen noch beweisen, dass das tatsächlich ein Dedekind-Schnitt ist. Machen wir das mal gründlich. 
+
+Also, \textbf{(D0)} ist erfüllt: Die Menge ist nicht leer, da wir immer kleinere Zahlen finden können. Wir müssen \textbf{(D1)} zeigen, aber das ist auch klar: Wenn $q \in \alpha_p$ ist und $r \in \mathbb{Q}$, sodass $r < q$, dann folgt aus $r < q$ und $q < p$, dass auch $r < p$ ist. Somit folgt, dass $r$ ebenfalls in $\alpha_p$ liegt. Da ist nicht viel dahinter.
+\end{spoken-clean}
+
+\begin{spoken-clean}[00:35:23 - 00:37:12]
+Und dann noch das Letzte: Wir müssen zeigen, dass die Menge kein größtes Element hat. Aber das ist auch nicht schwierig. Wenn wir ein $q \in \alpha_p$ haben, dann nehmen wir einfach $r$ als die Mitte zwischen $q$ und $p$ --- also $(q + p) / 2$. Das ist auch eine rationale Zahl. Dann liegt $r$ zwischen $q$ and $p$. Das heißt, $q < r$ und $r \in \alpha_p$.
+
+Okay, das heißt, wir erhalten eine Injektion von $\mathbb{Q}$ in die reellen Zahlen. Aber die Sache ist, dass nicht alle Dedekind-Schnitte von dieser Form sind --- die meisten, wie wir schlussendlich sehen werden, sind nicht von dieser Form.
+\end{spoken-clean}
+
+\begin{math-stroke}[Injektion von \texorpdfstring{$\mathbb{Q}$}{Q} nach \texorpdfstring{$\mathbb{R}$}{R}]
+Die Abbildung $\iota \colon \mathbb{Q} \to \mathbb{R}, p \mapsto \alpha_p$ ist eine Injektion.
+\[ \mathbb{Q} \hookrightarrow \mathbb{R} \]
+\begin{explanation-of-steps}
+Dies zeigt, dass wir die rationalen Zahlen als Teilmenge der reellen Zahlen auffassen können. Die \qt{echten} reellen Zahlen sind diejenigen Schnitte, die nicht durch eine rationale Zahl $p$ als $\alpha_p$ darstellbar sind.
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:37:12 - 00:38:15]
+Nehmen wir zum Beispiel Wurzel $2$ gewissermaßen. \inlinemetanote{wischt die Tafel} Wie könnte man Wurzel $2$ als Dedekind-Schnitt definieren? Hat jemand eine Idee? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+Die Menge aller rationalen Zahlen, deren Quadrat kleiner als $2$ ist.
+\end{student-interaction}
+
+\begin{spoken-clean}[00:38:15 - 00:39:57]
+Genau! Wir können die Menge von Zahlen anschauen... Wir können auch zuerst sagen: Elemente in $\mathbb{R} \setminus \iota(\mathbb{Q})$ heißen irrational. Und das Beispiel ist eben: Wir können den Dedekind-Schnitt $\alpha$ anschauen, der aus allen $p \in \mathbb{Q}$ besteht, sodass $p^2 < 2$ ist. Und das definieren wir als $\sqrt{2}$.
+\end{spoken-clean}
+
+\begin{math-stroke}[Beispiel: Die irrationale Zahl \texorpdfstring{$\sqrt{2}$}{Wurzel 2}]
+Elemente in $\mathbb{R} \setminus \iota(\mathbb{Q})$ heißen \newterm{irrationale Zahlen}.
+
+\begin{example}[Der Schnitt für $\sqrt{2}$]\label[example]{ex:sqrt-2-cut}
+Wir definieren den Dedekindschen Schnitt für $\sqrt{2}$ durch:
+\begin{equation}
+\label{eq:sqrt-2-def}
+\alpha_{\sqrt{2}} := \{ p \in \mathbb{Q} \mid p < 0 \lor p^2 < 2 \}
+\end{equation}
+\end{example}
+
+\begin{explanation-of-steps}[Warum die Bedingung $p < 0$?]
+Ein Dedekindscher Schnitt muss nach unten unbeschränkt sein (Bedingung \textbf{(D1)}). Würden wir nur $p^2 < 2$ fordern, lägen negative Zahlen wie $-3$ nicht in der Menge, obwohl sie kleiner als $\sqrt{2}$ sind. Daher nehmen wir alle negativen rationalen Zahlen explizit mit auf.
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:39:57 - 00:43:12]
+Jetzt müssen wir natürlich noch beweisen, dass das tatsächlich ein Dedekind-Schnitt ist, und dann auch schauen, ob... ja, später müssten wir noch eine Multiplikation definieren. Dann müssten wir prüfen, dass wenn man diese Zahl mit sich selbst multipliziert, das tatsächlich $2$ ergibt. Das ist auf dem Übungsblatt diese Woche. Es ist nicht schwierig, aber es ist gut, so etwas einmal zu tun.
+
+Um zu zeigen, dass das ein Dedekind-Schnitt ist, kann man sehen, dass es eben keine rationale Zahl gibt, die die Wurzel von $2$ ist. Wir wollen das jetzt nochmals beweisen. Die Behauptung ist: Es gibt keine Zahl $p/q \in \mathbb{Q}$ (wobei $p$ und $q$ ganze Zahlen sind), sodass $p^2 / q^2 = 2$ ist.
+\end{spoken-clean}
+
+\begin{math-stroke}[Irrationalität von \texorpdfstring{$\sqrt{2}$}{Wurzel 2}]
+\begin{proposition}\label[proposition]{prop:sqrt-2-irrational}
+Es existiert keine rationale Zahl $x \in \mathbb{Q}$ mit $x^2 = 2$.
+\end{proposition}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:43:12 - 00:45:42]
+Beweis. Den Beweis, den man normalerweise sieht, verwendet die Primfaktorzerlegung, denke ich, falls Sie den schon gesehen haben. Wir haben hier noch einen Beweis, der von Dedekind stammt; deswegen ist das vielleicht passend für diesen Hörsaal hier und dieses Thema.
+
+Wir nehmen wieder an --- es istwieder ein Widerspruchsbeweis ---: Nehmen wir an, es existieren solche $p, q \in \mathbb{N}$. Wir können annehmen, dass das natürliche Zahlen sind, weil diese hier auf jeden Fall beide positiv sind. Wir können also annehmen, dass $p, q \in \mathbb{N}$ liegen, sodass $p^2 / q^2 = 2$ ist. Das heißt mit anderen Worten: Wir haben $p^2 - 2q^2 = 0$.
+
+Wir nehmen nun an, dass $q \in \mathbb{N}$ die kleinste Zahl ist, die das erfüllt --- also die kleinste Zahl, sodass $2q^2$ eine Quadratzahl ist.
+\end{spoken-clean}
+
+\begin{proof}[Beweis von \cref{prop:sqrt-2-irrational} (nach Dedekind)]
+\begin{math-stroke}[Widerspruchsbeweis: Unendlicher Abstieg]
+Angenommen, es gäbe $p, q \in \mathbb{N}$ mit $\frac{p^2}{q^2} = 2$. Wir wählen $q$ minimal mit dieser Eigenschaft. Aus $1 < \sqrt{2} < 2$ folgt $q < p < 2q$.
+
+Wir definieren neue Zahlen:
+\begin{align}
+\bar{q} &:= p - q \label{eq:q-bar} \\
+\bar{p} &:= 2q - p \label{eq:p-bar}
+\end{align}
+Wegen $q < p < 2q$ gilt $0 < \bar{q} < q$. Wir berechnen nun:
+\begin{align*}
+\bar{p}^2 - 2\bar{q}^2 &= (2q - p)^2 - 2(p - q)^2 \\
+&= (4q^2 - 4pq + p^2) - 2(p^2 - 2pq + q^2) \\
+&= 4q^2 - 4pq + p^2 - 2p^2 + 4pq - 2q^2 \\
+&= 2q^2 - p^2
+\end{align*}
+Da nach Annahme $p^2 = 2q^2$ gilt, folgt:
+\[ \bar{p}^2 - 2\bar{q}^2 = 0 \implies \frac{\bar{p}^2}{\bar{q}^2} = 2 \]
+Dies ist ein Widerspruch zur Minimalität von $q$, da $\bar{q} < q$.
+\end{math-stroke}
+\end{proof}
+
+\begin{spoken-clean}[00:48:12 - 00:50:42]
+Okay, und das kann man jetzt umschreiben; das ergibt $-p^2 + 2q^2$. Das hier fällt weg: $-2p^2$ und $p^2$ ergibt $-p^2$, und $4q^2 - 2q^2$ ergibt $2q^2$. Okay. Und da wissen wir aber, dass das $0$ ist. Das heißt, $2\bar{q}^2$ ist tatsächlich eine Quadratzahl. Das kann aber nicht sein. Genau, und das ist ein Widerspruch zur Minimalität von $q$.
+
+Okay, das beendet den Beweis. Es ist immer gut, hin und wieder einen Rechenfehler zu machen, dann beginnen die Leute wieder mitzudenken. Sehr gut. Aber genau: Jetzt machen wir eine Pause und beginnen um Viertel nach wieder.
+\end{spoken-clean}
+
+\begin{lecture-break}[Pause]
+Der Dozent kündigt eine Pause an. Die Vorlesung wird nach der Pause mit der Definition der Körperstruktur auf $\mathbb{R}$ fortgesetzt.
+\end{lecture-break}
+
+\section{Körperstruktur und Ordnung auf \texorpdfstring{$\mathbb{R}$}{R}}
+
+\subsection{Addition}
+
+\begin{spoken-clean}[00:50:42 - 00:52:00]
+Hier noch eine kleine Ergänzung zu dem, was wir vor der Pause noch kurz gemacht haben. Wir wissen: $p < 2q$. Das folgt direkt daraus, dass $p^2 = 2q^2$ und $q < p$. Und genau damit folgt dann, dass $\bar{q}$, das wir als $p - q$ definiert haben, zwischen $0$ und $q$ liegt. Okay? Man braucht diese zwei Ungleichungen.
+
+Gut. Als Nächstes wollen wir die Körperoperationen auf unseren Dedekind-Schnitten definieren. Das Ziel ist nun: Definiere die Körperstruktur auf $\mathbb{R}$. Idealerweise wollen wir natürlich, dass diese die Körperstruktur von $\mathbb{Q}$, das wir jetzt als Teilmenge von $\mathbb{R}$ aufgefasst haben, erweitert. Die Einschränkung auf $\mathbb{Q}$ soll also die übliche Körperstruktur ergeben.
+
+Beginnen wir mit... okay, das ist eine etwas längliche Sache. Wir machen zuerst die Addition. Das soll eine binäre Funktion auf $\mathbb{R}$ sein. Jetzt müssen wir sagen: Was ist $\alpha + \beta$? Hat jemand eine Idee, wie man das sinnvoll definieren könnte? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+Vielleicht einfach alle Elemente in den Dedekind-Schnitten addieren?
+\end{student-interaction}
+
+\begin{spoken-clean}[00:52:00 - 00:53:12]
+Ja, genau! Wir nehmen einfach alle $p + q$, wobei $p \in \alpha$ und $q \in \beta$. Wir nehmen also einfach alle möglichen Kombinationen; das ergibt eine neue Menge, und die definieren wir als die Addition.
+\end{spoken-clean}
+
+\begin{math-stroke}[Addition von Dedekindschen Schnitten]
+\begin{definition}[Addition]\label[definition]{def:addition-cuts}
+Für zwei Dedekindsche Schnitte $\alpha, \beta \in \mathbb{R}$ definieren wir ihre \newterm{Summe} durch:
+\begin{equation}
+\label{eq:addition-def}
+\alpha + \beta := \{ p + q \mid p \in \alpha \land q \in \beta \}
+\end{equation}
+\end{definition}
+
+\begin{lemma}\label[lemma]{lem:addition-well-defined}
+Falls $\alpha, \beta \in \mathbb{R}$, dann ist auch $\alpha + \beta \in \mathbb{R}$.
+\end{lemma}
+\end{math-stroke}
+
+\begin{spoken-clean}[00:53:12 - 00:55:29]
+Zuerst müssen wir prüfen, ob das wieder ein Dedekind-Schnitt ist. Ist das wieder ein Dedekind-Schnitt? Überlegen Sie kurz. Ich kann es kurz erklären, aber solche Sachen macht man in der Regel am besten alleine. Das Lemma lautet also: $\alpha + \beta$ ist ein Dedekind-Schnitt.
+
+Der Beweis... okay, wir müssen einfach alle Axiome nachprüfen. \textbf{(D0)} ist eigentlich klar: Wir wissen, dass $\alpha$ und $\beta$ nicht die leere Menge sind. Das heißt, es gibt ein Element $p \in \alpha$ und ein $q \in \beta$. Daraus folgt, dass $p + q$ in $\alpha + \beta$ liegt, und somit ist die Menge nicht leer. Das ist gut.
+
+Dann müssen wir noch zeigen, dass es nicht ganz $\mathbb{Q}$ ist. Dazu nehmen wir einfach ein Element $r$, das in $\mathbb{Q}$ liegt, aber nicht in $\alpha$, und ein $s$, das in $\mathbb{Q}$ liegt, aber nicht in $\beta$. Dann gilt für alle $p \in \alpha$ und $q \in \beta$, dass $p < r$ und $q < s$ ist. Das muss für alle $p$ und $q$ gelten, weil sonst $r$ in $\alpha$ oder $s$ in $\beta$ enthalten wäre. Somit folgt, dass $p + q < r + s$ ist. Das heißt, $r + s$ ist nicht in $\alpha + \beta$. Also ist $\alpha + \beta$ nicht ganz $\mathbb{Q}$.
+\end{spoken-clean}
+
+\begin{proof}[Beweis von \cref{lem:addition-well-defined}]
+\begin{math-stroke}[Nachweis von (D0)]
+\begin{itemize}
+    \item \textbf{Nicht leer:} Da $\alpha, \beta \neq \emptyset$, existieren $p \in \alpha$ und $q \in \beta$. Dann ist $p + q \in \alpha + \beta$, also $\alpha + \beta \neq \emptyset$.
+    \item \textbf{Ungleich $\mathbb{Q}$:} Da $\alpha, \beta \neq \mathbb{Q}$, existieren $r \in \mathbb{Q} \setminus \alpha$ und $s \in \mathbb{Q} \setminus \beta$. Da Schnitte nach unten abgeschlossen sind, gilt für alle $p \in \alpha$ und $q \in \beta$: $p < r$ und $q < s$. Daraus folgt $p + q < r + s$. Somit ist $r + s \notin \alpha + \beta$, also $\alpha + \beta \neq \mathbb{Q}$.
+\end{itemize}
+\end{math-stroke}
+
+\begin{math-stroke}[Nachweis von (D1)]
+Sei $x \in \alpha + \beta$ (d.\,h. $x = p + q$ mit $p \in \alpha, q \in \beta$) und $y \in \mathbb{Q}$ mit $y < x$. Wir setzen $p' := y - q$. Dann ist $p' + q = y$.
+
+Wegen $y < x = p + q$ folgt $p' + q < p + q \implies p' < p$. Da $\alpha$ ein Schnitt ist, folgt aus $p' < p$ und $p \in \alpha$, dass $p' \in \alpha$. Somit ist $y = p' + q \in \alpha + \beta$.
+\end{math-stroke}
+
+\begin{spoken-clean}[00:55:30 - 00:56:15]
+Und dann müssten wir noch zeigen --- wir hatten ja vorher die Addition definiert ---, dass es kein maximales Element gibt. Wie können wir das machen? Überlegen Sie kurz, während ich hier die Tafel putze. Hat jemand einen Vorschlag? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+Es gab ja davor schon keins in den beiden Dedekind-Schnitten, oder? Dann kann man einfach bei jedem ein größeres nehmen.
+\end{student-interaction}
+
+\begin{spoken-clean}[00:56:15 - 00:57:15]
+Genau, genau! Es gab schon vorher keine, dann gibt es auch in der Summe keine. Wenn wir also ein $r = p + q \in \alpha + \beta$ haben (mit $p \in \alpha, q \in \beta$), dann gibt es ein $p' \in \alpha$ mit $p < p'$. Daraus folgt, dass unser $r < p' + q$ ist, wobei $p' + q$ immer noch in $\alpha + \beta$ liegt. Das heißt, es gibt kein maximales Element.
+\end{spoken-clean}
+
+\begin{math-stroke}[Nachweis von (D2) für die Summe]
+Sei $r \in\alpha + \beta$ beliebig. Nach Definition der Summe existieren $p \in \alpha$ und $q \in \beta$ mit $r = p + q$.
+
+\begin{itemize}
+    \item Da $\alpha$ ein Dedekindscher Schnitt ist, erfüllt $\alpha$ die Bedingung \textbf{(D2)}. Somit existiert ein $p' \in \alpha$ mit $p < p'$.
+    \item Wir betrachten nun $r' := p' + q$. 
+\end{itemize}
+
+Da $p' \in \alpha$ und $q \in \beta$, folgt nach Definition \eqref{eq:addition-def}, dass $r' \in \alpha + \beta$. Wegen $p < p'$ gilt zudem:
+\[ r = p + q < p' + q = r'. \]
+
+Somit haben wir zu jedem $r \in \alpha + \beta$ ein strikt größeres Element $r' \in \alpha + \beta$ gefunden. Die Menge $\alpha + \beta$ besitzt folglich kein maximales Element.
+\end{math-stroke}
+\end{proof}
+
+\begin{spoken-clean}[00:57:15 - 00:58:30]
+Okay, das heißt, unser $\alpha + \beta$, das wir definiert haben, ist tatsächlich ein Dedekind-Schnitt. Jetzt zum Nullelement: Das haben wir ja bereits. Was ist das Nullelement? Das sind, wie wir gesagt haben, alle $p \in \mathbb{Q}$, sodass $p < 0$ ist.
+
+Okay, jetzt ist die Frage: Wie können wir das Negative von $\alpha$ nehmen? Wenn wir $\alpha$ haben, was ist $-\alpha$? Für $\alpha \in \mathbb{R}$ definieren wir $-\alpha$ als den Dedekind-Schnitt, gegeben durch... wie könnte man das machen? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+Also im Prinzip kann man ja die Elemente an der Null spiegeln.
+\end{student-interaction}
+
+\begin{spoken-clean}[00:58:30 - 00:59:45]
+Ja, genau! Man hätte gerne so etwas wie alle Elemente auf dieser Seite, aber negativ genommen, oder? Damit es sich dann immer zu etwas Kleinerem addiert. Aber das ist ein bisschen schwierig, weil wir ja hier auch wieder einen Schnitt brauchen. Man muss es einfach richtig definieren, aber genau das ist die Idee mit dem Spiegeln.
+
+Man kann auch einfach sagen: Wir nehmen alle $p \in \mathbb{Q}$, sodass für alle $q \in \alpha$ gilt: $q + p < 0$. Das sieht man sehr schön; das ist genau die Idee mit dem Spiegeln. Man kann es auch anders hinschreiben. Man muss auch hier wieder schauen, dass es tatsächlich ein Dedekind-Schnitt ist. Das kann man nachprüfen.
+\end{spoken-clean}
+
+\begin{math-stroke}[Das neutrale Element der Addition]
+\begin{definition}[Die reelle Null]\label[definition]{def:reelle-null}
+Das neutrale Element der Addition in $\mathbb{R}$ ist definiert als der rationale Schnitt zur Zahl $0 \in \mathbb{Q}$:
+\begin{equation}
+\label{eq:reelle-null}
+0_{\mathbb{R}} := \{ p \in \mathbb{Q} \mid p < 0 \}
+\end{equation}
+\end{definition}
+
+\begin{explanation-of-steps}
+Man kann leicht nachprüfen, dass für jeden Schnitt $\alpha \in \mathbb{R}$ gilt: $\alpha + 0_{\mathbb{R}} = \alpha$. Ein Element $x \in \alpha + 0_{\mathbb{R}}$ ist von der Form $p + q$ mit $p \in \alpha$ und $q < 0$. Da $q < 0$, ist $p + q < p$. Wegen der Abgeschlossenheit nach unten (\textbf{(D1)}) ist $p + q \in \alpha$. Die Umkehrung folgt aus der Offenheit nach oben (\textbf{(D2)}).
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{math-stroke}
+\begin{definition}[Additives Inverses]\label[definition]{def:additives-inverses}
+Für einen Dedekindschen Schnitt $\alpha \in \mathbb{R}$ definieren wir das \newterm{additive Inverse} $-\alpha$ durch:
+\begin{equation}
+\label{eq:additives-inverses-def}
+-\alpha := \{ p \in \mathbb{Q} \mid \exists r \in \mathbb{Q}, r > 0 \colon -p - r \notin \alpha \}
+\end{equation}
+Alternativ lässt sich dies charakterisieren als:
+\[ -\alpha = \{ p \in \mathbb{Q} \mid \exists r \in \mathbb{Q}, r > 0 \; \forall q \in \alpha \colon q + p \le -r < 0 \} \]
+\end{definition}
+
+\begin{explanation-of-steps}
+Die Definition stellt sicher, dass $-\alpha$ wieder ein Dedekindscher Schnitt ist. Insbesondere sorgt das $r > 0$ dafür, dass die Menge kein maximales Element besitzt (\textbf{(D2)}). Mit dieser Definition gilt $\alpha + (-\alpha) = 0_{\mathbb{R}}$.
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:04:45 - 01:05:30]
+Gut, und dann können wir sagen, was es heißt, größer oder kleiner als $0$ zu sein. Wir sagen: $\alpha > 0$, falls... hat jemand ein einfaches Kriterium, um zu sagen, dass $\alpha > 0$ ist? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+Wenn wir einfach $\mathbb{Q} \setminus \alpha$ nehmen, das ist ja sozusagen das $\alpha$, bei dem wir die einzelnen Elemente entgegengenommen haben.
+\end{student-interaction}
+
+\begin{spoken-clean}[01:05:30 - 01:07:15]
+Ja, aber das ist kein allgemeiner... dann haben wir die falsche Seite genommen, einfach davon das Komplement. Aber das ist kein Dedekind-Schnitt mehr, weil das ja bis zu einer Zahl geht.
+
+Ich schaue mal schnell nach... ich war ein bisschen zu... ich glaube, das Problem besteht nur für die $0$. Hm. Okay, ich überlege mir das noch schnell --- oder hat jemand gerade einen klaren Kopf? Ich überlege mir das sonst noch kurz, oder Sie überlegen es sich, und ich schreibe es Ihnen nachher per Mail. Ich glaube, das ist einfacher. Ja, ich habe das vorher zu schnell überlegt, und solche Sachen an der Wandtafel zu machen, ist nicht immer einfach. Vielleicht kommt es mir später in den Sinn.
+
+Machen wir es so: Wir sagen, $\alpha > 0$, falls $0 \in \alpha$ ist. Okay? Und $\alpha < 0$, falls $-\alpha > 0$ ist. Und \qt{größer gleich} ist natürlich dann klar, was es bedeutet.
+\end{spoken-clean}
+
+\begin{math-stroke}
+\begin{definition}[Ordnung auf $\mathbb{R}$]\label[definition]{def:ordnung-reell}
+Für zwei reelle Zahlen $\alpha, \beta \in \mathbb{R}$ definieren wir:
+\begin{enumerate}[label=\textbf{(\roman*)}]
+    \item \textbf{(i)} $\alpha \le \beta :\iff \alpha \subseteq \beta$
+    \item \textbf{(ii)} $\alpha < \beta :\iff \alpha \subsetneq \beta$
+\end{enumerate}
+\end{definition}
+
+\begin{remark}[Positivität]
+\label[remark]{rem:positivitaet}
+Eine reelle Zahl $\alpha$ ist genau dann positiv ($\alpha > 0_{\mathbb{R}}$), wenn $0 \in \alpha$. Wegen \textbf{(D2)} existiert dann ein rationales $q \in \alpha$ mit $q > 0$.
+\end{remark}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:07:15 - 01:08:00]
+Okay. Und jetzt zur Multiplikation. Was für Ideen gibt es für die Multiplikation? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+Dass man das Gleiche macht wie bei der Addition, nur dass man multipliziert.
+\end{student-interaction}
+
+\begin{spoken-clean}[01:08:00 - 01:10:00]
+Genau, das ist die Grundidee. Das Problem ist halt mit den negativen Zahlen. Wenn beide positiv sind, dann ist das der richtige Weg. Da gibt es eine etwas mühsame Fallunterscheidung.
+
+Wir sagen also: Falls $\alpha, \beta \ge 0$ sind, so definieren wir $\alpha \cdot \beta$ als die Menge aller $p \cdot q$, sodass $p \in \alpha$ und $q \in \beta$ (mit $p, q > 0$). Das ist der erste Fall. Wenn beide negativ sind, dann ist es ähnlich: Dann nehmen wir einfach das Produkt der Negativen, und dann geht es auch wieder auf. Also der nächste Fall: Falls $\alpha$ und $\beta$ beide $\le 0$ sind, definieren wir $\alpha \cdot \beta$ als $(-\alpha) \cdot (-\beta)$.
+
+Falls $\alpha \ge 0$ ist und $\beta \le 0$, dann sagen wir: $\alpha \cdot \beta = -(\alpha \cdot (-\beta))$. Und falls schließlich $\alpha \le 0$ und $\beta \ge 0$ ist, dann definieren wir $\alpha \cdot \beta$ als $-((-\alpha) \cdot \beta)$.
+\end{spoken-clean}
+
+\begin{math-stroke}
+\begin{definition}[Multiplikation]\label[definition]{def:multiplikation-reell}
+Seien $\alpha, \beta \in \mathbb{R}$.
+\begin{itemize}
+    \item \textbf{Fall 1 ($\alpha, \beta > 0_{\mathbb{R}}$):}
+    \[ \alpha \cdot \beta := \{ p \in \mathbb{Q} \mid p < 0 \text{ oder } \exists q \in \alpha, r \in \beta \text{ mit } q, r > 0 \text{ und } p = q \cdot r \} \]
+    \item \textbf{Fall 2 (Allgemeiner Fall):}
+    Die Multiplikation wird unter Verwendung des additiven Inversen auf Fall 1 zurückgeführt:
+    \[ \alpha \cdot \beta := \begin{cases} 
+    0_{\mathbb{R}} & \text{falls } \alpha = 0_{\mathbb{R}} \lor \beta = 0_{\mathbb{R}} \\
+    (-\alpha) \cdot (-\beta) & \text{falls } \alpha < 0_{\mathbb{R}} \land \beta < 0_{\mathbb{R}} \\
+    -\bigl((-\alpha) \cdot \beta\bigr) & \text{falls } \alpha < 0_{\mathbb{R}} \land \beta > 0_{\mathbb{R}} \\
+    -\bigl(\alpha \cdot (-\beta)\bigr) & \text{falls } \alpha > 0_{\mathbb{R}} \land \beta < 0_{\mathbb{R}}
+    \end{cases} \]
+\end{itemize}
+\end{definition}
+
+\begin{explanation-of-steps}
+Im Skript wird die Multiplikation oft nur für positive reelle Zahlen explizit hingeschrieben, da die Fallunterscheidung für negative Zahlen rein technisch ist und keine neuen analytischen Einsichten liefert. Wichtig ist, dass bei der Multiplikation positiver Schnitte alle rationalen Zahlen $p < 0$ explizit mit aufgenommen werden, um die Bedingung \textbf{(D1)} (Abgeschlossenheit nach unten) zu erfüllen.
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:10:00 - 01:12:45]
+Das ist ein bisschen das Mühsame mit den negativen Zahlen. Deswegen ist die Sache im Skript nur für die positiven reellen Zahlen aufgeschrieben und überlässt den Rest den Lesenden. Aber das lässt die Sache ein bisschen zu schön erscheinen.
+
+Gut. Was man jetzt tun müsste: Man müsste überprüfen, dass die Körperaxiome alle erfüllt sind. Man muss also prüfen, dass das alles Dedekind-Schnitte sind und dass die Axiome gelten. Sie können sich vorstellen: Das ist eine sehr lange Angelegenheit, und wir werden das jetzt nicht die nächsten drei Lektionen hier an der Tafel machen. Ich erwarte auch nicht von Ihnen, dass Sie das tun, aber falls Sie einmal eine lange Zugfahrt vor sich haben, wäre das eine gute Übung: Zeigen Sie, dass die reellen Zahlen --- also die Dedekind-Schnitte mit diesen Operationen --- die Körperaxiome erfüllen.
+\end{spoken-clean}
+
+\begin{math-stroke}
+\begin{theorem}\label[theorem]{thm:reelle-zahlen-koerper}
+Die Menge der reellen Zahlen $\mathbb{R}$ bildet mit der oben definierten Addition und Multiplikation einen angeordneten Körper, der die rationalen Zahlen $\mathbb{Q}$ (via der Einbettung $\iota \colon p \mapsto \alpha_p$) als Unterkörper enthält.
+\end{theorem}
+
+\begin{exercise}[Übung für lange Zugfahrten]
+Verifizieren Sie die Körperaxiome \textbf{R$_{\mathbf{0}}$} bis \textbf{R$_{\mathbf{16}}$} für das Modell der Dedekindschen Schnitte. Zeigen Sie insbesondere die Gültigkeit des Distributivgesetzes:
+\[ \alpha \cdot (\beta + \gamma) = \alpha \cdot \beta + \alpha \cdot \gamma \]
+\end{exercise}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:12:45 - 01:14:00]
+Okay, das ist der erste Schritt. Als Nächstes brauchen wir noch eine Ordnung auf den Dedekind-Schnitten. Die Ordnung ist relativ natürlich definiert: Wenn wir $\alpha, \beta \in \mathbb{R}$ haben, definieren wir $\alpha < \beta$ als... haben Sie hierfür eine Idee, wie man das sinnvollerweise definieren könnte? Ja?
+\end{spoken-clean}
+
+\begin{student-interaction}[Student Answer]
+$\alpha$ ist eine Teilmenge von $\beta$, aber nicht gleich $\beta$.
+\end{student-interaction}
+
+\begin{spoken-clean}[01:14:00 - 01:15:30]
+Genau: $\alpha$ ist eine echte Teilmenge von $\beta$. Okay.
+
+Gut, und dann kommt noch der Teil --- vielleicht etwas weniger lang, aber man muss es auch machen, das ist dann vielleicht für die Rückfahrt ---: Man kann zeigen, dass dadurch auch die Ordnungsaxiome erfüllt sind. Aber bei dieser Art von Beweisen überprüft man einfach alles; es sind keine interessanten Argumente darin, es dauert einfach nur sehr lange.
+
+Gut. Was wir aber auf jeden Fall noch zeigen wollen, ist das Axiom \textbf{(R17)}. Wir wollen zumindest zeigen, dass das System vollständig ist.
+\end{spoken-clean}
+
+\begin{math-stroke}
+\begin{theorem}[Vollständigkeitssatz]\label[theorem]{thm:vollstaendigkeit-reell}
+Das Modell der Dedekindschen Schnitte erfüllt das Vollständigkeitsaxiom \textbf{R$_{\mathbf{17}}$}.
+\end{theorem}
+
+\begin{short-proof}[Beweisidee]
+Sei $X \subseteq \mathbb{R}$ eine nichtleere, nach oben beschränkte Menge von Dedekindschen Schnitten. Wir definieren den Kandidaten für das Supremum $\beta$ als die Vereinigung aller Schnitte in $X$:
+\begin{equation}
+\label{eq:supremum-konstruktion}
+\beta := \bigcup X = \{ p \in \mathbb{Q} \mid \exists \alpha \in X \colon p \in \alpha \}
+\end{equation}
+\end{short-proof}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:15:30 - 01:18:15]
+Der Beweis ist dafür wirklich natürlich: Wir konstruieren das Supremum einfach. Wir definieren $\beta$ als die Vereinigung aller Dedekind-Schnitte in $X$. Also:
+\end{spoken-clean}
+
+\begin{math-stroke}
+\[ \beta := \bigcup X = \{ p \in \mathbb{Q} \mid \exists \alpha \in X \colon p \in \alpha \} \]
+\end{math-stroke}
+
+\begin{spoken-clean}[01:15:30 - 01:18:15 continued]
+Dazu müssen wir beweisen, dass das ein Dedekind-Schnitt ist, und wir müssen beweisen, dass es tatsächlich das Supremum ist.
+
+Zuerst einmal, müssen wir sehen: $\beta$ ist ein Dedekind-Schnitt. Da zeigen wir wieder alle drei Axiome. \textbf{(D0)}: Es ist klar, dass $\beta$ nicht leer ist, da $X$ nicht leer ist und die Schnitte in $X$ nicht leer sind. Um zu zeigen, dass es nicht ganz $\mathbb{Q}$ ist, verwenden wir, dass $X$ nach oben beschränkt ist. Da $X$ nach oben beschränkt ist, gibt es eine obere Schranke $\gamma \in \mathbb{R}$. Da $\gamma \neq \mathbb{Q}$, gibt es ein $q \in \mathbb{Q} \setminus \gamma$. Da jedes $\alpha \in X$ in $\gamma$ enthalten ist, ist auch die Vereinigung $\beta$ in $\gamma$ enthalten. Somit ist $q \notin \beta$, und $\beta \neq \mathbb{Q}$.
+
+\textbf{(D1)}: Wir müssen zeigen, dass die Menge nach unten abgeschlossen ist. Sei $p \in \beta$ und $q \in \mathbb{Q}$ mit $q < p$. Wir müssen zeigen, dass $q$ auch in $\beta$ liegt. Wir wissen: Es existiert ein $\alpha \in X$, das $p$ enthält. Da $\alpha$ ein Schnitt ist und $q < p$, folgt daraus, dass $q$ auch in $\alpha$ enthalten ist. Da $\alpha \subseteq \beta$, ist somit auch $q \in \beta$.
+
+Ähnlich für \textbf{(D2)}: Nehmen wir ein $p \in \beta$. Wir wollen zeigen, dass wir noch ein größeres Element finden, das auch in $\beta$ liegt. Auch hier wissen wir wieder: Es existiert ein $\alpha \in X$, sodass $p \in \alpha$ ist. Da $\alpha$ ein Dedekind-Schnitt ist, folgt daraus, dass ein $q \in \alpha$ existiert mit $p < q$. Dann ist $q$ natürlich auch in $\beta$ enthalten.
+\end{spoken-clean}
+
+\begin{math-stroke}[Nachweis der Schnitteigenschaften für \texorpdfstring{$\beta$}{beta}]
+\begin{enumerate}[label=\textbf{(D\arabic*)}, start=0]
+    \item \textbf{(D0) Nicht-Trivialität:} 
+    \begin{itemize}
+        \item $\beta \neq \emptyset$, da $X \neq \emptyset$ (es existiert ein $\alpha \in X$) und $\alpha \neq \emptyset$.
+        \item $\beta \neq \mathbb{Q}$, da $X$ nach oben beschränkt ist. Sei $\gamma \in \mathbb{R}$ eine obere Schranke, d.\,h. $\forall \alpha \in X \colon \alpha \subseteq \gamma$. Dann gilt $\beta = \bigcup_{\alpha \in X} \alpha \subseteq \gamma$. Da $\gamma \neq \mathbb{Q}$, folgt $\beta \neq \mathbb{Q}$.
+    \end{itemize}
+    \item \textbf{(D1) Abgeschlossenheit nach unten:} Sei $p \in \beta$ und $q < p$. Dann $\exists \alpha \in X$ mit $p \in \alpha$. Da $\alpha$ ein Schnitt ist, folgt $q \in \alpha \subseteq \beta$.
+    \item \textbf{(D2) Kein Maximum:} Sei $p \in \beta$. Dann $\exists \alpha \in X$ mit $p \in \alpha$. Da $\alpha$ kein Maximum hat, $\exists q \in \alpha$ mit $p < q$. Es folgt $q \in \beta$.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{spoken-clean}[01:18:15 - 01:21:00]
+Das heißt, unser $\beta$ ist tatsächlich ein Dedekind-Schnitt. Jetzt müssen wir zeigen, dass es ein Supremum ist. Dazu müssen wir beweisen, dass es eine obere Schranke ist. Ist es klar, dass es eine obere Schranke ist? Um zu zeigen, dass $\beta$ eine obere Schranke ist, müssen wir zeigen, dass jedes $\alpha \le \beta$ ist --- also dass jedes $\alpha \in X$ in $\beta$ enthalten ist. Und ist das der Fall? Genau, es ist ja die Vereinigung! Da also $\alpha \subseteq \beta$ für alle $\alpha \in X$ per Definition gilt, ist $\beta$ tatsächlich eine obere Schranke.
+
+Was wir noch zeigen müssen, ist, dass es die \emph{kleinste} obere Schranke ist. Dazu nehmen wir an, dass $\gamma \in \mathbb{R}$ beliebig ist mit $\gamma < \beta$. Wir wollen zeigen, dass daraus folgt, dass $\gamma$ keine obere Schranke mehr ist. Wenn $\gamma < \beta$ ist, dann ist $\gamma$ echt in $\beta$ enthalten. Das heißt, wir können ein $p$ nehmen, das in $\beta$ liegt, aber nicht in $\gamma$. Dann wissen wir: Es existiert ein $\alpha \in X$ mit $p \in \alpha$. Daraus folgt jetzt aber, dass $\alpha \not\subseteq \gamma$ ist, weil $\alpha$ ein Element enthält, das nicht in $\gamma$ enthalten ist. Das heißt, $\gamma$ ist keine obere Schranke für $X$.
+
+Okay, das beendet den Beweis. Die Vereinigung ist also tatsächlich das Supremum.
+\end{spoken-clean}
+
+\begin{math-stroke}[Nachweis der Supremums-Eigenschaft]
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{1. $\beta$ ist eine obere Schranke:} Für jedes $\alpha \in X$ gilt $\alpha \subseteq \bigcup X = \beta$, also $\alpha \le \beta$.
+    \item \textbf{2. $\beta$ ist die kleinste obere Schranke:} Sei $\gamma \in \mathbb{R}$ mit $\gamma < \beta$.
+    \begin{itemize}
+        \item $\gamma < \beta \implies \gamma \subsetneq \beta$.
+        \item Es existiert also ein $p \in \beta \setminus \gamma$.
+        \item Da $p \in \beta = \bigcup X$, existiert ein $\alpha \in X$ mit $p \in \alpha$.
+        \item Da $p \in \alpha$ and $p \notin \gamma$, kann $\alpha \subseteq \gamma$ nicht gelten, d.\,h. $\alpha \not\le \gamma$.
+    \end{itemize}
+    Somit ist $\gamma$ keine obere Schranke für $X$. Folglich ist $\beta = \sup X$.
+\end{enumerate}
+\end{math-stroke}
+
+\begin{didactic-insight}[Die Eleganz der Vereinigung]
+Dieser Beweis offenbart die tiefe Eleganz der Dedekindschen Konstruktion: Das abstrakte analytische Konzept des Supremums (die \qt{kleinste obere Schranke}) kollabiert in der Mengentheorie auf die einfachste aller Operationen --- die Vereinigung ($\bigcup$). In $\mathbb{R}$ ist das Supremum einer Menge von Zahlen nichts anderes als die Menge aller rationalen Zahlen, die in mindestens einer dieser Zahlen enthalten sind.
+\end{didactic-insight}
+
+\section{Alternative Konstruktionen}
+
+\subsection{Cauchy-Folgen}
+
+\begin{spoken-clean}[01:21:00 - 01:21:10]
+Ich möchte zum Abschluss noch zwei Sachen erwähnen. Es gibt noch andere Konstruktionen der reellen Zahlen. Die bekannteste ist über Cauchy-Folgen. Das Problem bei den rationalen Zahlen ist ja, dass Cauchy-Folgen dort nicht unbedingt konvergieren. Man kann nun sagen: Okay, wir wollen künstlich erzwingen, dass alle Cauchy-Folgen konvergieren. Wie machen wir das? Wir nehmen einfach Äquivalenzklassen von Cauchy-Folgen und schauen uns diese an. Das ist die zweite klassische Konstruktion der reellen Zahlen. Sie wurde fast zeitgleich mit Dedekind publiziert; ich glaube, Cantor oder Heine waren da maßgeblich beteiligt.
+\end{spoken-clean}
+
+\begin{math-stroke}[Alternative Konstruktionen von \texorpdfstring{$\mathbb{R}$}{R}]
+Es existieren weitere formale Wege, das Kontinuum der reellen Zahlen zu fundieren:
+\begin{itemize}
+    \item \textbf{Cauchy-Folgen (Cantor/Heine):} $\mathbb{R}$ wird als Menge der Äquivalenzklassen von rationalen Cauchy-Folgen definiert. Zwei Folgen sind äquivalent, wenn ihre Differenz eine Nullfolge ist.
+    \item \textbf{Intervallschachtelungen:} Definition über Folgen von abgeschlossenen Intervallen, deren Länge gegen Null geht.
+\end{itemize}
+\end{math-stroke}
+
+\subsection{Konstruktion aus \texorpdfstring{$\mathbb{Z}$}{Z} via quasi-linearer Funktionen}
+
+\begin{spoken-clean}[01:21:10 - 01:21:17]
+Und es gibt noch eine, die weniger bekannt und weniger klassisch ist --- sie wurde auch erst vor Kurzem entwickelt. Wir haben sie diese Woche auf dem Übungsblatt, und es ist eine sehr nette Konstruktion: eine Konstruktion der reellen Zahlen direkt aus den ganzen Zahlen $\mathbb{Z}$. Man muss gar nicht den Umweg über die rationalen Zahlen gehen.
+
+Die Idee ist, dass wir uns Äquivalenzklassen von quasi-linearen Funktionen anschauen. Eine quasi-lineare Funktion ist eine Funktion $f \colon \mathbb{Z} \to \mathbb{Z}$, bei der die Menge $\{ f(n+m) - f(n) - f(m) \mid n, m \in \mathbb{Z} \}$ endlich ist. Wenn $f$ linear wäre, dann wäre dieser Ausdruck immer $0$. Wir schauen uns aber quasi-lineare Funktionen an, bei denen dieser \qt{Defekt} beschränkt bleibt.
+
+Man kann dann geeignete Äquivalenzklassen solcher Funktionen betrachten und zeigen, dass dies ebenfalls die reellen Zahlen ergibt. Das ist besonders elegant und natürlich, weil wir es direkt auf Basis der ganzen Zahlen machen können. Ich empfehle Ihnen, sich diese Übungsaufgabe anzuschauen, da sie sehr interessant und nicht Standard ist.
+
+Gut, vielen herzlichen Dank fürs Kommen und eine gute Woche!
+\end{spoken-clean}
+
+\begin{math-stroke}[Konstruktion aus \texorpdfstring{$\mathbb{Z}$}{Z} via quasi-linearer Funktionen]
+\begin{definition}[Quasi-lineare Funktion]\label[definition]{def:quasi-linear}
+Eine Funktion $f \colon \mathbb{Z} \to \mathbb{Z}$ heißt \newterm{quasi-linear}, wenn die Menge ihrer \qt{Defekte} endlich (beschränkt) ist:
+\[ \{ f(n+m) - f(n) - f(m) \mid n, m \in \mathbb{Z} \} \text{ ist eine endliche Menge.} \]
+\end{definition}
+
+\begin{explanation-of-steps}
+Man kann zeigen, dass der Quotient der Menge aller quasi-linearen Funktionen modulo der Äquivalenzrelation $f \sim g \iff \{f(n) - g(n) \mid n \in \mathbb{Z}\} \text{ ist endlich}$ isomorph zum Körper der reellen Zahlen $\mathbb{R}$ ist. Diese Konstruktion (oft \qt{Eudoxus-Reelle-Zahlen} genannt) fundiert das Kontinuum direkt auf der diskreten Struktur der ganzen Zahlen.
+\end{explanation-of-steps}
+\end{math-stroke}
+
+\begin{nice-box}[Summary of Key Concepts]
+In dieser Vorlesung haben wir die Konstruktion von $\mathbb{R}$ abgeschlossen:
+\begin{itemize}
+    \item \textbf{Dedekindsche Schnitte:} Wir haben gesehen, wie man reelle Zahlen als Mengen rationaler Zahlen auffasst.
+    \item \textbf{Arithmetik:} Addition und Multiplikation wurden mengentheoretisch definiert.
+    \item \textbf{Vollständigkeit:} Das Supremumsaxiom wurde durch die einfache Vereinigung von Mengen bewiesen.
+    \item \textbf{Universalität:} Es gibt verschiedene Wege (Cauchy-Folgen, quasi-lineare Funktionen), die alle zum selben Ziel führen.
+\end{itemize}
+\end{nice-box}
+
+
+% [SYSTEM] Refinement complete

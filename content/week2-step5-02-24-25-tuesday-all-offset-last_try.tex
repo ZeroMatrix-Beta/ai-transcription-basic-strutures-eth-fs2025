@@ -3,7 +3,7 @@
 
 \begin{nice-box}[Syllabus: Formale Beweise und Axiomensysteme]
 In dieser Vorlesung behandeln wir die formalen Grundlagen des mathematischen Beweisens. Die Schwerpunkte liegen auf:
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
     \item \textbf{Schlussregeln:} Einführung von Modus Ponens (MP) und Verallgemeinerung (V).
     \item \textbf{Beweisbarkeit:} Formale Definition der Beweisbarkeit aus einer Formelmenge $\Phi$.
     \item \textbf{Deduktionstheorem (DT):} Ein Metatheorem zur Vereinfachung formaler Beweise.
@@ -98,7 +98,7 @@ Eine $\mathcal{L}$-Formel $\psi$ ist \newterm{beweisbar aus $\Phi$}, bezeichnet 
 \Phi \vdash \psi
 \]
 falls es eine endliche Sequenz $\varphi_0, \dots, \varphi_n$ von $\mathcal{L}$-Formeln gibt, sodass $\varphi_n \equiv \psi$ (d.h. $\varphi_n$ und $\psi$ sind identisch) und für alle $i \le n$ gilt eines der Folgenden:
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
     \item $\varphi_i$ ist eine Instanziierung eines logischen Axioms.
     \item $\varphi_i \in \Phi$.
     \item Es gibt $j, k < i$, sodass $\varphi_j \equiv \varphi_k \to \varphi_i$ (Modus Ponens).
@@ -273,7 +273,7 @@ Wir wollen nun zeigen, dass die logische Gleichheitsrelation eine Äquivalenzrel
 Sei $R$ eine binäre Relation.
 \begin{definition}[Äquivalenzrelation]\label[definition]{def:aequivalenzrelation}
 $R$ ist eine \newterm{Äquivalenzrelation}, falls gilt:
-\begin{enumerate}[label=\textbf{\arabic*.}]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
     \item $\forall x (x R x)$ \quad (Reflexivität)
     \item $\forall x \forall y (x R y \to y R x)$ \quad (Symmetrie)
     \item $\forall x \forall y \forall z (x R y \land y R z \to x R z)$ \quad (Transitivität)
